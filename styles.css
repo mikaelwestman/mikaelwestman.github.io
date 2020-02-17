@@ -203,14 +203,6 @@ li {
 	padding-left: 0;
 }
 
-.image-block p:before, .split-block p:before {
-    content: ""; 
-    display: block;
-    width: 4rem;
-    padding-bottom: 1rem;
-    border-top: 3px solid #1c1c1c;
-}
-
 .split-block div {
 	position: initial;
 }
@@ -224,8 +216,9 @@ footer a:nth-child(-n+2) {
 @media screen and (max-width: 768px) {
 
 h1 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	letter-spacing: initial;
+	margin-bottom: 1.5rem;
 }
 
 .flex-container {
