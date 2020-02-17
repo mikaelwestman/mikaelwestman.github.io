@@ -149,15 +149,6 @@ sup {
 	font-size: 28px;
 }
 
-.arrow {
-	margin-right: 16px;
-    opacity: 1;
-    -webkit-animation: blink 800ms step-end infinite;
-            animation: blink 800ms step-end infinite;
-}
-@-webkit-keyframes blink { 50% { opacity: 0; }}
-        @keyframes blink { 50% { opacity: 0; }}
-
 ul {
 	list-style-type: upper-roman;
 	margin: 0 0 40px 0;
