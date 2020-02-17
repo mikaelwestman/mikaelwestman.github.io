@@ -70,7 +70,7 @@ sup {
 */
 
 .flex-container {
-	padding: 128px calc(10vw + 64px);
+	/*padding: 128px calc(10vw + 64px);*/
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
@@ -188,7 +188,7 @@ li {
 }
 
 .flex-container {
-	padding: 128px 96px;
+	/*padding: 128px 96px;*/
 }
 
 .image-block {
@@ -231,7 +231,7 @@ h1 {
 }
 
 .flex-container {
-	padding: 64px 32px;
+	/*padding: 64px 32px;*/
 }
 
 .flex-container > .text-block {
