@@ -1,0 +1,267 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
+/* 
+  CSS reset 
+*/
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,header,footer, figure { 
+    margin:0;
+    padding:0;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+img, video {
+	width: 100%;
+	height: auto;
+}
+
+/* 
+  Typography 
+*/
+
+body {
+	font-family: 'Inter UI', sans-serif;
+	font-weight: 400;
+	font-feature-settings: "ss01";
+	color: #1c1c1c;
+	overflow-x: hidden;
+	background: #fff;
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.5;
+	margin-bottom: 24px;
+}
+
+p:last-of-type {
+	margin-bottom: 0px;
+}
+
+p > a, li > a {
+	color:#1c1c1c;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+p > a:hover, li > a:hover {
+	background: #ffbc18;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 72px;
+	line-height: 1.2;
+	letter-spacing: -2px;
+	margin-bottom: 48px;
+}
+
+sup {
+  vertical-align: super;
+  font-size: 16px;
+}
+
+/* 
+  Building Blocks 
+*/
+
+.flex-container {
+	padding: 128px calc(10vw + 64px);
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.flex-container .work {
+	background: #cbdfe7;
+}
+
+.about {
+	margin: 96px auto;
+}
+
+.text-block, .about {
+	width: 100%;
+	max-width: 720px;
+}
+
+.text-block > .image-block, .text-block > .split-block {
+	margin-top: 48px;
+	margin-bottom: 48px;
+}
+
+.text-block div:last-child {
+	margin-bottom: 0px;
+}
+
+.image-block, .split-block {
+	margin-top: 64px;
+	width: 100%;
+	max-width: 1280px;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.flex-container div:first-child {
+	margin-top: 0px;
+}
+
+.image-block {
+	position: relative;
+	align-items: center;
+	justify-content: center;
+}
+
+.image-block p, .split-block p {
+	position: absolute;
+	top: 0;
+	left: calc(100% + 16px);
+	width: 12vw;
+	max-width: 320px;
+	border-left: 3px solid #1c1c1c;
+	padding-left: 8px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.split-block {
+	position: relative;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.split-block div {
+	position: relative;
+	width: calc(50% - 16px);
+}
+
+
+/* 
+  About / Projects
+*/
+
+.about p, .about a{
+	font-size: 28px;
+}
+
+.arrow {
+	margin-right: 16px;
+    opacity: 1;
+    -webkit-animation: blink 800ms step-end infinite;
+            animation: blink 800ms step-end infinite;
+}
+@-webkit-keyframes blink { 50% { opacity: 0; }}
+        @keyframes blink { 50% { opacity: 0; }}
+
+ul {
+	list-style-type: upper-roman;
+	margin: 0 0 40px 0;
+	padding: 0;
+}
+
+li {
+	margin: 16px 0;
+}
+
+/* Nav */
+
+.nav {
+	overflow: hidden;
+	position: fixed;
+	top: 16px;
+	left: 16px;
+	width: 64px;
+	height: 64px;
+	z-index: 10;
+	border: 3px solid #1c1c1c;
+}
+
+.nav img:hover,
+.nav img:focus,
+.nav img:active {
+	background: #ffbc18;
+}
+
+/*
+  Mobile Layouts
+*/
+@media screen and (max-width: 1024px) {
+
+.about {
+	padding: 0 32px;
+}
+
+.flex-container {
+	padding: 128px 96px;
+}
+
+.image-block {
+	position: initial;
+}
+
+.image-block p, .split-block p {
+	margin-top: 24px;
+	position: initial;
+	width: 100%;
+	max-width: 100%;
+	border-left: none;
+	padding-left: 0;
+	font-size: 14px;
+}
+
+.image-block p:before, .split-block p:before {
+    content: ""; 
+    display: block;
+    width: 64px;
+    padding-bottom: 16px;
+    border-top: 2px solid black;
+}
+
+.split-block div {
+	position: initial;
+}
+
+footer a:nth-child(-n+2) {
+	margin-top: 0px;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+
+h1 {
+	font-size: 32px;
+	letter-spacing: initial;
+}
+
+.flex-container {
+	padding: 64px 32px;
+}
+
+.flex-container > .text-block {
+	padding-top: 64px;
+}
+
+.flex-container ~ .text-block {
+	padding-top: 0px;
+}
+
+.image-block, .split-block, .about {
+	margin-top: 64px;
+}
+
+.split-block div {
+	width: 100%;
+	margin-top: 64px;
+}
+
+.split-block div:first-child {
+	margin-top: 0px;
+}
+
+}
