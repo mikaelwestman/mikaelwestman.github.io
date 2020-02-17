@@ -60,7 +60,7 @@ h1 {
 	font-weight: 400;
 	font-size: 1.75rem;
 	line-height: 1.2;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 /* 
@@ -167,7 +167,7 @@ li {
 	width: 4rem;
 	height: 4rem;
 	z-index: 10;
-	border: 3px solid #1c1c1c;
+	border: 2px solid #00D632;
 }
 
 .nav img:hover,
@@ -214,11 +214,6 @@ footer a:nth-child(-n+2) {
 
 @media screen and (max-width: 768px) {
 
-h1 {
-	font-size: 2.5rem;
-	letter-spacing: initial;
-	margin-bottom: 1.5rem;
-}
 
 .flex-container {
 	padding: 4rem 2rem;
