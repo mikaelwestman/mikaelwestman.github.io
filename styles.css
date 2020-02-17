@@ -37,7 +37,7 @@ body {
 }
 
 p {
-	font-size: 1.2rem;
+
 	line-height: 1.5;
 	margin-bottom: 1.5rem;
 }
@@ -57,10 +57,9 @@ p > a:hover, li > a:hover {
 }
 
 h1 {
-	font-weight: 600;
-	font-size: 4rem;
+	font-weight: 400;
+	font-size: 1.75rem;
 	line-height: 1.2;
-	letter-spacing: -0.1rem;
 	margin-bottom: 3rem;
 }
 
@@ -122,10 +121,10 @@ h1 {
 	left: calc(100% + 1rem);
 	width: 12vw;
 	max-width: 20rem;
-	border-left: 3px solid #00D632;
+	border-left: 2px solid #00D632;
 	padding-left: 0.5rem;
-	font-size: 0.875rem;
-	font-weight: 600;
+	font-size: 0.8rem;
+	font-weight: 500;
 }
 
 .split-block {
@@ -136,7 +135,7 @@ h1 {
 
 .split-block div {
 	position: relative;
-	width: calc(50% - 1rem);
+	width: calc(50% - 0.5rem);
 }
 
 
