@@ -53,7 +53,7 @@ p > a, li > a {
 }
 
 p > a:hover, li > a:hover {
-	background: #ffbc18;
+	background: #00D632;
 }
 
 h1 {
@@ -174,7 +174,7 @@ li {
 .nav img:hover,
 .nav img:focus,
 .nav img:active {
-	background: #ffbc18;
+	background: #00D632;
 }
 
 /*
