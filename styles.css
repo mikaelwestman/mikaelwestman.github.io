@@ -68,7 +68,7 @@ h1 {
 */
 
 .flex-container {
-	padding: 8rem calc(10vw + 4rem);
+	padding: 6rem calc(10vw + 4rem);
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
