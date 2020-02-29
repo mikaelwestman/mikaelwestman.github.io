@@ -59,8 +59,12 @@ p > a:hover, li > a:hover {
 h1 {
 	font-weight: 400;
 	font-size: 1.75rem;
-	line-height: 1.2;
-	margin-bottom: 2rem;
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}
+
+sup {
+	font-size: 0.75rem;
 }
 
 /* 
