@@ -52,7 +52,11 @@ p > a, li > a {
 	text-decoration: underline;
 }
 
-p > a:hover, li > a:hover, ::-moz-selection, ::selection {
+p > a:hover, li > a:hover {
+	background: #00D632;
+}
+
+::-moz-selection, ::selection, ::-webkit-selection {
 	background: #00D632;
 }
 
