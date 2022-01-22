@@ -168,7 +168,7 @@ a:hover {
   Mobile Layouts
 */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
 
 .logo-short {
 	display: initial;
