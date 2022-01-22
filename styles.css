@@ -156,7 +156,7 @@ a:hover {
 	margin-right: 2rem;
 }
 
-#index #menu-active-1::before, #about #menu-active-2::before  {
+#index #menu-active-1::before {
   content: "•";
   position: relative;
   display: block;
@@ -165,6 +165,17 @@ a:hover {
   left: -16px;
   top: -2px;
   color: #f968de;
+}
+
+#about #menu-active-2::before  {
+  content: "•";
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -16px;
+  top: -2px;
+  color: #79d72f;
 }
 
 #menu-active-1:hover::before, #menu-active-2:hover::before  {
