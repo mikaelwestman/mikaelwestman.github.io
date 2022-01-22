@@ -65,6 +65,16 @@ a:hover {
 	color: #818181;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+	margin-bottom: 8px;
+}
+
 /* 
   Flexbox & layout
 */
@@ -75,7 +85,7 @@ a:hover {
 
 .wrapper {
 	width: 100%;
-	padding: 6rem 0;
+	padding: 6rem 0 3rem 0;
 	margin: auto;
 }
 
@@ -93,7 +103,7 @@ a:hover {
 .column {
 	display: flex;
 	flex-direction: column;
-	width: calc(50% - 16px);
+	width: calc(50% - 8px);
 }
 
 /* 
@@ -186,6 +196,14 @@ a:hover {
 	margin-bottom: 0;
 }
 
+.credit {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 16px;
+	padding: 0 16px;
+}
 
 
 /*
