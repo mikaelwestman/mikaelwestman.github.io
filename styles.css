@@ -35,7 +35,7 @@ body {
 	font-family: 'Inter UI', sans-serif;
 	font-weight: 400;
 	letter-spacing: -0.5px;
-	font-feature-settings: "ss01";
+	font-feature-settings: "ss01", "cv01", "cv08", "cv09";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #1c1c1c;
@@ -62,7 +62,7 @@ a {
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: line-through;
 }
 
 /* 
@@ -109,7 +109,7 @@ a:hover {
 */
 
 #about .row .column a {
-	margin-bottom: 16px;
+	margin-bottom: 1rem;
 }
 
 .column h2{
@@ -125,6 +125,10 @@ a:hover {
 	margin-top: 16px;
 }
 
+.bullet {
+	padding-right: 16px; 
+}
+
 
 /* 
   Navigation
@@ -134,24 +138,45 @@ a:hover {
 	display: none;
 }
 
-#top-navigation {
+.top-navigation {
 	position: fixed;
 	width: 100%;
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 16px;
 	background: #e7ede4;
+	float: left;
 }
 
-#top-navigation .column {
-	display: flex;
-	flex-direction: row;
+.nav-left {
+	width: 50%;
+	margin-right: 16px;
+	float: left;
 }
 
-#top-navigation .column a {
+.nav-right {
+	width: 50%-16px;
+	float: left;
+}
+
+.nav-right a {
 	margin-right: 2rem;
 }
 
+.active {
+	background: red;
+}
+
+.active a::before {
+  content: "•";
+  color: #f968de;
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  left: -16px;
+  top: -2px;
+}
 
 /* 
   Case study
@@ -188,20 +213,16 @@ a:hover {
 	margin-bottom: 2rem;
 }
 
-#top-navigation {
+.top-navigation {
 	flex-direction: row;
 	justify-content: space-between;
 }
 
-#top-navigation .column {
+.top-navigation .column {
 	flex: 0;
 }
 
-#top-navigation .column a {
-	margin-right: 1rem;
-}
-
-#top-navigation .column a:last-of-type {
+.top-navigation .column a:last-of-type {
 	margin-right: 0;
 }
 

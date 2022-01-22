@@ -20,8 +20,22 @@ class Meta extends HTMLElement {
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/png" href="favicon.png">
-		<link rel="stylesheet" href="styles.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+		<script type="text/javascript">
+		    $(function() {
+		        // this will get the full URL at the address bar
+		        var url = window.location.href;
+
+		        // passes on every "a" tag
+		        $(".top-navigation a").each(function() {
+		            // checks if its the same on the address bar
+		            if (url == (this.href)) {
+		                $(this).closest("a").addClass("active");
+		            }
+		        });
+		    });        
+		</script>
     `;
   }
 }
