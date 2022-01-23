@@ -16,7 +16,7 @@ class Meta extends HTMLElement {
 		</script>
 
 		<title>Mikael Westman — Product Designer</title>
-		<meta name="description" content="Mikael Westman is a Swedish Product Designer. Currently at Epidemic Sound in Stockholm, previously at Square in New York City.">
+		<meta name="description" content="Portfolio of Mikael Westman, Product Designer at Epidemic Sound in Stockholm, previously at Square in New York City.">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/png" href="icon.png?v=1" />
