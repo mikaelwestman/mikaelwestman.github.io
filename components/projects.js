@@ -5,15 +5,15 @@ class Projects extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <div class="wrapper">
-		<div id="projects">
+	    <div class="wrapper thumbnails">
+	    	<h2>All projects</h2>
 			<div class="row">
 				<a class="column" href="3d.html">
 					<img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter">
 					<span>3D explorations</span>
 				</a>
 				<a class="column" href="epidemic-sound.html">
-      				<img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page">
+	  				<img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page">
 					<span>Epidemic Sound</span>
 				</a>
 			</div>
@@ -38,7 +38,6 @@ class Projects extends HTMLElement {
 				</a>
 			</div>
 		</div>
-	</div>
     `;
   }
 }

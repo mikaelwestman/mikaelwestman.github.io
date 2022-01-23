@@ -56,6 +56,14 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 }
 
+h2 {
+	font-size: 2.5rem;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid #1c1c1c;
+	letter-spacing: -3px;
+}
+
 a {
 	color: #1c1c1c;
 	text-decoration: none;
@@ -85,7 +93,7 @@ li {
 
 .wrapper {
 	width: 100%;
-	padding: 6rem 0 3rem 0;
+	padding: 6rem 16px 3rem 16px;
 	margin: auto;
 }
 
@@ -96,7 +104,6 @@ li {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	gap: 16px;
-	padding: 0 16px;
 	margin-bottom: 3rem;
 }
 
@@ -110,7 +117,15 @@ li {
   Thumbnails
 */
 
-#projects .column img {
+.thumbnails h2 {
+	margin-bottom: 3rem;
+}
+
+#index .thumbnails h2 {
+	display: none;
+}
+
+.thumbnails .column img {
 	margin-bottom: 16px;
 }
 
@@ -119,21 +134,17 @@ li {
   About
 */
 
+.bio {
+	margin-bottom: 2rem;
+}
+
 #about .row .column a {
 	margin-bottom: 1rem;
 }
 
-.column h2{
-	font-size: 2.5rem;
-	padding-bottom: 1rem;
-	margin-bottom: 1rem;
-	margin-top: 2rem;
-	border-bottom: 1px solid #1c1c1c;
-	letter-spacing: -3px;
-}
-
 .column h6{
 	margin-top: 16px;
+	margin-bottom: 2rem;
 }
 
 .bullet {
