@@ -5,16 +5,6 @@ class Meta extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-49182208-1');
-		</script>
-
 		<title>Mikael Westman — Product Designer</title>
 		<meta name="description" content="Portfolio of Mikael Westman, Product Designer at Epidemic Sound in Stockholm, previously at Square in New York City.">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
