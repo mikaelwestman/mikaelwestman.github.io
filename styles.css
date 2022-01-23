@@ -107,6 +107,10 @@ li {
 	margin-bottom: 3rem;
 }
 
+.row:last-of-type {
+	margin-bottom: 0;
+}
+
 .column {
 	display: flex;
 	flex-direction: column;
