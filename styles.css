@@ -156,10 +156,6 @@ li {
   Navigation
 */
 
-.logo-short {
-	display: none;
-}
-
 #top-navigation {
 	position: fixed;
 	width: 100%;
@@ -179,21 +175,21 @@ li {
 }
 
 #index #menu-active-1::before, #about #menu-active-2::before, #menu-active-1:hover::before, #menu-active-2:hover::before {
-  content: "•";
-  position: relative;
-  display: block;
-  width: 0;
-  height: 0;
-  left: -16px;
-  top: -2px;
+	content: "•";
+	position: relative;
+	display: block;
+	width: 0;
+	height: 0;
+	left: -16px;
+	top: -2px;
 }
 
 #index #menu-active-1::before {
-  color: #f968de;
+	color: #f968de;
 }
 
 #about #menu-active-2::before  {
-  color: #79d72f;
+	color: #79d72f;
 }
 
 
@@ -223,20 +219,11 @@ li {
 
 @media screen and (max-width: 960px) {
 
-.logo-short {
-	display: initial;
-}
-
-.logo-long {
-	display: none;
-}
-
 .row {
 	width: 100%;
 	flex-direction: column;
 	flex-wrap: wrap;
 	gap: 2rem;
-	padding: 0 16px;
 	margin-bottom: 2rem;
 }
 
@@ -255,6 +242,14 @@ li {
 
 #top-navigation .column a:last-of-type {
 	margin-right: 0;
+}
+
+#top-navigation h1 span {
+	display: none;
+}
+
+#top-navigation h1::before {
+	content: "©MW'22";
 }
 
 }
