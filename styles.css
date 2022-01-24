@@ -150,17 +150,17 @@ li {
 	margin-bottom: 2rem;
 }
 
-#about .row .column a {
+.links a {
 	margin-bottom: 1rem;
+}
+
+.bullet {
+	padding-right: 16px;
 }
 
 .column h6{
 	margin-top: 16px;
 	margin-bottom: 2rem;
-}
-
-.bullet {
-	padding-right: 16px;
 }
 
 
