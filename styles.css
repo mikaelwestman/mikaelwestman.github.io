@@ -133,6 +133,10 @@ li {
 	margin-bottom: 16px;
 }
 
+.thumbnails .row {
+	justify-content: flex-start;
+}
+
 /*.thumbnails a:hover .thumbnail-title::after {
 	content: "🡒";
 	position: relative;
