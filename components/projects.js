@@ -28,13 +28,13 @@ class Projects extends HTMLElement {
 				</a>
 			</div>
 			<div class="row">
-				<a class="column" href="square-for-restaurants.html">
-					<img src="images/square-mikael-westman-01.png" alt="Square for Restaurants">
-					<span class="thumbnail-title">Square for Restaurants</span>
-				</a>
 				<a class="column" href="bryggmastaren.html">
 					<img src="images/bryggmastarens-mikael-westman-03.png" alt="Bottlecap">
 					<span class="thumbnail-title">Bryggmästarens</span>
+				</a>
+				<a class="column" href="square-for-restaurants.html">
+					<img src="images/square-mikael-westman-01.png" alt="Square for Restaurants">
+					<span class="thumbnail-title">Square for Restaurants</span>
 				</a>
 			</div>
 			<div class="row">
