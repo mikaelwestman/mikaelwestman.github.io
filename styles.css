@@ -103,7 +103,7 @@ li {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-end;
-	gap: 16px;
+	gap: 1rem;
 	margin-bottom: 3rem;
 }
 
@@ -224,7 +224,7 @@ li {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	gap: 16px;
+	gap: 1rem;
 	padding: 0 16px;
 }
 
@@ -243,7 +243,6 @@ li {
 	width: 100%;
 	flex-direction: column;
 	flex-wrap: wrap;
-	gap: 1rem;
 }
 
 .column {
