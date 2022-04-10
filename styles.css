@@ -103,7 +103,7 @@ li {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-end;
-	gap: 1rem;
+	gap: 16px;
 	margin-bottom: 3rem;
 }
 
