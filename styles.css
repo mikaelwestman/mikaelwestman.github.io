@@ -235,14 +235,15 @@ li {
 
 @media screen and (max-width: 960px) {
 
-.row, .thumbnails h2 {
-	margin-bottom: 2rem;
+.thumbnails .row {
+	gap: 2rem;
 }
 
 .row {
 	width: 100%;
 	flex-direction: column;
 	flex-wrap: wrap;
+	margin-bottom: 2rem;
 }
 
 .column {
