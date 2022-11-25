@@ -37,12 +37,6 @@ class Projects extends HTMLElement {
 					<span class="thumbnail-title">Vexillography</span>
 				</a>
 			</div>
-			<div class="row">
-				// <a class="column" href="bryggmastaren.html">
-				// 	<img src="images/bryggmastarens-mikael-westman-03.png" alt="Bottlecap">
-				// 	<span class="thumbnail-title">Bryggmästarens</span>
-				// </a>
-			</div>
 		</div>
     `;
   }
