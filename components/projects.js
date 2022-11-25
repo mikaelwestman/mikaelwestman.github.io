@@ -22,16 +22,6 @@ class Projects extends HTMLElement {
 					<img src="images/pos-mikael-westman-01.jpg" alt="Square Point of Sale tablet & mobile design for Android">
 					<span class="thumbnail-title">Square Point of Sale</span>
 				</a>
-				<a class="column" href="vexillography.html">
-					<img src="images/flag-uca-mikael-westman.jpg" alt="Flag">
-					<span class="thumbnail-title">Vexillography</span>
-				</a>
-			</div>
-			<div class="row">
-				<a class="column" href="bryggmastaren.html">
-					<img src="images/bryggmastarens-mikael-westman-03.png" alt="Bottlecap">
-					<span class="thumbnail-title">Bryggmästarens</span>
-				</a>
 				<a class="column" href="square-for-restaurants.html">
 					<img src="images/square-mikael-westman-01.png" alt="Square for Restaurants">
 					<span class="thumbnail-title">Square for Restaurants</span>
@@ -42,6 +32,16 @@ class Projects extends HTMLElement {
 					<img src="images/oodin-thumbnail.jpg" alt="OODIN logo">
 					<span class="thumbnail-title">OODIN</span>
 				</a>
+				<a class="column" href="vexillography.html">
+					<img src="images/flag-uca-mikael-westman.jpg" alt="Flag">
+					<span class="thumbnail-title">Vexillography</span>
+				</a>
+			</div>
+			<div class="row">
+				// <a class="column" href="bryggmastaren.html">
+				// 	<img src="images/bryggmastarens-mikael-westman-03.png" alt="Bottlecap">
+				// 	<span class="thumbnail-title">Bryggmästarens</span>
+				// </a>
 			</div>
 		</div>
     `;
