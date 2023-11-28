@@ -38,7 +38,6 @@ html {
 }
 
 body {
-	font-family: 'Inter UI', sans-serif;
 	font-weight: 400;
 	letter-spacing: -0.5px;
 	font-feature-settings: "ss01", "cv01", "cv08", "cv09";
