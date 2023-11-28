@@ -110,7 +110,6 @@ li {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: flex-end;
 	gap: 16px;
 	margin-bottom: 16px;
 }
@@ -143,6 +142,10 @@ li {
 
 .thumbnails .row {
 	justify-content: flex-start;
+}
+
+.thumbnails .row {
+	margin-bottom: 32px;
 }
 
 /*.thumbnails a:hover .thumbnail-title::after {
@@ -222,10 +225,12 @@ li {
 */
 
 .image-description {
-	width: 100%;
+	width: calc(50% - 16px);
 	font-size: 0.6rem;
+	font-weight: 500;
+	font-style: italic;
 	margin-bottom: 1rem;
- 	opacity:0.6;
+	color: rgba(28, 28, 28, 0.6);
 }
 
 .credit {
@@ -234,6 +239,7 @@ li {
 	flex-direction: column;
 	flex-wrap: wrap;
 	gap: 1rem;
+	margin-top: 2rem;
 }
 
 
@@ -277,6 +283,10 @@ li {
 
 #top-navigation h1::before {
 	content: "©MW'23";
+}
+
+.image-description {
+	width: 100%;
 }
 
 }

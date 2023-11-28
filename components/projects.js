@@ -5,8 +5,8 @@ class Projects extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-	    <div class="wrapper thumbnails">
-	    	<h2>All projects</h2>
+	  <div class="wrapper thumbnails">
+	    <h2>All projects</h2>
 			<div class="row">
 				<a class="column" href="3d.html">
 					<img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter">
