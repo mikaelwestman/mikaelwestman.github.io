@@ -112,7 +112,7 @@ li {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	gap: 16px;
-	margin-bottom: 3rem;
+	margin-bottom: 16px;
 }
 
 .row:last-of-type {
@@ -223,8 +223,9 @@ li {
 
 .image-description {
 	width: 100%;
-	font-size: 0.75rem;
-	margin-bottom: 0;
+	font-size: 0.6rem;
+	margin-bottom: 1rem;
+ 	opacity:0.6;
 }
 
 .credit {
@@ -233,7 +234,6 @@ li {
 	flex-direction: column;
 	flex-wrap: wrap;
 	gap: 1rem;
-	padding: 0 16px;
 }
 
 
