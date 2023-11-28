@@ -43,7 +43,7 @@ html {
 body {
 	font-weight: 400;
 	letter-spacing: -0.5px;
-	font-feature-settings: "ss01", "cv01", "cv08", "cv09";
+	font-feature-settings: "calt", "ss01", "cv01", "cv08", "cv09";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #1c1c1c;
