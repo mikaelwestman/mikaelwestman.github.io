@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	padding-bottom: 1rem;
 	margin-bottom: 1rem;
 	border-bottom: 1px solid #1c1c1c;
@@ -131,8 +131,18 @@ li {
   Thumbnails
 */
 
+.wrapper.thumbnails{
+	padding-top: 0; 
+/*	Remove top padding from wrapper of "All projects" component*/
+}
+
+#index .wrapper.thumbnails{
+	padding-top: 6rem;
+/*	Add the padding back for projects on index page*/
+}
+
 .thumbnails h2 {
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 #index .thumbnails h2 {
@@ -151,7 +161,7 @@ li {
 	content: "🡒";
 	position: relative;
 	left: 0px;
-	transition: left 0.3s;
+	transition: left 0.5s;
 	opacity: 0;
 }
 
@@ -169,11 +179,11 @@ li {
 }
 
 .thumbnails img {
-	transition: opacity 0.3s;
+	transition: opacity 0.5s;
 }
 
 .thumbnails a:hover img {
-	opacity: 0.7;
+	opacity: 0.8;
 }
 
 
@@ -223,7 +233,7 @@ li {
 	margin-right: 2rem;
 }
 
-#index #menu-active-1::before, #about #menu-active-2::before, #menu-active-1:hover::before, #menu-active-2:hover::before {
+#menu-active-1::before, #menu-active-2::before {
 	content: "•";
 	position: relative;
 	display: block;
@@ -231,14 +241,29 @@ li {
 	height: 0;
 	left: -16px;
 	top: -2px;
+	opacity: 0;
 }
 
-#index #menu-active-1::before {
+#index #menu-active-1::before, #about #menu-active-1:hover::before {
 	color: #f968de;
+	top: -2px;
+	opacity: 1;
 }
 
-#about #menu-active-2::before  {
+#about #menu-active-2::before, #index #menu-active-2:hover::before  {
 	color: #79d72f;
+	top: -2px;
+	opacity: 1;
+}
+
+#menu-active-2::before, #menu-active-1::before {
+	top: 8px;
+	transition: top 0.2s, opacity 0.2s;
+}
+
+#menu-active-2:hover::before, #menu-active-1:hover::before {
+	top: -2px;
+	opacity: 1;
 }
 
 
