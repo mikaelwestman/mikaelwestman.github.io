@@ -361,6 +361,14 @@ html {
 	width: 100%
 }
 
+#about .row:first-of-type .column {
+	width: 100%;
+}
+
+#about .wrapper .row:first-of-type {
+     padding-bottom: 1.5rem; 
+}
+
 #top-navigation {
 	flex-direction: row;
 	justify-content: space-between;
