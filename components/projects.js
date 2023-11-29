@@ -9,31 +9,31 @@ class Projects extends HTMLElement {
 	    <h2>All projects</h2>
 			<div class="row">
 				<a class="column" href="3d.html">
-					<img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter">
+					<div class="thumbnail-image-wrapper"><img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter"></div>
 					<span class="thumbnail-title">3D explorations</span>
 				</a>
 				<a class="column" href="epidemic-sound.html">
-	  				<img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page">
+	  			<div class="thumbnail-image-wrapper"><img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page"></div>
 					<span class="thumbnail-title">Epidemic Sound</span>
 				</a>
 			</div>
 			<div class="row">
 				<a class="column" href="square-pos.html">
-					<img src="images/pos-mikael-westman-01.jpg" alt="Square Point of Sale tablet & mobile design for Android">
+					<div class="thumbnail-image-wrapper"><img src="images/pos-mikael-westman-01.jpg" alt="Square Point of Sale tablet & mobile design for Android"></div>
 					<span class="thumbnail-title">Square Point of Sale</span>
 				</a>
 				<a class="column" href="square-for-restaurants.html">
-					<img src="images/square-mikael-westman-01.png" alt="Square for Restaurants">
+					<div class="thumbnail-image-wrapper"><img src="images/square-mikael-westman-01.png" alt="Square for Restaurants"></div>
 					<span class="thumbnail-title">Square for Restaurants</span>
 				</a>
 			</div>
 			<div class="row">
 				<a class="column" href="oodin.html">
-					<img src="images/oodin-thumbnail.jpg" alt="OODIN logo">
+					<div class="thumbnail-image-wrapper"><img src="images/oodin-thumbnail.jpg" alt="OODIN logo"></div>
 					<span class="thumbnail-title">OODIN</span>
 				</a>
 				<a class="column" href="vexillography.html">
-					<img src="images/flag-uca-mikael-westman.jpg" alt="Flag">
+					<div class="thumbnail-image-wrapper"><img src="images/flag-uca-mikael-westman.jpg" alt="Flag"></div>
 					<span class="thumbnail-title">Vexillography</span>
 				</a>
 			</div>

@@ -26,6 +26,7 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
 img, video {
 	width: 100%;
 	height: auto;
+  display: block;
 	border-radius: 3px;
 }
 
@@ -76,6 +77,7 @@ h2 {
 a {
 	color: #1c1c1c;
 	text-decoration: none;
+	transition: color 0.2s;
 }
 
 a:hover {
@@ -137,25 +139,43 @@ li {
 	display: none;
 }
 
-.thumbnails img {
-	margin-bottom: 16px;
-}
-
-.thumbnails .row {
-	justify-content: flex-start;
-}
-
 .thumbnails .row {
 	margin-bottom: 40px;
 }
 
-/*.thumbnails a:hover .thumbnail-title::after {
+.thumbnail-title {
+	margin-top: 16px;
+}
+
+.thumbnail-title::after {
 	content: "🡒";
 	position: relative;
-	width: 0;
-	height: 0;
+	left: 0px;
+	transition: left 0.3s;
+	opacity: 0;
+}
+
+.thumbnails a:hover .thumbnail-title::after {
+	opacity: 1;
 	left: 8px;
-}*/
+}
+
+.thumbnail-image-wrapper {
+	border-radius: 3px;
+	margin: 0;
+	height: auto;
+	background: #000;
+	overflow: hidden;
+}
+
+.thumbnails img {
+	transition: opacity 0.3s;
+}
+
+.thumbnails a:hover img {
+	opacity: 0.7;
+}
+
 
 
 /* 
