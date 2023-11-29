@@ -26,6 +26,7 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
 img, video {
 	width: 100%;
 	height: auto;
+	border-radius: 3px;
 }
 
 /* 
@@ -53,7 +54,7 @@ body {
 
 p {
 	line-height: 1.5;
-	margin-bottom: 1.5rem;
+	margin-bottom: 32px;
 }
 
 h1, h3, h4, h5, h6 {
@@ -101,7 +102,7 @@ li {
 
 .wrapper {
 	width: 100%;
-	padding: 6rem 16px 3rem 16px;
+	padding: 6rem 32px 3rem 32px;
 	margin: auto;
 }
 
@@ -145,7 +146,7 @@ li {
 }
 
 .thumbnails .row {
-	margin-bottom: 32px;
+	margin-bottom: 40px;
 }
 
 /*.thumbnails a:hover .thumbnail-title::after {
@@ -188,8 +189,9 @@ li {
 	width: 100%;
 	left: 50%;
 	transform: translateX(-50%);
-	padding: 16px;
+	padding: 32px;
 	background: #e7ede4;
+	z-index: 1;
 }
 
 #top-navigation .column {
@@ -239,7 +241,7 @@ li {
 	flex-direction: column;
 	flex-wrap: wrap;
 	gap: 1rem;
-	margin-top: 2rem;
+	margin-top: 2rem	;
 }
 
 
