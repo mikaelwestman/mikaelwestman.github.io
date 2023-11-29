@@ -366,7 +366,14 @@ html {
 }
 
 #about .wrapper .row:first-of-type {
-     padding-bottom: 1.5rem; 
+     padding-bottom: 1rem; 
+}
+
+.credits {
+	border-left: 0;
+	border-top: 1px solid #1c1c1c;
+	padding-left: 0;
+	padding-top: 1rem;
 }
 
 #top-navigation {
@@ -393,13 +400,6 @@ html {
 
 .image-description {
 	width: 100%;
-}
-
-.credits {
-	border-left: 0;
-	border-top: 1px solid #1c1c1c;
-	padding-left: 0;
-	padding-top: 2rem;
 }
 
 }
