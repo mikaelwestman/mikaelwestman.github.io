@@ -276,6 +276,14 @@ li {
 	padding-bottom: 3rem;
 }
 
+#about .column {
+	width: 100%;
+}
+
+#about .row:first-of-type .column {
+	width: calc(50% - 0.375rem);
+}
+
 .bio {
 	padding-right: 2rem;
 }
