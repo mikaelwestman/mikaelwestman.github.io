@@ -198,13 +198,11 @@ li {
 */
 
 .thumbnails{
-	padding-top: 0; 
-/*	Remove top padding from wrapper of "All projects" component*/
+	padding-top: 0; /*	Remove top padding from wrapper of "All projects" component*/
 }
 
 #index .thumbnails{
-	padding-top: 6rem;
-/*	Add the padding back for projects on index page*/
+	padding-top: 6rem; /*	Add the padding back for projects on index page*/
 }
 
 .thumbnails h2 {
@@ -264,9 +262,9 @@ li {
   About
 */
 
-/*#about, #about #top-navigation {
+#about, #about #top-navigation {
 	background: #cfa3ce;
-}*/
+}
 
 #about .wrapper .row {
 	padding-bottom: 1rem;
@@ -333,8 +331,7 @@ html {
 }
 
 .thumbnails{
-	padding-top: 0; 
-/*	Remove top padding from wrapper of "All projects" component*/
+	padding-top: 0; /*	Remove top padding from wrapper of "All projects" component*/
 }
 
 #index .thumbnails{
@@ -349,7 +346,7 @@ html {
 	width: 100%;
 	flex-direction: column;
 	flex-wrap: wrap;
-	margin-bottom: 24px;
+	margin-bottom: 1.5rem;
 }
 
 .column {
