@@ -245,7 +245,7 @@ li {
 	content: "🡒";
 	position: relative;
 	left: 0px;
-	transition: left 0.5s;
+	transition: 0.5s;
 	opacity: 0;
 }
 
