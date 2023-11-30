@@ -282,11 +282,11 @@ li {
 }
 
 #about .column {
-	width: 100%;
+	width: 100%; /*	Makes CV columns full width*/
 }
 
 #about .row:first-of-type .column {
-	width: calc(50% - 0.375rem);
+	width: calc(50% - 0.375rem);  /*	Recalculate bio columns to be half width again*/
 }
 
 .bio {
@@ -370,8 +370,8 @@ html {
 	width: 100%;
 }
 
-#about .wrapper .row:first-of-type {
-     padding-bottom: 1rem; 
+.bio {
+	padding-right: 0rem;
 }
 
 .credits {
@@ -404,6 +404,10 @@ html {
 }
 
 .image-description {
+	width: 100%;
+}
+
+.column p {
 	width: 100%;
 }
 
