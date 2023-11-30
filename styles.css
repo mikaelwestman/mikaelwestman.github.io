@@ -84,10 +84,6 @@ a {
 	transition: color 0.2s;
 }
 
-a:hover {
-	opacity: 0.6;
-}
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -293,12 +289,21 @@ li {
 	padding-right: 2rem;
 }
 
-.bullet {
-	padding-right: 16px;
-}
-
 #about .meta-data {
 	margin-bottom: 0.5rem;
+}
+
+.bullet {
+	display: inline-block;
+	position: relative;
+	padding-right: 16px;
+	transition: 0.2s;
+	top: 0px;
+}
+
+.big-link:hover .bullet {
+	transform: rotate(45deg);
+	top: 4px;
 }
 
 
