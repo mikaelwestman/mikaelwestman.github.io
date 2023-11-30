@@ -30,11 +30,11 @@ class Projects extends HTMLElement {
 			<div class="row">
 				<a class="column" href="vexillography.html">
 					<div class="thumbnail-image-wrapper"><img src="images/flag-uca-mikael-westman.jpg" alt="Flag"></div>
-					<span class="thumbnail-title">Vexillography study</span>
+					<span class="thumbnail-title">Vexillography</span>
 				</a>
 				<a class="column" href="3d.html">
 					<div class="thumbnail-image-wrapper"><img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter"></div>
-					<span class="thumbnail-title">3D study</span>
+					<span class="thumbnail-title">3D</span>
 				</a>
 			</div>
 		</div>
