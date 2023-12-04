@@ -9,7 +9,7 @@ class Projects extends HTMLElement {
 	    <h2>All projects</h2>
 			<div class="row">
 				<a class="column" href="epidemic-sound.html">
-	  			<div class="thumbnail-image-wrapper"><img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page"></div>
+	  			<div class="thumbnail-image-wrapper"><img src="images/Epidemic-Sound-Artist.png" alt="Epidemic Sound artist page"></div>
 					<span class="thumbnail-title">Epidemic Sound</span>
 				</a>
 				<a class="column" href="square-pos.html">
