@@ -45,7 +45,7 @@ img, video {
 }
 
 img, video {
-	animation: 0.7s ease-out 0s 1 imageAnimate;
+	animation: 0.7s ease-in-out 0s 1 imageAnimate;
 }
 
 
