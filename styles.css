@@ -31,6 +31,23 @@ img, video {
 	border-radius: 3px;
 }
 
+/* 
+  On load animation
+*/
+
+@keyframes imageAnimate {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+img, video {
+	animation: 0.7s ease-out 0s 1 imageAnimate;
+}
+
 
 /* 
   Typography 
@@ -266,7 +283,7 @@ li {
 	border-radius: 3px;
 	margin: 0;
 	height: auto;
-	background: #000;
+	background: #cfd2c6;
 	overflow: hidden;
 	transition: 0.5s;
 }
