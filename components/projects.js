@@ -39,7 +39,7 @@ class Projects extends HTMLElement {
 			</div>
 			<div class="row">
 				<a class="column" href="variable-font.html">
-					<div class="thumbnail-image-wrapper"><img src="images/variable-font-01.png" alt="Variable font"></div>
+					<div class="thumbnail-image-wrapper"><img src="images/variable-font-thumb.png" alt="Variable font"></div>
 					<span class="thumbnail-title">Variable font</span>
 				</a>
 			</div>
