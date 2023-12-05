@@ -13,7 +13,7 @@ class Projects extends HTMLElement {
 					<span class="thumbnail-title">Epidemic Sound</span>
 				</a>
 				<a class="column" href="square-for-restaurants.html">
-					<div class="thumbnail-image-wrapper"><img src="images/square-mikael-westman-01.png" alt="Square for Restaurants"></div>
+					<div class="thumbnail-image-wrapper"><img src="images/square-mikael-westman-04.png" alt="Square for Restaurants"></div>
 					<span class="thumbnail-title">Square for Restaurants</span>
 				</a>
 			</div>
