@@ -22,9 +22,9 @@ class Projects extends HTMLElement {
 					<div class="thumbnail-image-wrapper"><img src="images/pos-mikael-westman-01.png" alt="Square Point of Sale tablet & mobile design for Android"></div>
 					<span class="thumbnail-title">Square Point of Sale</span>
 				</a>
-				<a class="column" href="oodin.html">
-					<div class="thumbnail-image-wrapper"><img src="images/oodin-thumbnail.jpg" alt="OODIN logo"></div>
-					<span class="thumbnail-title">OODIN</span>
+				<a class="column" href="variable-font.html">
+					<div class="thumbnail-image-wrapper"><img src="images/variable-font-thumb.png" alt="Variable font"></div>
+					<span class="thumbnail-title">Variable font</span>
 				</a>
 			</div>
 			<div class="row">
@@ -38,9 +38,9 @@ class Projects extends HTMLElement {
 				</a>
 			</div>
 			<div class="row">
-				<a class="column" href="variable-font.html">
-					<div class="thumbnail-image-wrapper"><img src="images/variable-font-thumb.png" alt="Variable font"></div>
-					<span class="thumbnail-title">Variable font</span>
+				<a class="column" href="oodin.html">
+					<div class="thumbnail-image-wrapper"><img src="images/oodin-thumbnail.jpg" alt="OODIN logo"></div>
+					<span class="thumbnail-title">OODIN</span>
 				</a>
 			</div>
 		</div>
