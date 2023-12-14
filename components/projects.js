@@ -43,6 +43,12 @@ class Projects extends HTMLElement {
 					<span class="thumbnail-title">OODIN</span>
 				</a>
 			</div>
+			<div class="row">
+				<a class="column" href="stool.html">
+					<div class="thumbnail-image-wrapper"><img src="images/stool-mikael.westman-01.jpg" alt="Stool"></div>
+					<span class="thumbnail-title">The Ball Stool</span>
+				</a>
+			</div>
 		</div>
     `;
   }

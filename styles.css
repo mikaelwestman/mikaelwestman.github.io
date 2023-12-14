@@ -360,7 +360,7 @@ li {
 	font-size: 0.6rem;
 	font-weight: 500;
 	font-style: italic;
-	margin-bottom: 1rem;
+	padding-bottom: 0.25rem;
 	color: rgba(28, 28, 28, 0.6);
 }
 
