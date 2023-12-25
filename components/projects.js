@@ -28,9 +28,9 @@ class Projects extends HTMLElement {
 				</a>
 			</div>
 			<div class="row">
-				<a class="column" href="vexillography.html">
-					<div class="thumbnail-image-wrapper"><img src="images/flag-uca-mikael-westman.jpg" alt="Flag"></div>
-					<span class="thumbnail-title">Vexillography</span>
+				<a class="column" href="stool.html">
+					<div class="thumbnail-image-wrapper"><img src="images/stool-thumb.jpg" alt="Stool"></div>
+					<span class="thumbnail-title">The Ball Stool</span>
 				</a>
 				<a class="column" href="3d.html">
 					<div class="thumbnail-image-wrapper"><img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter"></div>
@@ -42,9 +42,9 @@ class Projects extends HTMLElement {
 					<div class="thumbnail-image-wrapper"><img src="images/oodin-thumbnail.jpg" alt="OODIN logo"></div>
 					<span class="thumbnail-title">OODIN</span>
 				</a>
-				<a class="column" href="stool.html">
-					<div class="thumbnail-image-wrapper"><img src="images/stool-thumb.jpg" alt="Stool"></div>
-					<span class="thumbnail-title">The Ball Stool</span>
+				<a class="column" href="vexillography.html">
+					<div class="thumbnail-image-wrapper"><img src="images/flag-uca-mikael-westman.jpg" alt="Flag"></div>
+					<span class="thumbnail-title">Vexillography</span>
 				</a>
 			</div>
 		</div>
