@@ -235,6 +235,47 @@ li {
 
 
 /* 
+  Banner
+*/
+
+.banner {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 12px;
+	padding: 12px 12px 12px 24px;
+	margin-bottom: 2rem;
+	border-radius: 6px;
+	background: rgba(0,0,0,0.05);
+	font-size: 0.7rem;
+	font-weight: 500;
+}
+
+.banner a {
+	border-radius: 3px;
+	border: 2px solid #1c1c1c;
+	padding: 12px; 
+}
+
+.banner a:hover {
+	background: rgba(0,0,0,0.05);
+}
+
+.banner .dot {
+  animation: color 5s infinite ease;  
+}
+
+@keyframes color {
+  0% {color: #C14590;}
+  20% {color: #4552C1;}
+  40% {color: #45C186;}
+  60% {color: #DACA3A;}
+  100% {color: #C14590;}
+}
+
+
+/* 
   Thumbnails
 */
 
@@ -243,7 +284,7 @@ li {
 }
 
 #index .thumbnails {
-	padding-top: 6rem; /*	Add padding for "All projects" component on index page*/
+	padding-top: 5rem; /*	Add padding for "All projects" component on index page*/
 }
 
 .thumbnails h2 {
