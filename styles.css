@@ -241,36 +241,29 @@ li {
 .banner {
   display: flex;
   flex-flow: row wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: flex-start;
-  gap: 12px;
-	padding: 12px 12px 12px 24px;
+  gap: 8px;
+	padding: 20px;
 	margin-bottom: 2rem;
 	border-radius: 6px;
 	background: rgba(0,0,0,0.05);
-	font-size: 0.7rem;
+	font-size: 0.6rem;
 	font-weight: 500;
 }
 
 .banner a {
-	border-radius: 3px;
-	border: 2px solid #1c1c1c;
-	padding: 12px; 
+  animation: color 5s infinite ease;
 }
 
 .banner a:hover {
-	background: rgba(0,0,0,0.05);
-}
-
-.banner .dot {
-  animation: color 5s infinite ease;  
+	text-decoration: underline;
 }
 
 @keyframes color {
   0% {color: #C14590;}
-  20% {color: #4552C1;}
-  40% {color: #45C186;}
-  60% {color: #DACA3A;}
+  33% {color: #4552C1;}
+  66% {color: #45C186;}
   100% {color: #C14590;}
 }
 
@@ -485,14 +478,6 @@ html {
 
 #top-navigation .column a:last-child {
 	margin-right: 0;
-}
-
-#top-navigation h3 span {
-	display: none;
-}
-
-#top-navigation h3::before {
-	content: "© Mikael Westman";
 }
 
 .thumbnails{
