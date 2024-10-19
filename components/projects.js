@@ -47,12 +47,6 @@ class Projects extends HTMLElement {
 					<span class="thumbnail-title">Square Point of Sale</span>
 				</a>
 			</div>
-			<div class="row">
-				<a class="column" href="oodin.html">
-					<div class="thumbnail-image-wrapper"><img src="images/oodin-thumbnail.jpg" alt="OODIN logo"></div>
-					<span class="thumbnail-title">OODIN</span>
-				</a>
-			</div>
 		</div>
     `;
   }
