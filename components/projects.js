@@ -10,7 +10,7 @@ class Projects extends HTMLElement {
 			<div class="row">
 				<a class="column" href="stool.html">
 					<div class="thumbnail-image-wrapper"><img src="images/stool-thumb.jpg" alt="Stool"></div>
-					<span class="thumbnail-title">The Ball Stool</span>
+					<span class="thumbnail-title">Ball stool</span>
 				</a>
 				<a class="column" href="pelican.html">
 					<div class="thumbnail-image-wrapper"><img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon"></div>
