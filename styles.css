@@ -145,6 +145,12 @@ li {
 	flex-grow: 1;
 }
 
+.logo {
+	margin: auto;
+  display: block;
+}
+
+
 #top-navigation .column a {
 	margin-right: 2rem;
 }
