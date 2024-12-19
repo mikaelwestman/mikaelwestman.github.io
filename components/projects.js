@@ -18,13 +18,13 @@ class Projects extends HTMLElement {
 				</a>
 			</div>
 			<div class="row">
-				<a class="column" href="3d.html">
-					<div class="thumbnail-image-wrapper"><img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter"></div>
-					<span class="thumbnail-title">3D</span>
-				</a>
 				<a class="column" href="pelican.html">
 					<div class="thumbnail-image-wrapper"><img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon"></div>
 					<span class="thumbnail-title">Childrens tableware</span>
+				</a>
+				<a class="column" href="3d.html">
+					<div class="thumbnail-image-wrapper"><img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter"></div>
+					<span class="thumbnail-title">3D</span>
 				</a>
 			</div>
 			<div class="row">
