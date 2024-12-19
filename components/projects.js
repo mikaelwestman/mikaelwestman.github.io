@@ -8,13 +8,13 @@ class Projects extends HTMLElement {
 	  <div class="wrapper thumbnails">
 	    <h2>All projects</h2>
 			<div class="row">
+				<a class="column" href="hallway-bench.html">
+					<div class="thumbnail-image-wrapper"><img src="images/hallway-bench-mikael-westman-05.jpg" alt="hallway bench"></div>
+					<span class="thumbnail-title">Hallway bench</span>
+				</a>
 				<a class="column" href="stool.html">
 					<div class="thumbnail-image-wrapper"><img src="images/stool-thumb.jpg" alt="Stool"></div>
 					<span class="thumbnail-title">Ball stool</span>
-				</a>
-				<a class="column" href="pelican.html">
-					<div class="thumbnail-image-wrapper"><img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon"></div>
-					<span class="thumbnail-title">Childrens tableware</span>
 				</a>
 			</div>
 			<div class="row">
@@ -22,9 +22,9 @@ class Projects extends HTMLElement {
 					<div class="thumbnail-image-wrapper"><img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter"></div>
 					<span class="thumbnail-title">3D</span>
 				</a>
-				<a class="column" href="vexillography.html">
-					<div class="thumbnail-image-wrapper"><img src="images/flag-uca-mikael-westman.jpg" alt="Flag"></div>
-					<span class="thumbnail-title">Vexillography</span>
+				<a class="column" href="pelican.html">
+					<div class="thumbnail-image-wrapper"><img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon"></div>
+					<span class="thumbnail-title">Childrens tableware</span>
 				</a>
 			</div>
 			<div class="row">
@@ -32,9 +32,9 @@ class Projects extends HTMLElement {
 					<div class="thumbnail-image-wrapper"><img src="images/variable-font-thumb.png" alt="Variable font"></div>
 					<span class="thumbnail-title">Stretchy font</span>
 				</a>
-				<a class="column" href="epidemic-sound.html">
-	  			<div class="thumbnail-image-wrapper"><img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page"></div>
-					<span class="thumbnail-title">Epidemic Sound</span>
+				<a class="column" href="vexillography.html">
+					<div class="thumbnail-image-wrapper"><img src="images/flag-uca-mikael-westman.jpg" alt="Flag"></div>
+					<span class="thumbnail-title">Vexillography</span>
 				</a>
 			</div>
 			<div class="row">
@@ -45,6 +45,12 @@ class Projects extends HTMLElement {
 				<a class="column" href="square-pos.html">
 					<div class="thumbnail-image-wrapper"><img src="images/pos-mikael-westman-01.png" alt="Square Point of Sale tablet & mobile design for Android"></div>
 					<span class="thumbnail-title">Square Point of Sale</span>
+				</a>
+			</div>
+			<div class="row">
+				<a class="column" href="epidemic-sound.html">
+	  			<div class="thumbnail-image-wrapper"><img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page"></div>
+					<span class="thumbnail-title">Epidemic Sound</span>
 				</a>
 			</div>
 		</div>
