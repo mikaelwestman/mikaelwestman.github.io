@@ -56,8 +56,13 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
   }
 }
 
+page-content {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 .page-content {
-  animation: fadeIn 1s ease-out;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 .page-fade-out {
