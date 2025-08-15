@@ -3,13 +3,23 @@ class LoadingManager extends HTMLElement {
     super();
     this.loadedImages = new Set();
     this.totalImages = 0;
-    this.requiredImages = 1; // Number of images to load before triggering animation
+    this.requiredImages = 1;
     this.animationTriggered = false;
     this.callbacks = [];
     this.initialized = false;
+    
+    // Cache DOM elements
+    this.pageContent = null;
+    this.body = null;
+    this.navigation = null;
   }
 
   connectedCallback() {
+    // Cache DOM elements immediately
+    this.pageContent = document.querySelector('page-content');
+    this.body = document.body;
+    this.navigation = document.querySelector('#top-navigation');
+    
     // Wait for DOM to be ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.initialize());
@@ -20,14 +30,12 @@ class LoadingManager extends HTMLElement {
     // Force reload on back/forward navigation to ensure proper loading
     window.addEventListener('pageshow', (event) => {
       if (event.persisted) {
-        // Page was loaded from cache, force reload
         window.location.reload();
       }
     });
 
     // Alternative approach: force reload on popstate
     window.addEventListener('popstate', () => {
-      // Force reload on back/forward navigation
       window.location.reload();
     });
   }
@@ -35,7 +43,6 @@ class LoadingManager extends HTMLElement {
   initialize() {
     if (this.initialized) return;
     
-    // Wait a bit for components to render
     setTimeout(() => {
       this.setupImageTracking();
       this.setupLazyLoading();
@@ -45,42 +52,35 @@ class LoadingManager extends HTMLElement {
   }
 
   setupPageTransitions() {
-    // Find all internal links
-    const links = document.querySelectorAll('a[href]');
-    
-    links.forEach(link => {
+    // Use event delegation for better performance
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      
       const href = link.getAttribute('href');
       
-      // Only handle internal links (not external or anchor links)
+      // Only handle internal links
       if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          this.handlePageTransition(href);
-        });
+        e.preventDefault();
+        this.handlePageTransition(href);
       }
     });
   }
 
   handlePageTransition(targetUrl) {
-    // Trigger fade-out animation
     this.triggerFadeOut(() => {
-      // Navigate to the new page after fade-out completes
       window.location.href = targetUrl;
     });
   }
 
   triggerFadeOut(callback) {
-    const pageContent = document.querySelector('page-content');
-    if (pageContent) {
-      // Add fade-out class
-      pageContent.classList.add('page-fade-out');
+    if (this.pageContent) {
+      this.pageContent.classList.add('page-fade-out');
       
-      // Wait for animation to complete, then navigate
       setTimeout(() => {
         if (callback) callback();
-      }, 300); // Match the CSS animation duration
+      }, 300);
     } else {
-      // If no page-content, navigate immediately
       if (callback) callback();
     }
   }
@@ -96,13 +96,24 @@ class LoadingManager extends HTMLElement {
       return;
     }
 
-    // Track all media elements
+    // Use a single observer for all media
+    const mediaObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          const media = mutation.target;
+          if (media.classList.contains('lazy-loaded')) {
+            this.onMediaLoaded(media);
+          }
+        }
+      });
+    });
+
     [...images, ...videos].forEach(media => {
-      this.trackMedia(media);
+      this.trackMedia(media, mediaObserver);
     });
   }
 
-  trackMedia(media) {
+  trackMedia(media, observer) {
     // Check if already loaded
     if (media.tagName === 'IMG' && media.complete && media.naturalHeight !== 0) {
       this.onMediaLoaded(media);
@@ -114,18 +125,6 @@ class LoadingManager extends HTMLElement {
       return;
     }
 
-    // Watch for lazy-loaded class
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          if (media.classList.contains('lazy-loaded')) {
-            this.onMediaLoaded(media);
-            observer.disconnect();
-          }
-        }
-      });
-    });
-
     observer.observe(media, { attributes: true });
   }
 
@@ -135,11 +134,17 @@ class LoadingManager extends HTMLElement {
     
     if (images.length === 0 && videos.length === 0) return;
 
-    const imageObserver = new IntersectionObserver((entries) => {
+    // Single observer for all media types
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          this.loadImage(entry.target);
-          imageObserver.unobserve(entry.target);
+          const media = entry.target;
+          if (media.tagName === 'IMG') {
+            this.loadImage(media);
+          } else if (media.tagName === 'VIDEO') {
+            this.loadVideo(media);
+          }
+          observer.unobserve(media);
         }
       });
     }, {
@@ -147,20 +152,7 @@ class LoadingManager extends HTMLElement {
       threshold: 0.1
     });
 
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.loadVideo(entry.target);
-          videoObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      rootMargin: '50px 0px',
-      threshold: 0.1
-    });
-
-    images.forEach(img => imageObserver.observe(img));
-    videos.forEach(video => videoObserver.observe(video));
+    [...images, ...videos].forEach(media => observer.observe(media));
   }
 
   loadImage(img) {
@@ -191,7 +183,6 @@ class LoadingManager extends HTMLElement {
     
     this.loadedImages.add(media);
     
-    // Check if we've loaded enough images
     if (this.loadedImages.size >= this.requiredImages) {
       this.triggerAnimation();
     }
@@ -202,29 +193,29 @@ class LoadingManager extends HTMLElement {
     
     this.animationTriggered = true;
     
-    // Trigger page content animation
-    const pageContent = document.querySelector('page-content');
-    if (pageContent) {
-      pageContent.classList.add('page-content');
-    }
-    
-    // Add about page specific background animation
-    const body = document.body;
-    if (body.id === 'about') {
-      body.classList.add('background-fade-in');
+    // Optimized animation triggering
+    if (this.body?.id === 'about') {
+      // About page: consolidated animation
+      if (this.pageContent) {
+        this.pageContent.classList.add('page-content');
+      }
       
-      // Also apply to the navigation
-      const navigation = document.querySelector('#top-navigation');
-      if (navigation) {
-        navigation.classList.add('background-fade-in');
+      this.body.classList.add('background-fade-in');
+      
+      if (this.navigation) {
+        this.navigation.classList.add('background-fade-in');
+      }
+    } else {
+      // Other pages: regular animation
+      if (this.pageContent) {
+        this.pageContent.classList.add('page-content');
       }
     }
     
-    // Execute any registered callbacks
+    // Execute callbacks
     this.callbacks.forEach(callback => callback());
   }
 
-  // Public API for other components to register callbacks
   onReady(callback) {
     if (this.animationTriggered) {
       callback();
