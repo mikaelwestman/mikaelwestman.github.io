@@ -8,8 +8,8 @@ class Footer extends HTMLElement {
 		<footer>
 			<div class="footer-content">
 				<div class="column">
-					<h3>Mikael Westman © 2025</h3>
-					<h3 style="opacity: 50%;">All rights reserved</h3>
+					<span class="meta-data">Mikael Westman © 2025</span>
+					<span class="meta-data" style="opacity: 50%;">All rights reserved</span>
 				</div>
 				<div class="column">
 					<a href="mailto:mikael@wst.mn"><span class="bullet">↗</span>mikael@wst.mn</a>

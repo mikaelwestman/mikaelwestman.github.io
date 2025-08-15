@@ -447,7 +447,8 @@ footer a {
 	top: 0;
 }
 
-.big-link:hover .bullet {
+.big-link:hover .bullet,
+footer a:hover .bullet {
 	transform: rotate(45deg);
 	top: 4px;
 }
