@@ -1,10 +1,23 @@
 /* 
-  Inter font
+  Color tokens
 */
 :root {
+  /* Primary colors */
+  --color-primary: #1c1c1c;
+  --color-background: #f0f1ed;
+  --color-brand: #cfa3ce;
+  --color-selection: #A7CFA3;
+  --color-thumbnail-bg: #cfd2c6;
+  
+  /* Text colors */
+  --color-text: #1c1c1c;
+  --color-text-muted: rgba(28, 28, 28, 0.6);
+  
+  /* Typography */
   font-family: Inter, sans-serif;
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
+
 @supports (font-variation-settings: normal) {
   :root { font-family: InterVariable, sans-serif; }
 }
@@ -56,7 +69,7 @@ html {
 }
 
 ::-moz-selection, ::selection, ::-webkit-selection {
-	background: #A7CFA3;
+	background: var(--color-selection);
 }
 
 body {
@@ -69,11 +82,11 @@ body {
 }
 
 body, #top-navigation {
-	background: #f0f1ed;
+	background: var(--color-background);
 }
 
 body, a {
-	color: #1c1c1c;
+	color: var(--color-text);
 }
 
 p {
@@ -189,7 +202,7 @@ li {
 */
 
 footer {
-	background: #cfa3ce; 
+	background: var(--color-brand); 
 	width: 100%;
 	margin: auto;
 	padding: 4rem 0;
@@ -253,7 +266,7 @@ footer {
 
 .wrapper .row:first-child .column:last-child {
 	align-items: flex-start;
-	border-left: 1px solid #1c1c1c;
+	border-left: 1px solid var(--color-primary);
 	padding-left: 2rem;
 }
 
@@ -312,7 +325,7 @@ footer {
 	position: relative;
 	border-radius: 3px;
 	margin: 0;
-	background: #cfd2c6;
+	background: var(--color-thumbnail-bg);
 	overflow: hidden;
 	transition: 0.5s;
 }
@@ -337,12 +350,12 @@ footer {
 */
 
 #about, #about #top-navigation {
-	background: #cfa3ce;
+	background: var(--color-brand);
 }
 
 #about .wrapper .row {
 	padding-top: 1rem;
-	border-top: 1px solid #1c1c1c;
+	border-top: 1px solid var(--color-primary);
 }
 
 #about .wrapper .row:first-child {
@@ -391,7 +404,7 @@ footer {
 	font-weight: 500;
 	font-style: italic;
 	padding-bottom: 0.25rem;
-	color: rgba(28, 28, 28, 0.6);
+	color: var(--color-text-muted);
 }
 
 .meta-data {
@@ -443,7 +456,7 @@ html {
 
 .wrapper .row:first-child .column:last-child {
 	border-left: 0;
-	border-top: 1px solid #1c1c1c;
+	border-top: 1px solid var(--color-primary);
 	padding-left: 0;
 	padding-top: 1.5rem;
 	margin-top: 1.5rem;
