@@ -208,6 +208,18 @@ class LoadingManager extends HTMLElement {
       pageContent.classList.add('page-content');
     }
     
+    // Add about page specific background animation
+    const body = document.body;
+    if (body.id === 'about') {
+      body.classList.add('background-fade-in');
+      
+      // Also apply to the navigation
+      const navigation = document.querySelector('#top-navigation');
+      if (navigation) {
+        navigation.classList.add('background-fade-in');
+      }
+    }
+    
     // Execute any registered callbacks
     this.callbacks.forEach(callback => callback());
   }
