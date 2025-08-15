@@ -3,7 +3,7 @@ class LoadingManager extends HTMLElement {
     super();
     this.loadedImages = new Set();
     this.totalImages = 0;
-    this.requiredImages = 1; // Number of images to load before triggering animation
+    this.requiredImages = 0; // Number of images to load before triggering animation
     this.animationTriggered = false;
     this.callbacks = [];
   }
