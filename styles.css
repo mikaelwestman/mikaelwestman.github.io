@@ -45,8 +45,23 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
 .page-content {
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.7s ease-out;
+}
+
+.page-fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
 }
 
 *, *:before, *:after {

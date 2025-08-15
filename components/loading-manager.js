@@ -22,7 +22,49 @@ class LoadingManager extends HTMLElement {
     setTimeout(() => {
       this.setupImageTracking();
       this.setupLazyLoading();
+      this.setupPageTransitions();
     }, 100);
+  }
+
+  setupPageTransitions() {
+    // Find all internal links
+    const links = document.querySelectorAll('a[href]');
+    
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      
+      // Only handle internal links (not external or anchor links)
+      if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.handlePageTransition(href);
+        });
+      }
+    });
+  }
+
+  handlePageTransition(targetUrl) {
+    // Trigger fade-out animation
+    this.triggerFadeOut(() => {
+      // Navigate to the new page after fade-out completes
+      window.location.href = targetUrl;
+    });
+  }
+
+  triggerFadeOut(callback) {
+    const pageContent = document.querySelector('page-content');
+    if (pageContent) {
+      // Add fade-out class
+      pageContent.classList.add('page-fade-out');
+      
+      // Wait for animation to complete, then navigate
+      setTimeout(() => {
+        if (callback) callback();
+      }, 500); // Match the CSS animation duration
+    } else {
+      // If no page-content, navigate immediately
+      if (callback) callback();
+    }
   }
 
   setupImageTracking() {
