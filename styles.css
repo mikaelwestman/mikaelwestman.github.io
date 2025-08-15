@@ -5,8 +5,8 @@
   /* Primary colors */
   --color-primary: #1c1c1c;
   --color-background: #f0f1ed;
-  --color-brand: #cfa3ce;
-  --color-selection: #A7CFA3;
+  --color-brand: #f34f26;
+  --color-selection: #00000037;
   --color-thumbnail-bg: #cfd2c6;
   
   /* Text colors */
@@ -56,24 +56,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
   }
 }
 
-@keyframes aboutBackgroundFadeIn {
-  from {
-    background-color: var(--color-background);
-  }
-  to {
-    background-color: var(--color-brand);
-  }
-}
-
-@keyframes aboutNavigationFadeIn {
-  from {
-    background-color: var(--color-background);
-  }
-  to {
-    background-color: var(--color-brand);
-  }
-}
-
 page-content {
   opacity: 0;
   transform: translateY(20px);
@@ -85,14 +67,6 @@ page-content {
 
 .page-fade-out {
   animation: fadeOut 0.3s ease-out forwards;
-}
-
-#about.background-fade-in {
-  animation: aboutBackgroundFadeIn 0.7s ease-out forwards;
-}
-
-#about #top-navigation.background-fade-in {
-  animation: aboutNavigationFadeIn 0.7s ease-out forwards;
 }
 
 *, *:before, *:after {
@@ -136,7 +110,7 @@ html {
 }
 
 body {
-	font-weight: 500;
+	font-weight: 600;
 	letter-spacing: -0.02em;
 	font-feature-settings: "calt", "ss01", "cv01", "cv08", "cv09";
 	-webkit-font-smoothing: antialiased;
@@ -161,8 +135,8 @@ p:last-child{
 	margin-bottom: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 500;
+h1, h2, h3, h4, h5, h6, .big-link {
+	font-weight: 600;
 }
 
 h3, h4, h5, h6 {
@@ -172,6 +146,10 @@ h3, h4, h5, h6 {
 h2, .big-link {
 	font-size: 1.5rem;
 	line-height: 1.4;
+}
+
+.big-link {
+	color: var(--color-brand);
 }
 
 h4 {
@@ -221,6 +199,7 @@ li {
 .logo {
 	margin: auto;
 	display: block;
+	color: var(--color-primary);
 }
 
 
@@ -264,14 +243,30 @@ li {
 */
 
 footer {
-	background: var(--color-brand); 
 	width: 100%;
 	margin: auto;
-	padding: 2rem 0 6rem 0;
+	padding: 2rem 0 8rem 0;
+	animation: footerGradient 24s ease-in-out infinite;
+	background: var(--color-brand);
+	background-size: 400% 400%;
 }
 
-#about footer {
-	mix-blend-mode: difference;
+@keyframes footerGradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	25% {
+		background-position: 100% 50%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+	75% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .footer-content {
@@ -470,7 +465,7 @@ footer a:hover .bullet {
 .meta-data {
 	text-transform: lowercase;
 	font-size: 0.7rem;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 
@@ -549,10 +544,6 @@ html {
 
 #top-navigation .column a:last-child {
 	margin-right: 0;
-}
-
-footer {
-	padding: 3rem 0;
 }
 
 .footer-content {
