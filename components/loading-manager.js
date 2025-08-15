@@ -7,7 +7,6 @@ class LoadingManager extends HTMLElement {
     this.animationTriggered = false;
     this.callbacks = [];
     this.initialized = false;
-    this.lastUrl = window.location.href;
   }
 
   connectedCallback() {
@@ -18,43 +17,18 @@ class LoadingManager extends HTMLElement {
       this.initialize();
     }
 
-    // Listen for page visibility changes (back/forward navigation)
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && this.initialized) {
-        // Page became visible again, re-initialize
-        this.reinitialize();
-      }
-    });
-
-    // Listen for pageshow event (fired when page is shown from cache)
+    // Force reload on back/forward navigation to ensure proper loading
     window.addEventListener('pageshow', (event) => {
-      if (event.persisted && this.initialized) {
-        // Page was loaded from cache, re-initialize
-        this.reinitialize();
+      if (event.persisted) {
+        // Page was loaded from cache, force reload
+        window.location.reload();
       }
     });
 
-    // Listen for popstate event (back/forward navigation)
+    // Alternative approach: force reload on popstate
     window.addEventListener('popstate', () => {
-      if (this.initialized) {
-        // URL changed via back/forward, re-initialize
-        this.reinitialize();
-      }
-    });
-
-    // Check for URL changes periodically (fallback for browsers that don't fire events properly)
-    setInterval(() => {
-      if (this.initialized && window.location.href !== this.lastUrl) {
-        this.lastUrl = window.location.href;
-        this.reinitialize();
-      }
-    }, 100);
-
-    // Force re-initialization when window gains focus (additional fallback)
-    window.addEventListener('focus', () => {
-      if (this.initialized) {
-        setTimeout(() => this.reinitialize(), 100);
-      }
+      // Force reload on back/forward navigation
+      window.location.reload();
     });
   }
 
@@ -68,25 +42,6 @@ class LoadingManager extends HTMLElement {
       this.setupPageTransitions();
       this.initialized = true;
     }, 100);
-  }
-
-  reinitialize() {
-    // Reset state
-    this.loadedImages.clear();
-    this.animationTriggered = false;
-    this.callbacks = [];
-    
-    // Remove any existing page-content class to reset animation
-    const pageContent = document.querySelector('page-content');
-    if (pageContent) {
-      pageContent.classList.remove('page-content');
-    }
-    
-    // Re-initialize after a short delay
-    setTimeout(() => {
-      this.setupImageTracking();
-      this.setupLazyLoading();
-    }, 50);
   }
 
   setupPageTransitions() {
