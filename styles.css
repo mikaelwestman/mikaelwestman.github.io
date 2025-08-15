@@ -46,7 +46,7 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
 }
 
 .page-content {
-  animation: fadeIn 0.8s ease-out;
+  animation: fadeIn 0.5s ease-out;
 }
 
 *, *:before, *:after {
