@@ -5,8 +5,7 @@ class Scripts extends HTMLElement {
       { src: 'components/navigation.js', defer: true },
       { src: 'components/footer.js', defer: true },
       { src: 'components/projects.js', defer: true },
-      { src: 'components/lazy-loading.js', defer: true },
-      { src: 'components/image-preloader.js', defer: true },
+      { src: 'components/loading-manager.js', defer: true },
       { src: 'components/page-content.js', defer: true }
     ];
     
