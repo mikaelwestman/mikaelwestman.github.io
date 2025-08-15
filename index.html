@@ -16,9 +16,6 @@
 	<meta name="twitter:image" content="images/3d-pingpong-mikael-westman.jpg">
 	<link rel="canonical" href="https://wst.mn/">
 	<link rel="shortcut icon" type="image/png" href="icon.png">
-	<!-- Preload critical images -->
-	<link rel="preload" as="image" href="images/3d-pingpong-mikael-westman.jpg">
-	<link rel="preload" as="image" href="images/pelican-spoon-mikael-westman-02.jpg">
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
@@ -52,6 +49,7 @@
     <script src="components/footer.js" type="text/javascript" defer></script>
     <script src="components/projects.js" type="text/javascript" defer></script>
     <script src="components/lazy-loading.js" type="text/javascript" defer></script>
+    <script src="components/image-preloader.js" type="text/javascript" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
@@ -70,6 +68,7 @@
 <body id="index">
 	<navigation-component></navigation-component>
 	<lazy-loading></lazy-loading>
+	<image-preloader></image-preloader>
 	<projects-component></projects-component>
 	<footer-component></footer-component>
 </body>

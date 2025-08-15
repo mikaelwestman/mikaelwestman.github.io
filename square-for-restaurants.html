@@ -16,14 +16,12 @@
     <meta name="twitter:image" content="images/square-mikael-westman-04.png">
     <link rel="canonical" href="https://wst.mn/square-for-restaurants.html">
     <link rel="shortcut icon" type="image/png" href="icon.png">
-    <!-- Preload critical images -->
-    <link rel="preload" as="image" href="images/sq-video-poster.jpg">
-    <link rel="preload" as="image" href="images/square-mikael-westman-04.png">
     <link rel="stylesheet" href="styles.css">
     <script src="components/navigation.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
     <script src="components/projects.js" type="text/javascript" defer></script>
     <script src="components/lazy-loading.js" type="text/javascript" defer></script>
+    <script src="components/image-preloader.js" type="text/javascript" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
@@ -42,6 +40,7 @@
 <body id="square-for-restaurants">
   <navigation-component></navigation-component>
   <lazy-loading></lazy-loading>
+  <image-preloader></image-preloader>
   <div class="wrapper">
 
     <div class="row">
