@@ -413,10 +413,6 @@ footer a {
   About
 */
 
-#about, #about #top-navigation {
-	background: var(--color-brand);
-}
-
 #about .wrapper .row {
 	padding-top: 1rem;
 	border-top: 1px solid var(--color-primary);
