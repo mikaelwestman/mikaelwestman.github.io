@@ -5,24 +5,25 @@
     <title>Mikael Westman — Vexillography</title>
     <meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
+    <meta property='og:title' content='Mikael Westman — Vexillography'/>
+    <meta property='og:image' content='images/flag-hellas-mikael-westman.jpg'/>
+    <meta property='og:description' content='Portfolio of Mikael Westman, Product Designer based in Stockholm.'/>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
     <script src="components/navigation.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
     <script src="components/projects.js" type="text/javascript" defer></script>
-    <script src="components/metadata.js" type="text/javascript" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="components/lazy-loading.js" type="text/javascript" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-49182208-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-49182208-1');
     </script>
     
     <!-- Inter font -->
@@ -30,18 +31,19 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 
-<body>
+<body id="vexillography">
   <navigation-component></navigation-component>
+  <lazy-loading></lazy-loading>
   <div class="wrapper">
     <div class="row">
       <div class="column">
         <p class="meta-data">Personal ● 2022</p>
-        <p>Inspired by the subreddit <a href="https://www.reddit.com/r/vexillology/" target="_blank" style="text-decoration: underline;">r/vexillology</a> and <a href="https://99percentinvisible.org/episode/episode-06-99-symbolic/" target="_blank" style="text-decoration: underline;">this 99% Invisible episode</a>. I decided to create a study of the <a href="https://nava.org/good-flag-bad-flag" target="_blank" style="text-decoration: underline;">5 principles for good flag design</a>. All flags are based on fictional countries and regions from book, movies, or my own mind.</p>
+        <p>Inspired by the subreddit <a href="https://www.reddit.com/r/vexillology/" target="_blank" style="text-decoration: underline;">r/vexillology</a> and <a href="https://99percentinvisible.org/episode/episode-06-99-symbolic/" target="_blank" style="text-decoration: underline;">this 99% Invisible episode</a>, I decided to create a study of the <a href="https://nava.org/good-flag-bad-flag" target="_blank" style="text-decoration: underline;">5 principles for good flag design</a>. All flags are based on fictional countries and regions from books, movies, or my own mind.</p>
       </div>
     </div>
     <div class="row">
       <img src="images/flag-hellas-mikael-westman.jpg" alt="Neo Hellas flag">
-      <p class="image-description">Neo Hellas — A secular Greek state. The 2 circles represents the mainland and the disputed island of Cyprus.</p>
+      <p class="image-description">Neo Hellas — A secular Greek state. The 2 circles represent the mainland and the disputed island of Cyprus.</p>
     </div>
     <div class="row">
       <img src="images/flag-cherry-valley-mikael-westman.jpg" alt="Cherry Valley flag">
@@ -53,7 +55,7 @@
     </div>
     <div class="row">
       <img src="images/flag-uca-mikael-westman.jpg" alt="The United Coasts of America flag">
-      <p class="image-description">UCA, The United Coasts of America — A republic formed by the wealthy costal elites of the USA. Motto: "Divided by land, united in thought". </p>
+      <p class="image-description">UCA, The United Coasts of America — A republic formed by the wealthy coastal elites of the USA. Motto: "Divided by land, united in thought". </p>
     </div>
     <div class="row">
       <img src="images/flag-ufa-mikael-westman.jpg" alt="The United Flyover States of America flag">

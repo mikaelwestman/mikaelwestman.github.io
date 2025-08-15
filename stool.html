@@ -5,24 +5,25 @@
     <title>Mikael Westman — Stool</title>
     <meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
+    <meta property='og:title' content='Mikael Westman — Stool'/>
+    <meta property='og:image' content='images/stool-jordan.jpg'/>
+    <meta property='og:description' content='Portfolio of Mikael Westman, Product Designer based in Stockholm.'/>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
     <script src="components/navigation.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
     <script src="components/projects.js" type="text/javascript" defer></script>
-    <script src="components/metadata.js" type="text/javascript" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="components/lazy-loading.js" type="text/javascript" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-49182208-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-49182208-1');
     </script>
     
     <!-- Inter font -->
@@ -30,13 +31,14 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 
-<body>
+<body id="stool">
   <navigation-component></navigation-component>
+  <lazy-loading></lazy-loading>
   <div class="wrapper">
     <div class="row">
       <div class="column">
         <p class="meta-data">Personal ● 2023</p>
-        <p>A stool for all of us who we spent the time in between basketball games and football exercises resting on a ball, ignoring all concerns from parents and coaches telling us that sitting on a ball would make it lose its spherical shape.</p>
+        <p>A stool for all of us who spent the time in between basketball games and football exercises resting on a ball, ignoring all concerns from parents and coaches telling us that sitting on a ball would make it lose its spherical shape.</p>
       </div>
     </div>
     <div class="row">
@@ -56,7 +58,7 @@
       <img src="images/stool-mikael.westman-01.jpg" alt="Yellow basket ball stool">
     </div>
     <div class="row">
-      <video defaultMuted muted playsinline autoplay loop><source src="images/stool-clip.mp4" type="video/mp4"></video>
+      <video muted playsinline autoplay loop><source src="images/stool-clip.mp4" type="video/mp4"></video>
     </div>
     <div class="row">
       <img src="images/stool-mikael.westman-03.jpg" alt="ball stool">

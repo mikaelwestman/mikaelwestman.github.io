@@ -5,24 +5,25 @@
     <title>Mikael Westman — Childrens tableware</title>
     <meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
+    <meta property='og:title' content='Mikael Westman — Childrens tableware'/>
+    <meta property='og:image' content='images/pelican-spoon-mikael-westman-02.jpg'/>
+    <meta property='og:description' content='Portfolio of Mikael Westman, Product Designer based in Stockholm.'/>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
     <script src="components/navigation.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
     <script src="components/projects.js" type="text/javascript" defer></script>
-    <script src="components/metadata.js" type="text/javascript" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="components/lazy-loading.js" type="text/javascript" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-49182208-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-49182208-1');
     </script>
     
     <!-- Inter font -->
@@ -30,8 +31,9 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 
-<body>
+<body id="pelican">
   <navigation-component></navigation-component>
+  <lazy-loading></lazy-loading>
   <div class="wrapper">
     <div class="row">
       <div class="column">
@@ -40,7 +42,9 @@
       </div>
     </div>
     <div class="row">
-      <img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon and plate set">
+      <div class="column">
+        <img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon and plate set">
+      </div>
     </div>
     <div class="row">
       <div class="column">
@@ -51,7 +55,9 @@
       </div>
     </div>
     <div class="row">
-      <img src="images/pelican-spoon-mikael-westman-01.jpg" alt="PEL-I-CAN spoon and plate set">
+      <div class="column">
+        <img src="images/pelican-spoon-mikael-westman-01.jpg" alt="PEL-I-CAN spoon and plate set">
+      </div>
     </div>
   </div>
   <projects-component></projects-component>

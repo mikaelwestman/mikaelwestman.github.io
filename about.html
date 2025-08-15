@@ -5,23 +5,24 @@
     <title>Mikael Westman — About</title>
     <meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
+    <meta property='og:title' content='Mikael Westman — About'/>
+    <meta property='og:image' content='images/me.jpg'/>
+    <meta property='og:description' content='Portfolio of Mikael Westman, Product Designer based in Stockholm.'/>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="components/navigation.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
-    <script src="components/projects.js" type="text/javascript" defer></script>
-    <script src="components/metadata.js" type="text/javascript" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="components/lazy-loading.js" type="text/javascript" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-49182208-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-49182208-1');
     </script>
     
     <!-- Inter font -->
@@ -31,12 +32,13 @@
 
 <body id="about">
 	<navigation-component></navigation-component>
+	<lazy-loading></lazy-loading>
 	<div class="wrapper">
 		<div class="row">
 			<div class="column">
 				<h2 style="margin-bottom: 1rem;"><i>Hallå,</i> my name is Mikael Westman. I’m a Swedish designer based in Stockholm after several years of living and working in NYC.</h2>
 				<h2 style="margin-bottom: 1rem;">After a decade in the tech industry, I’ve decided to leave the code and pixels behind in favor of hand tools, band saws, and 3D-printers—creating products and furniture you can actually touch and feel.</h2>
-				<h2>Interested in working together? <a style="text-decoration: underline;"href="mailto:mikael@wst.mn">Email me</a></h2>
+				<h2>Interested in working together? <a style="text-decoration: underline;" href="mailto:mikael@wst.mn">Email me</a></h2>
 			</div>
 			<div class="column">
 				<a class="big-link" href="mailto:mikael@wst.mn"><span class="bullet">↗</span>mikael@wst.mn</a>
@@ -45,7 +47,7 @@
 			</div>
 		</div>
 	    <img src="images/me.jpg" alt="Mikael Westman" style="mix-blend-mode: multiply;">
-		<div class="row" style="border: 0px; padding-top: ;">
+		<div class="row" style="border: 0px;">
 			<div class="column">
 				<p class="meta-data">2024 - Present</p>
 				<h2>Freelance</h2>

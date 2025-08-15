@@ -5,23 +5,25 @@
     <title>Mikael Westman — Square for Restaurants</title>
     <meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="shortcut icon" type="image/png" href="icon.png?">
+    <meta property='og:title' content='Mikael Westman — Square for Restaurants'/>
+    <meta property='og:image' content='images/square-mikael-westman-04.png'/>
+    <meta property='og:description' content='Portfolio of Mikael Westman, Product Designer based in Stockholm.'/>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="components/navigation.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
     <script src="components/projects.js" type="text/javascript" defer></script>
-    <script src="components/metadata.js" type="text/javascript" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="components/lazy-loading.js" type="text/javascript" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-49182208-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-49182208-1');
     </script>
     
     <!-- Inter font -->
@@ -29,14 +31,15 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 
-<body>
+<body id="square-for-restaurants">
   <navigation-component></navigation-component>
+  <lazy-loading></lazy-loading>
   <div class="wrapper">
 
     <div class="row">
       <div class="column">
         <p class="meta-data">Square ● 2016 - 2018</p>
-        <p>Square for Restaurants is a point of sale system (the thing resturant staff use to enter your order and take payments with). It's specifically created to serve the needs of the hectic restaurant world.</p> 
+        <p>Square for Restaurants is a point of sale system (the thing restaurant staff use to enter your order and take payments with). It's specifically created to serve the needs of the hectic restaurant world.</p> 
         <p>After observing busy chefs, servers, and managers who showed us archaic restaurant software that was incredibly feature rich but very complex to operate, we built a reliable, self-serving point of sale system that let restaurant employees spend less time on technology and more time on what matters: providing tasty food and great service.</p>
       </div>
       <div class="column">
@@ -67,7 +70,7 @@
 
     <div class="row">
       <img src="images/square-mikael-westman-08.png" alt="Square for Restaurants app design">
-      <p class="image-description">The lock screens give employees a quick glance of important information and action items, like menu items that the restaurant have run out of or dilvery orders that needs to be accepted (from integrations with Postmates and othe delivery services).</p> 
+      <p class="image-description">The lock screens give employees a quick glance of important information and action items, like menu items that the restaurant have run out of or delivery orders that needs to be accepted (from integrations with Postmates and other delivery services).</p> 
     </div>
 
     <div class="row">
