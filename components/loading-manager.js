@@ -22,7 +22,7 @@ class LoadingManager extends HTMLElement {
     setTimeout(() => {
       this.setupImageTracking();
       this.setupLazyLoading();
-    }, 50);
+    }, 100);
   }
 
   setupImageTracking() {
