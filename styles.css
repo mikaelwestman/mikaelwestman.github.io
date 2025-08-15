@@ -31,6 +31,24 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
     padding:0;
 }
 
+/* 
+  Page fade-in animation
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content {
+  animation: fadeIn 0.8s ease-out;
+}
+
 *, *:before, *:after {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
