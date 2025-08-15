@@ -193,26 +193,31 @@ class LoadingManager extends HTMLElement {
     
     this.animationTriggered = true;
     
-    // Optimized animation triggering
-    if (this.body?.id === 'about') {
-      // About page: consolidated animation
-      if (this.pageContent) {
-        this.pageContent.classList.add('page-content');
+    // Check if this is the about page
+    const body = document.body;
+    if (body.id === 'about') {
+      // Use consolidated animation for about page
+      const pageContent = document.querySelector('page-content');
+      if (pageContent) {
+        pageContent.classList.add('page-content');
       }
       
-      this.body.classList.add('background-fade-in');
+      body.classList.add('background-fade-in');
       
-      if (this.navigation) {
-        this.navigation.classList.add('background-fade-in');
+      // Also apply to the navigation
+      const navigation = document.querySelector('#top-navigation');
+      if (navigation) {
+        navigation.classList.add('background-fade-in');
       }
     } else {
-      // Other pages: regular animation
-      if (this.pageContent) {
-        this.pageContent.classList.add('page-content');
+      // Use regular animation for other pages
+      const pageContent = document.querySelector('page-content');
+      if (pageContent) {
+        pageContent.classList.add('page-content');
       }
     }
     
-    // Execute callbacks
+    // Execute any registered callbacks
     this.callbacks.forEach(callback => callback());
   }
 
