@@ -511,6 +511,24 @@ footer {
 	max-width: none;
 }
 
+/* Prevent layout shift for images */
+.image-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+.image-container img,
+.image-container video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 #about img {
 	margin-bottom: 1.5rem;
 }
