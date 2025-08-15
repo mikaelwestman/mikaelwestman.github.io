@@ -4,13 +4,24 @@ class LazyLoading extends HTMLElement {
   }
 
   connectedCallback() {
-    this.setupLazyLoading();
+    // Wait a bit for other components to render, then set up lazy loading
+    setTimeout(() => {
+      this.setupLazyLoading();
+    }, 100);
   }
 
   setupLazyLoading() {
     // Get all images and videos that should be lazy loaded
     const images = document.querySelectorAll('img[src]');
     const videos = document.querySelectorAll('video');
+    
+    // If no images found, try again after a longer delay
+    if (images.length === 0) {
+      setTimeout(() => {
+        this.setupLazyLoading();
+      }, 500);
+      return;
+    }
     
     // Create intersection observer for images
     const imageObserver = new IntersectionObserver((entries, observer) => {

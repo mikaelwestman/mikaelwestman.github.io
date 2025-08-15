@@ -4,12 +4,23 @@ class ImagePreloader extends HTMLElement {
   }
 
   connectedCallback() {
-    this.preloadFirstTwoImages();
+    // Wait for other components to render first
+    setTimeout(() => {
+      this.preloadFirstTwoImages();
+    }, 200);
   }
 
   preloadFirstTwoImages() {
     // Get all images on the page
     const images = document.querySelectorAll('img[src]');
+    
+    // If no images found, try again after a delay
+    if (images.length === 0) {
+      setTimeout(() => {
+        this.preloadFirstTwoImages();
+      }, 500);
+      return;
+    }
     
     // Preload only the first 2 images
     const imagesToPreload = Array.from(images).slice(0, 2);
