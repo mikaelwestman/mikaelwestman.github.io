@@ -62,7 +62,7 @@ page-content {
 }
 
 .page-content {
-  animation: fadeIn 1s ease-out forwards;
+  animation: fadeIn 0.7s ease-out forwards;
 }
 
 .page-fade-out {
