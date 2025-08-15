@@ -1,54 +1,83 @@
 class PageContent extends HTMLElement {
   constructor() {
     super();
-    this.topImageLoaded = false;
+    this.topMediaLoaded = false;
     this.animationTriggered = false;
   }
 
   connectedCallback() {
     // Don't add the page-content class immediately
-    // Wait for the top image to load first
-    this.setupTopImageLoadingTracker();
+    // Wait for the top image or video to load first
+    this.setupTopMediaLoadingTracker();
   }
 
-  setupTopImageLoadingTracker() {
-    // Get all images in the page
+  setupTopMediaLoadingTracker() {
+    // Get all images and videos in the page
     const images = document.querySelectorAll('img[src]');
+    const videos = document.querySelectorAll('video');
     
-    if (images.length === 0) {
-      // No images found, trigger animation immediately
+    if (images.length === 0 && videos.length === 0) {
+      // No media found, trigger animation immediately
       this.triggerAnimation();
       return;
     }
 
-    // Get the first image (top image)
+    // Get the first media element (image or video)
     const topImage = images[0];
+    const topVideo = videos[0];
     
-    // Listen for when the top image gets the 'lazy-loaded' class
+    // Determine which comes first in the DOM
+    let topMedia = null;
+    if (topImage && topVideo) {
+      // Both exist, check which comes first in DOM
+      if (topImage.compareDocumentPosition(topVideo) & Node.DOCUMENT_POSITION_PRECEDING) {
+        topMedia = topVideo; // Video comes first
+      } else {
+        topMedia = topImage; // Image comes first
+      }
+    } else if (topImage) {
+      topMedia = topImage;
+    } else if (topVideo) {
+      topMedia = topVideo;
+    }
+    
+    if (!topMedia) {
+      this.triggerAnimation();
+      return;
+    }
+
+    // Listen for when the top media gets the 'lazy-loaded' class
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           const target = mutation.target;
-          if (target === topImage && target.classList.contains('lazy-loaded')) {
-            this.onTopImageLoaded();
+          if (target === topMedia && target.classList.contains('lazy-loaded')) {
+            this.onTopMediaLoaded();
           }
         }
       });
     });
 
-    // Observe the top image for class changes
-    observer.observe(topImage, { attributes: true });
+    // Observe the top media for class changes
+    observer.observe(topMedia, { attributes: true });
     
-    // Also check if the top image is already loaded
-    if (topImage.complete && topImage.naturalHeight !== 0) {
-      this.onTopImageLoaded();
+    // Also check if the top media is already loaded
+    if (topMedia.tagName === 'IMG') {
+      if (topMedia.complete && topMedia.naturalHeight !== 0) {
+        this.onTopMediaLoaded();
+      }
+    } else if (topMedia.tagName === 'VIDEO') {
+      // For videos, consider them "loaded" if they have metadata
+      if (topMedia.readyState >= 1) {
+        this.onTopMediaLoaded();
+      }
     }
   }
 
-  onTopImageLoaded() {
+  onTopMediaLoaded() {
     if (this.animationTriggered) return;
     
-    this.topImageLoaded = true;
+    this.topMediaLoaded = true;
     this.triggerAnimation();
   }
 
