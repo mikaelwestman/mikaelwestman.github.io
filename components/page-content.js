@@ -1,18 +1,17 @@
 class PageContent extends HTMLElement {
   constructor() {
     super();
-    this.loadedImagesCount = 0;
-    this.requiredImagesCount = 1;
+    this.topImageLoaded = false;
     this.animationTriggered = false;
   }
 
   connectedCallback() {
     // Don't add the page-content class immediately
-    // Wait for images to load first
-    this.setupImageLoadingTracker();
+    // Wait for the top image to load first
+    this.setupTopImageLoadingTracker();
   }
 
-  setupImageLoadingTracker() {
+  setupTopImageLoadingTracker() {
     // Get all images in the page
     const images = document.querySelectorAll('img[src]');
     
@@ -22,37 +21,35 @@ class PageContent extends HTMLElement {
       return;
     }
 
-    // Listen for when images get the 'lazy-loaded' class (from lazy-loading component)
+    // Get the first image (top image)
+    const topImage = images[0];
+    
+    // Listen for when the top image gets the 'lazy-loaded' class
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           const target = mutation.target;
-          if (target.tagName === 'IMG' && target.classList.contains('lazy-loaded')) {
-            this.onImageLoaded();
+          if (target === topImage && target.classList.contains('lazy-loaded')) {
+            this.onTopImageLoaded();
           }
         }
       });
     });
 
-    // Observe all images for class changes
-    images.forEach(img => {
-      observer.observe(img, { attributes: true });
-      
-      // Also check if image is already loaded
-      if (img.complete && img.naturalHeight !== 0) {
-        this.onImageLoaded();
-      }
-    });
+    // Observe the top image for class changes
+    observer.observe(topImage, { attributes: true });
+    
+    // Also check if the top image is already loaded
+    if (topImage.complete && topImage.naturalHeight !== 0) {
+      this.onTopImageLoaded();
+    }
   }
 
-  onImageLoaded() {
+  onTopImageLoaded() {
     if (this.animationTriggered) return;
     
-    this.loadedImagesCount++;
-    
-    if (this.loadedImagesCount >= this.requiredImagesCount) {
-      this.triggerAnimation();
-    }
+    this.topImageLoaded = true;
+    this.triggerAnimation();
   }
 
   triggerAnimation() {
