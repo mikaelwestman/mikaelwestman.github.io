@@ -4,10 +4,7 @@
 <head>
     <title>Mikael Westman — Hallway bench</title>
     <meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta property='og:title' content='Mikael Westman — Hallway bench'/>
+        <meta property='og:title' content='Mikael Westman — Hallway bench'/>
     <meta property='og:image' content='images/hallway-bench-mikael-westman-01.jpg'/>
     <meta property='og:description' content='Portfolio of Mikael Westman, Product Designer based in Stockholm.'/>
     <meta name="twitter:card" content="summary_large_image">
@@ -15,29 +12,17 @@
     <meta name="twitter:description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
     <meta name="twitter:image" content="images/hallway-bench-mikael-westman-01.jpg">
     <link rel="canonical" href="https://wst.mn/hallway-bench.html">
-    <link rel="shortcut icon" type="image/png" href="icon.png">
-    <link rel="stylesheet" href="styles.css">
-    <script src="components/navigation.js" type="text/javascript" defer></script>
-    <script src="components/footer.js" type="text/javascript" defer></script>
-    <script src="components/projects.js" type="text/javascript" defer></script>
-    <script src="components/lazy-loading.js" type="text/javascript" defer></script>
-    <script src="components/image-preloader.js" type="text/javascript" defer></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49182208-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-49182208-1');
-    </script>
-    
-    <!-- Inter font -->
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="components/common-head.js"></script>
+    <script src="components/fonts.js"></script>
+    <script src="components/scripts.js"></script>
+    <script src="components/analytics.js"></script>
 </head>
 
 <body id="hallway-bench">
+  <common-head></common-head>
+  <fonts-component></fonts-component>
+  <scripts-component></scripts-component>
+  <analytics-component></analytics-component>
   <navigation-component></navigation-component>
   <lazy-loading></lazy-loading>
   <image-preloader></image-preloader>
