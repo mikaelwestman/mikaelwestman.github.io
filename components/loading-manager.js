@@ -196,21 +196,21 @@ class LoadingManager extends HTMLElement {
     // Check if this is the about page
     const body = document.body;
     if (body.id === 'about') {
-      // Use consolidated animation for about page
+      // About page: separate animations for content and background
       const pageContent = document.querySelector('page-content');
       if (pageContent) {
         pageContent.classList.add('page-content');
       }
       
+      // Background animations
       body.classList.add('background-fade-in');
       
-      // Also apply to the navigation
       const navigation = document.querySelector('#top-navigation');
       if (navigation) {
         navigation.classList.add('background-fade-in');
       }
     } else {
-      // Use regular animation for other pages
+      // Other pages: regular animation
       const pageContent = document.querySelector('page-content');
       if (pageContent) {
         pageContent.classList.add('page-content');

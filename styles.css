@@ -56,15 +56,11 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
   }
 }
 
-@keyframes aboutPageFadeIn {
+@keyframes aboutBackgroundFadeIn {
   from {
-    opacity: 0;
-    transform: translateY(20px);
     background-color: var(--color-background);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
     background-color: var(--color-brand);
   }
 }
@@ -92,7 +88,7 @@ page-content {
 }
 
 #about.background-fade-in {
-  animation: aboutPageFadeIn 0.7s ease-out forwards;
+  animation: aboutBackgroundFadeIn 0.7s ease-out forwards;
 }
 
 #about #top-navigation.background-fade-in {
