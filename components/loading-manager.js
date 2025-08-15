@@ -7,6 +7,7 @@ class LoadingManager extends HTMLElement {
     this.animationTriggered = false;
     this.callbacks = [];
     this.initialized = false;
+    this.lastUrl = window.location.href;
   }
 
   connectedCallback() {
@@ -32,6 +33,29 @@ class LoadingManager extends HTMLElement {
         this.reinitialize();
       }
     });
+
+    // Listen for popstate event (back/forward navigation)
+    window.addEventListener('popstate', () => {
+      if (this.initialized) {
+        // URL changed via back/forward, re-initialize
+        this.reinitialize();
+      }
+    });
+
+    // Check for URL changes periodically (fallback for browsers that don't fire events properly)
+    setInterval(() => {
+      if (this.initialized && window.location.href !== this.lastUrl) {
+        this.lastUrl = window.location.href;
+        this.reinitialize();
+      }
+    }, 100);
+
+    // Force re-initialization when window gains focus (additional fallback)
+    window.addEventListener('focus', () => {
+      if (this.initialized) {
+        setTimeout(() => this.reinitialize(), 100);
+      }
+    });
   }
 
   initialize() {
@@ -51,6 +75,12 @@ class LoadingManager extends HTMLElement {
     this.loadedImages.clear();
     this.animationTriggered = false;
     this.callbacks = [];
+    
+    // Remove any existing page-content class to reset animation
+    const pageContent = document.querySelector('page-content');
+    if (pageContent) {
+      pageContent.classList.remove('page-content');
+    }
     
     // Re-initialize after a short delay
     setTimeout(() => {
