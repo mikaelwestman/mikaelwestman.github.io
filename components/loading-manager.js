@@ -6,6 +6,7 @@ class LoadingManager extends HTMLElement {
     this.requiredImages = 1; // Number of images to load before triggering animation
     this.animationTriggered = false;
     this.callbacks = [];
+    this.initialized = false;
   }
 
   connectedCallback() {
@@ -15,15 +16,47 @@ class LoadingManager extends HTMLElement {
     } else {
       this.initialize();
     }
+
+    // Listen for page visibility changes (back/forward navigation)
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && this.initialized) {
+        // Page became visible again, re-initialize
+        this.reinitialize();
+      }
+    });
+
+    // Listen for pageshow event (fired when page is shown from cache)
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted && this.initialized) {
+        // Page was loaded from cache, re-initialize
+        this.reinitialize();
+      }
+    });
   }
 
   initialize() {
+    if (this.initialized) return;
+    
     // Wait a bit for components to render
     setTimeout(() => {
       this.setupImageTracking();
       this.setupLazyLoading();
       this.setupPageTransitions();
+      this.initialized = true;
     }, 100);
+  }
+
+  reinitialize() {
+    // Reset state
+    this.loadedImages.clear();
+    this.animationTriggered = false;
+    this.callbacks = [];
+    
+    // Re-initialize after a short delay
+    setTimeout(() => {
+      this.setupImageTracking();
+      this.setupLazyLoading();
+    }, 50);
   }
 
   setupPageTransitions() {
@@ -60,7 +93,7 @@ class LoadingManager extends HTMLElement {
       // Wait for animation to complete, then navigate
       setTimeout(() => {
         if (callback) callback();
-      }, 500); // Match the CSS animation duration
+      }, 300); // Match the CSS animation duration
     } else {
       // If no page-content, navigate immediately
       if (callback) callback();
