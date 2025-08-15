@@ -8,10 +8,11 @@ class LazyLoading extends HTMLElement {
   }
 
   setupLazyLoading() {
-    // Get all images that should be lazy loaded
+    // Get all images and videos that should be lazy loaded
     const images = document.querySelectorAll('img[src]');
+    const videos = document.querySelectorAll('video');
     
-    // Create intersection observer
+    // Create intersection observer for images
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -47,9 +48,39 @@ class LazyLoading extends HTMLElement {
       threshold: 0.1
     });
 
+    // Create intersection observer for videos
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          
+          // Add loading class to start with opacity 0
+          video.classList.add('lazy-loading');
+          
+          // For videos, we'll just make them visible immediately since they load on demand
+          // when the user interacts with them
+          setTimeout(() => {
+            video.classList.remove('lazy-loading');
+            video.classList.add('lazy-loaded');
+          }, 100);
+          
+          // Stop observing this video
+          observer.unobserve(video);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
     // Observe all images
     images.forEach(img => {
       imageObserver.observe(img);
+    });
+
+    // Observe all videos
+    videos.forEach(video => {
+      videoObserver.observe(video);
     });
   }
 }
