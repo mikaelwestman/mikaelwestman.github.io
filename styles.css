@@ -214,6 +214,12 @@ li {
 #top-navigation .nav-left a,
 #top-navigation .nav-right a {
 	margin: 0;
+	transition: color 0.2s ease;
+}
+
+#top-navigation .nav-left a:hover,
+#top-navigation .nav-right a:hover {
+	color: var(--color-text-muted);
 }
 
 
@@ -382,16 +388,33 @@ footer a {
 	border: none;
 	font-size: 0.8rem;
 	font-weight: 600;
-	color: var(--color-text-muted);
+	color: var(--color-text);
 	cursor: pointer;
+	position: relative;
+	padding-left: 1rem;
+	transition: color 0.2s ease;
+}
+
+.filter-btn::before {
+	content: "○";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-55%);
+	font-size: 0.7rem;
 }
 
 .filter-btn:hover {
-	color: var(--color-text);
+	color: var(--color-text-muted);
 }
 
 .filter-btn.active {
 	color: var(--color-text);
+}
+
+.filter-btn.active::before {
+	content: "●";
+	color: var(--color-brand);
 }
 
 /* Grid layout */
