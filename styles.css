@@ -254,27 +254,7 @@ footer {
 	width: 100%;
 	margin: auto;
 	padding: 2rem 0 8rem 0;
-	animation: footerGradient 24s ease-in-out infinite;
 	background: var(--color-brand);
-	background-size: 400% 400%;
-}
-
-@keyframes footerGradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	25% {
-		background-position: 100% 50%;
-	}
-	50% {
-		background-position: 100% 100%;
-	}
-	75% {
-		background-position: 0% 100%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
 }
 
 .footer-content {
@@ -409,6 +389,122 @@ footer a {
 	-webkit-transform: scale(1.03);
 	-ms-transform: scale(1.03);
 	transform: scale(1.03);
+}
+
+/* 
+  Projects Grid Layout
+*/
+
+.filter-controls {
+	width: 100%;
+	border-top: 1px solid var(--color-primary);
+	padding-top: 2rem;
+	margin-bottom: 2rem;
+	display: flex;
+	justify-content: left;
+}
+
+.segmented-control {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.filter-btn {
+	background: transparent;
+	border: none;
+	font-size: 0.8rem;
+	font-weight: 600;
+	color: var(--color-text-muted);
+	cursor: pointer;
+}
+
+.filter-btn:hover {
+	color: var(--color-text);
+}
+
+.filter-btn.active {
+	color: var(--color-text);
+}
+
+/* Grid layout */
+.projects-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+
+.project-item {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	opacity: 1;
+	margin-bottom: 2rem;
+}
+
+/* Thumbnail image styles for projects grid */
+.projects-grid .thumbnail-image-wrapper {
+	width: 100%;
+	height: 0; 
+	padding-top: 75%; /* Image aspect ratio for 4:3 (Height is 75% of width).*/
+	position: relative;
+	border-radius: 3px;
+	margin: 0;
+	background: var(--color-thumbnail-bg);
+	overflow: hidden;
+	transition: 0.5s;
+	margin-bottom: 1rem;
+}
+
+.projects-grid .thumbnail-image-wrapper img {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: 0.5s;
+	opacity: 1; /* Override global opacity setting */
+}
+
+.projects-grid .project-item:hover .thumbnail-image-wrapper img {
+	-webkit-transform: scale(1.03);
+	-ms-transform: scale(1.03);
+	transform: scale(1.03);
+}
+
+.projects-grid .thumbnail-title::after {
+	content: "🡒";
+	position: relative;
+	left: 0;
+	transition: 0.5s;
+	opacity: 0;
+}
+
+.projects-grid .project-item:hover .thumbnail-title::after {
+	opacity: 1;
+	left: 8px;
+}
+
+/* Prevent layout shift for images */
+.image-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+.image-container img,
+.image-container video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#about img {
+	margin-bottom: 1.5rem;
 }
 
 
@@ -569,43 +665,8 @@ html {
 	margin-bottom: 2rem;
 }
 
-
-.thumbnails {
-	padding-top: 0; /*	Remove top padding from wrapper of "All projects" component*/
-}
-
-#index .thumbnails {
-	padding-top: 4rem;
-}
-
-.thumbnails .row {
-	margin-bottom: 1.5rem;
-	gap: 1.5rem;
-}
-
 .image-description {
 	width: 100%;
 	max-width: none;
 }
-
-/* Prevent layout shift for images */
-.image-container {
-	position: relative;
-	width: 100%;
-	overflow: hidden;
-	border-radius: 3px;
-}
-
-.image-container img,
-.image-container video {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-#about img {
-	margin-bottom: 1.5rem;
 }
