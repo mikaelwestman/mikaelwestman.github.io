@@ -8,7 +8,7 @@ class Projects extends HTMLElement {
       <div class="wrapper projects-grid">
         <div class="filter-controls">
           <div class="segmented-control">
-            <button class="filter-btn active" data-filter="all">All projects</button>
+            <button class="filter-btn active" data-filter="all">All cases</button>
             <button class="filter-btn" data-filter="digital">Digital</button>
             <button class="filter-btn" data-filter="physical">Physical</button>
           </div>
