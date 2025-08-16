@@ -14,7 +14,7 @@ class Projects extends HTMLElement {
           </div>
         </div>
         
-        <div class="projects-container">
+        <div class="projects-container fade-in">
           <a class="project-item physical" href="hallway-bench.html">
             <div class="thumbnail-image-wrapper">
               <img src="images/hallway-bench-mikael-westman-05.jpg" alt="Hallway bench">
@@ -87,6 +87,7 @@ class Projects extends HTMLElement {
   setupFiltering() {
     const filterButtons = this.querySelectorAll('.filter-btn');
     const projectItems = this.querySelectorAll('.project-item');
+    const projectsContainer = this.querySelector('.projects-container');
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -96,24 +97,22 @@ class Projects extends HTMLElement {
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         
-        // Show/hide items by removing them from grid flow
-        projectItems.forEach(item => {
-          const shouldShow = filter === 'all' || item.classList.contains(filter);
+        // Fade out the container
+        projectsContainer.classList.add('fade-out');
+        projectsContainer.classList.remove('fade-in');
+        
+        // After fade out, filter items and fade back in
+        setTimeout(() => {
+          // Show/hide items immediately
+          projectItems.forEach(item => {
+            const shouldShow = filter === 'all' || item.classList.contains(filter);
+            item.style.display = shouldShow ? 'block' : 'none';
+          });
           
-          if (shouldShow) {
-            item.style.display = 'block';
-            item.classList.remove('hide');
-            item.classList.add('show');
-          } else {
-            item.classList.remove('show');
-            item.classList.add('hide');
-            setTimeout(() => {
-              if (!item.classList.contains('show')) {
-                item.style.display = 'none';
-              }
-            }, 400); // Match transition duration
-          }
-        });
+          // Fade the container back in
+          projectsContainer.classList.remove('fade-out');
+          projectsContainer.classList.add('fade-in');
+        }, 200); // Half of the fade duration for smooth transition
       });
     });
   }
