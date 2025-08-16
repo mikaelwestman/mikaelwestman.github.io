@@ -17,6 +17,9 @@ class Footer extends HTMLElement {
 					<a href="https://soundcloud.com/mikael-westman" target="_blank"><span class="bullet">↗</span>Soundcloud</a>
 				</div>
 			</div>
+			<div class="footer-logo">
+				<img src="images/mw-monogram.svg" alt="Mikael Westman" class="footer-logo-img lazy-loaded">
+			</div>
 		</footer>
     `;
   }

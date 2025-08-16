@@ -102,7 +102,7 @@ img.lazy-error, video.lazy-error {
 */
 
 html {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 ::-moz-selection, ::selection, ::-webkit-selection {
@@ -145,7 +145,7 @@ h3, h4, h5, h6 {
 }
 
 h1 {
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 6rem;
 	line-height: 100%;
 	letter-spacing: -0.05em;
@@ -154,10 +154,6 @@ h1 {
 h2, .big-link {
 	font-size: 1.5rem;
 	line-height: 1.4;
-}
-
-.big-link {
-	color: var(--color-brand);
 }
 
 h4 {
@@ -252,8 +248,10 @@ li {
 
 footer {
 	width: 100%;
+	height: 640px;
+	overflow: hidden;
 	margin: auto;
-	padding: 2rem 0 8rem 0;
+	padding: 2rem 1rem 8rem 1rem;
 	background: var(--color-brand);
 }
 
@@ -262,7 +260,13 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	margin: auto;
-	padding: 0 1rem;
+}
+
+.footer-logo {
+    width: 150%;
+    margin-left: -25%; /* Pull it left by half the extra width */
+    display: flex;
+    justify-content: center;
 }
 
 footer a {
@@ -274,7 +278,7 @@ footer a {
 */
 
 .wrapper, #top-navigation, .footer-content {
-	max-width: 2000px;
+	max-width: 1440px;
 }
 
 .wrapper {
@@ -299,7 +303,8 @@ footer a {
 }
 
 .wrapper .row:first-child {
-	padding-bottom: 3rem;
+	border-top: 1px solid var(--color-primary);
+	padding: 3rem 0;
 	margin-bottom: 0;
 }
 
@@ -598,11 +603,27 @@ footer a:hover .bullet {
 @media screen and (max-width: 960px) {
 
 html {
-	font-size: 20px;
+	font-size: 16px;
+}
+
+h3, h4, h5, h6 {
+	font-size: 1rem;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2, .big-link {
+	font-size: 1.25rem;
 }
 
 .projects-container {
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-item {
+	margin-bottom: 1rem;
 }
 
 .wrapper {
@@ -669,13 +690,8 @@ html {
 	margin-right: 0;
 }
 
-.footer-content {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.footer-content .column:first-child {
-	margin-bottom: 2rem;
+footer {
+	height: 400px;
 }
 
 .image-description {
