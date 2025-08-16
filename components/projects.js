@@ -36,13 +36,6 @@ class Projects extends HTMLElement {
             <span class="thumbnail-title">Children's tableware</span>
           </a>
           
-          <a class="project-item digital" href="3d.html">
-            <div class="thumbnail-image-wrapper">
-              <img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter">
-            </div>
-            <span class="thumbnail-title">3D</span>
-          </a>
-          
           <a class="project-item digital" href="square-for-restaurants.html">
             <div class="thumbnail-image-wrapper">
               <img src="images/square-mikael-westman-04.png" alt="Square for Restaurants">
@@ -62,6 +55,13 @@ class Projects extends HTMLElement {
               <img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page">
             </div>
             <span class="thumbnail-title">Epidemic Sound</span>
+          </a>
+          
+          <a class="project-item digital" href="3d.html">
+            <div class="thumbnail-image-wrapper">
+              <img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter">
+            </div>
+            <span class="thumbnail-title">3D</span>
           </a>
           
           <a class="project-item digital" href="variable-font.html">
