@@ -88,6 +88,10 @@ class Projects extends HTMLElement {
     const filterButtons = this.querySelectorAll('.filter-btn');
     const projectItems = this.querySelectorAll('.project-item');
     const projectsContainer = this.querySelector('.projects-container');
+    const segmentedControl = this.querySelector('.segmented-control');
+
+    // Initialize the indicator position for the first active button
+    this.updateIndicatorPosition();
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -96,6 +100,9 @@ class Projects extends HTMLElement {
         // Update active button
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
+        
+        // Animate the indicator to the new position
+        this.updateIndicatorPosition();
         
         // Fade out the container
         projectsContainer.classList.add('fade-out');
@@ -115,6 +122,27 @@ class Projects extends HTMLElement {
         }, 200); // Half of the fade duration for smooth transition
       });
     });
+  }
+
+  updateIndicatorPosition() {
+    const activeButton = this.querySelector('.filter-btn.active');
+    const segmentedControl = this.querySelector('.segmented-control');
+    
+    if (activeButton && segmentedControl) {
+      const buttonRect = activeButton.getBoundingClientRect();
+      const controlRect = segmentedControl.getBoundingClientRect();
+      const leftOffset = buttonRect.left - controlRect.left;
+      
+      // Position the indicator to align perfectly with the outlined circle
+      const indicatorLeft = leftOffset; // Remove the +5 offset to align perfectly
+      segmentedControl.style.setProperty('--indicator-left', `${indicatorLeft}px`);
+      
+      // Trigger the jumping animation
+      segmentedControl.classList.add('jumping');
+      setTimeout(() => {
+        segmentedControl.classList.remove('jumping');
+      }, 400);
+    }
   }
 }
 
