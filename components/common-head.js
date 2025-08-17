@@ -15,16 +15,10 @@ class CommonHead extends HTMLElement {
     favicon.type = 'image/png';
     favicon.href = 'icon.png';
     
-    // Create stylesheet link
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = 'styles.css';
-    
     // Append all elements to the head
     document.head.appendChild(charset);
     document.head.appendChild(viewport);
     document.head.appendChild(favicon);
-    document.head.appendChild(stylesheet);
   }
 }
 
