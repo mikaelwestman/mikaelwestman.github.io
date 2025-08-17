@@ -366,6 +366,7 @@ footer a {
 	border: none;
 	font-size: 0.8rem;
 	font-weight: 600;
+	letter-spacing: -0.02em;
 	color: var(--color-text);
 	cursor: pointer;
 	position: relative;
