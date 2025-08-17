@@ -256,7 +256,7 @@ footer a {
   Flexbox & layout
 */
 
-.wrapper, #top-navigation, .footer-content {
+.wrapper, #top-navigation, footer {
 	max-width: 2000px;
 	padding-left: 2rem;
 	padding-right: 2rem;
@@ -640,10 +640,10 @@ h1 {
 	margin-bottom: 1rem;
 }
 
-.wrapper {
-	width: 100%;
-	padding: 4rem 1rem 3rem 1rem;
-	margin: auto;
+
+.wrapper, #top-navigation, footer {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .row {
@@ -702,7 +702,6 @@ h1 {
 
 footer {
 	height: 400px;
-	padding: 2rem 1rem;
 }
 
 .image-description {
