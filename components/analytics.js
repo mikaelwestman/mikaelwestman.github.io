@@ -1,9 +1,9 @@
 class Analytics extends HTMLElement {
   connectedCallback() {
-    // Create and append the Google Analytics script
+    // Create and append the Google Analytics 4 script
     const gtagScript = document.createElement('script');
     gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-49182208-1';
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-362299312';
     
     // Create the inline script for gtag configuration
     const inlineScript = document.createElement('script');
@@ -11,7 +11,7 @@ class Analytics extends HTMLElement {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-49182208-1');
+      gtag('config', 'G-362299312');
     `;
     
     // Append both scripts to the head

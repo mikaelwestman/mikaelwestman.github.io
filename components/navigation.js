@@ -7,7 +7,7 @@ class Navigation extends HTMLElement {
     this.innerHTML = `
 		<div id="top-navigation" class="row">
 			<div class="nav-left">
-				<a href="/" id="menu-active-1">Work</a>
+				<a href="/">Work</a>
 			</div>
 			<div class="nav-center">
 				<a href="/"><svg class="logo" width="" height="28" viewBox="0 0 100 48" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,7 +15,7 @@ class Navigation extends HTMLElement {
 				</svg></a>
 			</div>
 			<div class="nav-right">
-				<a href="about.html" id="menu-active-2">About</a>
+				<a href="about.html">About</a>
 			</div>
 		</div>
     `;

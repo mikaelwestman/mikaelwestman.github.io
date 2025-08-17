@@ -4,11 +4,6 @@ class CommonHead extends HTMLElement {
     const charset = document.createElement('meta');
     charset.charset = 'utf-8';
     
-    // Create IE compatibility meta tag
-    const ieCompat = document.createElement('meta');
-    ieCompat.setAttribute('http-equiv', 'x-ua-compatible');
-    ieCompat.content = 'ie=edge';
-    
     // Create viewport meta tag
     const viewport = document.createElement('meta');
     viewport.name = 'viewport';
@@ -27,7 +22,6 @@ class CommonHead extends HTMLElement {
     
     // Append all elements to the head
     document.head.appendChild(charset);
-    document.head.appendChild(ieCompat);
     document.head.appendChild(viewport);
     document.head.appendChild(favicon);
     document.head.appendChild(stylesheet);
