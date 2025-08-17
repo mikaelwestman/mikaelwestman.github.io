@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
     dismiss();
   }
 
+  function handleOutsideClick(e) {
+    // Check if the click was outside the floating intro
+    if (!floatingIntro.contains(e.target)) {
+      dismiss();
+    }
+  }
+
   function dismiss() {
     // Save dismissal state to sessionStorage
     sessionStorage.setItem('floatingIntroDismissed', 'true');
@@ -35,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Event listeners
   floatingIntro.addEventListener('click', handleClick);
+  
+  // Click outside to dismiss
+  document.addEventListener('click', handleOutsideClick);
   
   // Scroll event to dismiss the box
   window.addEventListener('scroll', handleScroll);
