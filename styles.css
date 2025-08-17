@@ -396,16 +396,24 @@ footer a {
 }
 
 .filter-btn::before {
-	content: "○";
+	content: "";
 	position: absolute;
 	left: 0;
 	top: 50%;
-	transform: translateY(-55%);
-	font-size: 0.7rem;
+	transform: translateY(-50%);
+	width: 10px;
+	height: 10px;
+	border: 1px solid var(--color-text);
+	border-radius: 50%;
+	background: transparent;
 }
 
 .filter-btn:hover {
 	color: var(--color-text-muted);
+}
+
+.filter-btn:hover::before {
+	border-color: var(--color-text-muted);
 }
 
 .filter-btn.active {
@@ -413,8 +421,8 @@ footer a {
 }
 
 .filter-btn.active::before {
-	content: "●";
-	color: var(--color-brand);
+	background: var(--color-brand);
+	border-color: var(--color-brand);
 }
 
 /* Grid layout */
