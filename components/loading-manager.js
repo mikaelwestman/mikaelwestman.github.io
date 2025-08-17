@@ -202,13 +202,16 @@ class LoadingManager extends HTMLElement {
         pageContent.classList.add('page-content');
       }
       
-      // Background animations
-      body.classList.add('background-fade-in');
-      
+      // Background animations - trigger both simultaneously
       const navigation = document.querySelector('#top-navigation');
-      if (navigation) {
-        navigation.classList.add('background-fade-in');
-      }
+      
+      // Use requestAnimationFrame to ensure both animations start in the same frame
+      requestAnimationFrame(() => {
+        body.classList.add('background-fade-in');
+        if (navigation) {
+          navigation.classList.add('background-fade-in');
+        }
+      });
     } else {
       // Other pages: regular animation
       const pageContent = document.querySelector('page-content');

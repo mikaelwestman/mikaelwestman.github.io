@@ -561,10 +561,20 @@ footer a {
 */
 
 #about {
+	background: var(--color-background);
+	transition: background-color 0.4s ease-in-out;
+}
+
+#about.background-fade-in {
 	background: var(--color-brand);
 }
 
 #about #top-navigation {
+	background: var(--color-background);
+	transition: background-color 0.4s ease-in-out;
+}
+
+#about #top-navigation.background-fade-in {
 	background: var(--color-brand);
 }
 
