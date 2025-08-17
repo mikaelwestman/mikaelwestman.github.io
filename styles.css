@@ -10,7 +10,6 @@
   --color-thumbnail-bg: #cfd2c6;
   
   /* Text colors */
-  --color-text: #1c1c1c;
   --color-text-muted: rgba(28, 28, 28, 0.6);
   
   /* Typography */
@@ -121,7 +120,7 @@ body, #top-navigation {
 }
 
 body, a {
-	color: var(--color-text);
+	color: var(--color-primary);
 }
 
 p {
@@ -367,7 +366,7 @@ footer a {
 	font-size: 0.8rem;
 	font-weight: 600;
 	letter-spacing: -0.02em;
-	color: var(--color-text);
+	color: var(--color-primary);
 	cursor: pointer;
 	position: relative;
 	padding-left: 1.2rem;
@@ -391,12 +390,12 @@ footer a {
 }
 
 .filter-btn.active {
-	color: var(--color-text);
+	color: var(--color-primary);
 }
 
 .filter-btn.active::before {
 	background: var(--color-thumbnail-bg);
-	border-color: var(--color-text);
+	border-color: var(--color-primary);
 }
 
 /* Grid layout */
