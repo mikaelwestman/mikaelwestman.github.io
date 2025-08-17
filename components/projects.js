@@ -90,8 +90,8 @@ class Projects extends HTMLElement {
     const projectsContainer = this.querySelector('.projects-container');
     const segmentedControl = this.querySelector('.segmented-control');
 
-    // Initialize the indicator position for the first active button
-    this.updateIndicatorPosition();
+    // Initialize the indicator position for the first active button (no animation)
+    this.updateIndicatorPosition(false);
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -119,12 +119,12 @@ class Projects extends HTMLElement {
           // Fade the container back in
           projectsContainer.classList.remove('fade-out');
           projectsContainer.classList.add('fade-in');
-        }, 200); // Half of the fade duration for smooth transition
+        }, 500); // Half of the fade duration for smooth transition
       });
     });
   }
 
-  updateIndicatorPosition() {
+  updateIndicatorPosition(animate = true) {
     const activeButton = this.querySelector('.filter-btn.active');
     const segmentedControl = this.querySelector('.segmented-control');
     
@@ -137,11 +137,13 @@ class Projects extends HTMLElement {
       const indicatorLeft = leftOffset; // Remove the +5 offset to align perfectly
       segmentedControl.style.setProperty('--indicator-left', `${indicatorLeft}px`);
       
-      // Trigger the jumping animation
-      segmentedControl.classList.add('jumping');
-      setTimeout(() => {
-        segmentedControl.classList.remove('jumping');
-      }, 400);
+      // Only trigger the jumping animation if animate parameter is true
+      if (animate) {
+        segmentedControl.classList.add('jumping');
+        setTimeout(() => {
+          segmentedControl.classList.remove('jumping');
+        }, 400);
+      }
     }
   }
 }
