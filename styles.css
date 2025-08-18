@@ -243,6 +243,7 @@ footer {
 
 .footer-logo {
     width: 150%;
+	margin-top: 2rem;
     margin-left: -25%; /* Pull it left by half the extra width */
     display: flex;
     justify-content: center;
