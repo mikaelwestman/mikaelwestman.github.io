@@ -717,4 +717,27 @@ footer {
 	transform: translate(-50%, -50%) rotate(2deg);
 }
 
+.filter-controls {
+	justify-content: center;
+}
+
+.segmented-control {
+	gap: 1.2rem;
+}
+
+.filter-btn {
+	padding-left: 1.8rem;
+}
+
+.filter-btn::before {
+	width: 24px;
+	height: 24px;
+}
+
+/* Animated active indicator */
+.segmented-control::after {
+	width: 24px;
+	height: 24px;
+}
+
 }
