@@ -290,6 +290,10 @@ footer a {
 	padding-top: 6rem;
 }
 
+#index page-content {
+	border-bottom: 0;
+}
+
 .row {
 	width: 100%;
 	display: flex;
