@@ -263,7 +263,7 @@ footer a {
   Flexbox & layout
 */
 
-.wrapper, #top-navigation, .footer-content {
+.wrapper, #top-navigation {
 	max-width: 2000px;
 	padding-left: 2rem;
 	padding-right: 2rem;
