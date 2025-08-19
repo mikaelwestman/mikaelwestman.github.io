@@ -469,6 +469,8 @@ footer a {
 .image-wrapper.progressive {
 	position: relative;
 	display: inline-block;
+	border-radius: 32px;
+	overflow: hidden;
 }
 
 .image-wrapper.progressive .image-placeholder {
@@ -480,6 +482,7 @@ footer a {
 	background: var(--color-thumbnail-bg);
 	transition: opacity 0.3s ease;
 	z-index: 1;
+	border-radius: 32px;
 }
 
 .image-wrapper.progressive.loading .image-placeholder {
@@ -524,6 +527,7 @@ footer a {
 	background: var(--color-thumbnail-bg);
 	transition: opacity 0.3s ease;
 	z-index: 1;
+	border-radius: 32px;
 }
 
 /* Subtle loading animation for placeholder */
