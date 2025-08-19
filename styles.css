@@ -263,7 +263,7 @@ footer a {
   Flexbox & layout
 */
 
-.wrapper, #top-navigation, footer {
+.wrapper, #top-navigation, .footer-content {
 	max-width: 2000px;
 	padding-left: 2rem;
 	padding-right: 2rem;
@@ -474,7 +474,8 @@ footer a {
 /* General progressive image loading for all pages */
 .image-wrapper.progressive {
 	position: relative;
-	display: inline-block;
+	display: block;
+	width: 100%;
 	border-radius: 32px;
 	overflow: hidden;
 }
@@ -509,6 +510,13 @@ footer a {
 	opacity: 1;
 	transform: scale(1);
 	transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Ensure images in progressive wrappers take full width */
+.image-wrapper.progressive img {
+	width: 100% !important;
+	height: auto !important;
+	object-fit: cover;
 }
 
 .image-wrapper.progressive.error .image-placeholder {
