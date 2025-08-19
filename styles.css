@@ -460,6 +460,115 @@ footer a {
 	opacity: 1; /* Override global opacity setting */
 }
 
+/* Progressive image loading styles */
+.projects-grid .thumbnail-image-wrapper {
+	position: relative;
+}
+
+/* General progressive image loading for all pages */
+.image-wrapper.progressive {
+	position: relative;
+	display: inline-block;
+}
+
+.image-wrapper.progressive .image-placeholder {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-thumbnail-bg);
+	transition: opacity 0.3s ease;
+	z-index: 1;
+}
+
+.image-wrapper.progressive.loading .image-placeholder {
+	background: linear-gradient(90deg, 
+		var(--color-thumbnail-bg) 0%, 
+		rgba(207, 210, 198, 0.8) 50%, 
+		var(--color-thumbnail-bg) 100%);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s infinite;
+}
+
+.image-wrapper.progressive.loading img {
+	opacity: 0;
+	transform: scale(0.95);
+}
+
+.image-wrapper.progressive.loaded img {
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.image-wrapper.progressive.error .image-placeholder {
+	background: #f0f0f0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #999;
+	font-size: 0.875rem;
+}
+
+.image-wrapper.progressive.error .image-placeholder::after {
+	content: "Image failed to load";
+}
+
+.projects-grid .thumbnail-image-wrapper .image-placeholder {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-thumbnail-bg);
+	transition: opacity 0.3s ease;
+	z-index: 1;
+}
+
+/* Subtle loading animation for placeholder */
+.projects-grid .thumbnail-image-wrapper.loading .image-placeholder {
+	background: linear-gradient(90deg, 
+		var(--color-thumbnail-bg) 0%, 
+		rgba(207, 210, 198, 0.8) 50%, 
+		var(--color-thumbnail-bg) 100%);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+.projects-grid .thumbnail-image-wrapper.loading .progressive-image {
+	opacity: 0;
+	transform: scale(0.95);
+}
+
+.projects-grid .thumbnail-image-wrapper.loaded .progressive-image {
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.projects-grid .thumbnail-image-wrapper.error .image-placeholder {
+	background: #f0f0f0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #999;
+	font-size: 0.875rem;
+}
+
+.projects-grid .thumbnail-image-wrapper.error .image-placeholder::after {
+	content: "Image failed to load";
+}
+
 .projects-grid .project-item:hover .thumbnail-image-wrapper img {
 	transform: scale(1.03);
 }

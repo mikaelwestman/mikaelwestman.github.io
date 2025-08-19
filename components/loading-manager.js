@@ -158,16 +158,71 @@ class LoadingManager extends HTMLElement {
   loadImage(img) {
     img.classList.add('lazy-loading');
     
+    // Setup progressive loading for images
+    this.setupProgressiveLoading(img);
+    
     const tempImage = new Image();
     tempImage.onload = () => {
       img.classList.remove('lazy-loading');
       img.classList.add('lazy-loaded');
+      this.onProgressiveImageLoaded(img);
     };
     tempImage.onerror = () => {
       img.classList.remove('lazy-loading');
       img.classList.add('lazy-error');
+      this.onProgressiveImageError(img);
     };
     tempImage.src = img.src;
+  }
+
+  setupProgressiveLoading(img) {
+    // Skip if already has progressive loading setup
+    if (img.closest('.thumbnail-image-wrapper') || img.closest('.image-wrapper.progressive')) {
+      return;
+    }
+
+    // Create wrapper if it doesn't exist
+    let wrapper = img.parentElement;
+    if (!wrapper.classList.contains('image-wrapper')) {
+      const newWrapper = document.createElement('div');
+      newWrapper.className = 'image-wrapper progressive';
+      img.parentNode.insertBefore(newWrapper, img);
+      newWrapper.appendChild(img);
+      wrapper = newWrapper;
+    }
+
+    // Add placeholder
+    if (!wrapper.querySelector('.image-placeholder')) {
+      const placeholder = document.createElement('div');
+      placeholder.className = 'image-placeholder';
+      wrapper.appendChild(placeholder);
+    }
+
+    // Add loading class
+    wrapper.classList.add('loading');
+  }
+
+  onProgressiveImageLoaded(img) {
+    const wrapper = img.closest('.image-wrapper.progressive');
+    if (wrapper) {
+      wrapper.classList.remove('loading');
+      wrapper.classList.add('loaded');
+      
+      const placeholder = wrapper.querySelector('.image-placeholder');
+      if (placeholder) {
+        setTimeout(() => {
+          placeholder.style.opacity = '0';
+        }, 100);
+      }
+    }
+  }
+
+  onProgressiveImageError(img) {
+    const wrapper = img.closest('.image-wrapper.progressive');
+    if (wrapper) {
+      wrapper.classList.remove('loading');
+      wrapper.classList.add('error');
+    }
   }
 
   loadVideo(video) {

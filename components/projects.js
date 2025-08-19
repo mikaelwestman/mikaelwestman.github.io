@@ -17,63 +17,72 @@ class Projects extends HTMLElement {
         <div class="projects-container fade-in">
           <a class="project-item physical" href="hallway-bench.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/hallway-bench-mikael-westman-05.jpg" alt="Hallway bench">
+              <div class="image-placeholder"></div>
+              <img src="images/hallway-bench-mikael-westman-05.jpg" alt="Hallway bench" class="progressive-image">
             </div>
             <span class="thumbnail-title">Hallway bench</span>
           </a>
           
           <a class="project-item physical" href="stool.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/stool-thumb.jpg" alt="Ball stool">
+              <div class="image-placeholder"></div>
+              <img src="images/stool-thumb.jpg" alt="Ball stool" class="progressive-image">
             </div>
             <span class="thumbnail-title">Ball stool</span>
           </a>
           
           <a class="project-item physical" href="pelican.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon">
+              <div class="image-placeholder"></div>
+              <img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon" class="progressive-image">
             </div>
             <span class="thumbnail-title">Children's tableware</span>
           </a>
           
           <a class="project-item digital" href="square-for-restaurants.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/square-mikael-westman-04.png" alt="Square for Restaurants">
+              <div class="image-placeholder"></div>
+              <img src="images/square-mikael-westman-04.png" alt="Square for Restaurants" class="progressive-image">
             </div>
             <span class="thumbnail-title">Square for Restaurants</span>
           </a>
           
           <a class="project-item digital" href="square-pos.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/pos-mikael-westman-01.png" alt="Square Point of Sale tablet & mobile design for Android">
+              <div class="image-placeholder"></div>
+              <img src="images/pos-mikael-westman-01.png" alt="Square Point of Sale tablet & mobile design for Android" class="progressive-image">
             </div>
             <span class="thumbnail-title">Square POS</span>
           </a>
           
           <a class="project-item digital" href="epidemic-sound.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page">
+              <div class="image-placeholder"></div>
+              <img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page" class="progressive-image">
             </div>
             <span class="thumbnail-title">Epidemic Sound</span>
           </a>
           
           <a class="project-item digital" href="3d.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter">
+              <div class="image-placeholder"></div>
+              <img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter" class="progressive-image">
             </div>
             <span class="thumbnail-title">3D</span>
           </a>
           
           <a class="project-item digital" href="variable-font.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/variable-font-thumb.png" alt="Variable font">
+              <div class="image-placeholder"></div>
+              <img src="images/variable-font-thumb.png" alt="Variable font" class="progressive-image">
             </div>
             <span class="thumbnail-title">Stretchy font</span>
           </a>
           
           <a class="project-item digital" href="vexillography.html">
             <div class="thumbnail-image-wrapper">
-              <img src="images/flag-uca-mikael-westman.jpg" alt="Flag">
+              <div class="image-placeholder"></div>
+              <img src="images/flag-uca-mikael-westman.jpg" alt="Flag" class="progressive-image">
             </div>
             <span class="thumbnail-title">Vexillography</span>
           </a>
@@ -82,6 +91,7 @@ class Projects extends HTMLElement {
     `;
 
     this.setupFiltering();
+    this.setupProgressiveImageLoading();
   }
 
   setupFiltering() {
@@ -120,6 +130,37 @@ class Projects extends HTMLElement {
           projectsContainer.classList.remove('fade-out');
           projectsContainer.classList.add('fade-in');
         }, 500); // Half of the fade duration for smooth transition
+      });
+    });
+  }
+
+  setupProgressiveImageLoading() {
+    const images = this.querySelectorAll('.progressive-image');
+    
+    images.forEach(img => {
+      const wrapper = img.closest('.thumbnail-image-wrapper');
+      const placeholder = wrapper.querySelector('.image-placeholder');
+      
+      // Add loading class to wrapper
+      wrapper.classList.add('loading');
+      
+      // Handle image load event
+      img.addEventListener('load', () => {
+        wrapper.classList.remove('loading');
+        wrapper.classList.add('loaded');
+        
+        // Add a small delay to ensure smooth transition
+        setTimeout(() => {
+          if (placeholder) {
+            placeholder.style.opacity = '0';
+          }
+        }, 100);
+      });
+      
+      // Handle image error
+      img.addEventListener('error', () => {
+        wrapper.classList.remove('loading');
+        wrapper.classList.add('error');
       });
     });
   }
