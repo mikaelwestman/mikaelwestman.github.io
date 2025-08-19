@@ -299,6 +299,7 @@ footer a {
 .wrapper .row:first-child {
 	padding: 3rem 0;
 	margin-bottom: 0;
+	gap: 0;
 }
 
 .wrapper .row:last-child {
@@ -307,12 +308,14 @@ footer a {
 
 .wrapper .row:first-child .column:first-child {
 	padding-right: 2rem;
+	width: 50%;
 }
 
 .wrapper .row:first-child .column:last-child {
 	align-items: flex-start;
 	border-left: 1px solid var(--color-primary);
 	padding-left: 2rem;
+	width: 50%;
 }
 
 .wrapper .row:first-child .column:only-child {
@@ -748,12 +751,14 @@ h1 {
 
 .wrapper .row:first-child .column:first-child {
 	padding-right: 0;
+	width: 100%;
 }
 
 .wrapper .row:first-child .column:last-child {
 	border-left: 0;
 	padding-left: 0;
 	margin-top: 1.5rem;
+	width: 100%;
 }
 
 .wrapper .row:first-child .column:only-child {
