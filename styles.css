@@ -3,14 +3,14 @@
 */
 :root {
   /* Primary colors */
-  --color-primary: #1c1c1c;
+  --color-primary: rgb(48, 44, 34);
   --color-background: #f0f1ed;
   --color-brand: #f34f26;
   --color-selection: #00000037;
   --color-thumbnail-bg: #cfd2c6;
   
   /* Text colors */
-  --color-text-muted: rgba(28, 28, 28, 0.6);
+  --color-text-muted: rgba(48, 44, 34, 0.6);
   
   /* Typography */
   font-family: Inter, sans-serif;
@@ -88,7 +88,11 @@ img, video {
 .footer-logo-img {
 	opacity: 1 !important;
 	border-radius: 0;
+	width: 100%;
+	height: auto;
 }
+
+
 
 img.lazy-loaded, video.lazy-loaded {
 	opacity: 1;
@@ -258,6 +262,7 @@ footer {
     margin-left: -25%; /* Pull it left by half the extra width */
     display: flex;
     justify-content: center;
+    color: var(--color-primary);
 }
 
 footer a {
