@@ -81,6 +81,12 @@ img, video {
 	transition: opacity 0.7s ease-in-out;
 }
 
+/* Footer logo should load immediately */
+.footer-logo-img {
+	opacity: 1 !important;
+	border-radius: 0;
+}
+
 img.lazy-loaded, video.lazy-loaded {
 	opacity: 1;
 }

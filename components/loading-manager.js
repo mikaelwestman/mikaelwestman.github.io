@@ -86,7 +86,7 @@ class LoadingManager extends HTMLElement {
   }
 
   setupImageTracking() {
-    const images = document.querySelectorAll('img[src]');
+    const images = document.querySelectorAll('img[src]:not(.footer-logo-img)');
     const videos = document.querySelectorAll('video');
     
     this.totalImages = images.length + videos.length;
@@ -129,7 +129,7 @@ class LoadingManager extends HTMLElement {
   }
 
   setupLazyLoading() {
-    const images = document.querySelectorAll('img[src]');
+    const images = document.querySelectorAll('img[src]:not(.footer-logo-img)');
     const videos = document.querySelectorAll('video');
     
     if (images.length === 0 && videos.length === 0) return;
@@ -176,8 +176,8 @@ class LoadingManager extends HTMLElement {
   }
 
   setupProgressiveLoading(img) {
-    // Skip if already has progressive loading setup
-    if (img.closest('.thumbnail-image-wrapper') || img.closest('.image-wrapper.progressive')) {
+    // Skip footer logo and images that already have progressive loading setup
+    if (img.classList.contains('footer-logo-img') || img.closest('.thumbnail-image-wrapper') || img.closest('.image-wrapper.progressive')) {
       return;
     }
 
