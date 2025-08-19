@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mikael Westman — Bryggmästaren</title>
   <meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
   <meta property='og:title' content='Mikael Westman — Bryggmästaren'/>
@@ -14,26 +12,16 @@
   <meta name="twitter:description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
   <meta name="twitter:image" content="images/bryggmastarens-mikael-westman-01.png">
   <link rel="canonical" href="https://wst.mn/bryggmastaren.html">
-  <link rel="shortcut icon" type="image/png" href="icon.png">
-  
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://rsms.me/">
-  <link rel="preconnect" href="https://www.googletagmanager.com/">
-  
-  <!-- Load critical CSS -->
   <link rel="stylesheet" href="styles.css">
-  <!-- Load fonts asynchronously -->
-  <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css"></noscript>
-  
-  <!-- Defer non-critical scripts -->
-  <script src="components/common-head.js" defer></script>
-  <script src="components/scripts.js" defer></script>
-  <script src="components/analytics.js" defer></script>
+  <script src="components/common-head.js"></script>
+  <script src="components/fonts.js"></script>
+  <script src="components/scripts.js"></script>
+  <script src="components/analytics.js"></script>
 </head>
 
 <body id="bryggmastaren">
   <common-head></common-head>
+  <fonts-component></fonts-component>
   <scripts-component></scripts-component>
   <analytics-component></analytics-component>
   <navigation-component></navigation-component>
