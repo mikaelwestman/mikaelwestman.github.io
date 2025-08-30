@@ -27,17 +27,15 @@ class Navigation extends HTMLElement {
 			<span class="hamburger-line"></span>
 			<span class="hamburger-line"></span>
 		</button>
-		<div class="mobile-menu-overlay">
-			<div class="mobile-menu">
-				<nav class="mobile-nav">
-					<a href="/" class="mobile-nav-link">All projects</a>
-					<a href="digital.html" class="mobile-nav-link">Digital</a>
-					<a href="physical.html" class="mobile-nav-link">Physical</a>
-					<a href="about.html" class="mobile-nav-link">About</a>
-					<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email ↗</a>
-					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" class="mobile-nav-link">Linkedin ↗</a>
-				</nav>
-			</div>
+		<div class="mobile-menu">
+			<nav class="mobile-nav">
+				<a href="/" class="mobile-nav-link">All projects</a>
+				<a href="digital.html" class="mobile-nav-link">Digital</a>
+				<a href="physical.html" class="mobile-nav-link">Physical</a>
+				<a href="about.html" class="mobile-nav-link">About</a>
+				<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email ↗</a>
+				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" class="mobile-nav-link">Linkedin ↗</a>
+			</nav>
 		</div>
     `;
 
@@ -47,27 +45,27 @@ class Navigation extends HTMLElement {
 
   setupMobileMenu() {
     const hamburger = this.querySelector('.hamburger-menu');
-    const mobileMenuOverlay = this.querySelector('.mobile-menu-overlay');
+    const mobileMenu = this.querySelector('.mobile-menu');
     const mobileNavLinks = this.querySelectorAll('.mobile-nav-link');
 
     hamburger.addEventListener('click', () => {
-      if (mobileMenuOverlay.classList.contains('active')) {
+      if (mobileMenu.classList.contains('active')) {
         // Close menu
-        mobileMenuOverlay.classList.remove('active');
+        mobileMenu.classList.remove('active');
         hamburger.classList.remove('active');
         document.body.style.overflow = '';
       } else {
         // Open menu
-        mobileMenuOverlay.classList.add('active');
+        mobileMenu.classList.add('active');
         hamburger.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
     });
 
-    // Close menu when clicking on overlay background
-    mobileMenuOverlay.addEventListener('click', (e) => {
-      if (e.target === mobileMenuOverlay) {
-        mobileMenuOverlay.classList.remove('active');
+    // Close menu when clicking on menu background
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.remove('active');
         hamburger.classList.remove('active');
         document.body.style.overflow = '';
       }
@@ -76,7 +74,7 @@ class Navigation extends HTMLElement {
     // Close menu when clicking on nav links
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenuOverlay.classList.remove('active');
+        mobileMenu.classList.remove('active');
         hamburger.classList.remove('active');
         document.body.style.overflow = '';
       });
@@ -84,8 +82,8 @@ class Navigation extends HTMLElement {
 
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
-        mobileMenuOverlay.classList.remove('active');
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
         hamburger.classList.remove('active');
         document.body.style.overflow = '';
       }
