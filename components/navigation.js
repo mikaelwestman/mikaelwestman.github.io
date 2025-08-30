@@ -7,7 +7,9 @@ class Navigation extends HTMLElement {
     this.innerHTML = `
 		<div id="top-navigation" class="row">
 			<div class="nav-left">
-				<a href="/">Work</a>
+				<a href="/">All projects</a>
+				<a href="digital.html">Digital</a>
+				<a href="physical.html">Physical</a>
 			</div>
 			<div class="nav-center">
 				<a href="/"><svg class="logo" width="" height="28" viewBox="0 0 100 48" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,9 +18,78 @@ class Navigation extends HTMLElement {
 			</div>
 			<div class="nav-right">
 				<a href="about.html">About</a>
+				<a href="mailto:mikael@wst.mn">Email ↗</a>
+				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank">Linkedin ↗</a>
+			</div>
+		</div>
+		<button class="hamburger-menu" aria-label="Toggle navigation menu">
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+		</button>
+		<div class="mobile-menu-overlay">
+			<div class="mobile-menu">
+				<nav class="mobile-nav">
+					<a href="/" class="mobile-nav-link">All projects</a>
+					<a href="digital.html" class="mobile-nav-link">Digital</a>
+					<a href="physical.html" class="mobile-nav-link">Physical</a>
+					<a href="about.html" class="mobile-nav-link">About</a>
+					<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email ↗</a>
+					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" class="mobile-nav-link">Linkedin ↗</a>
+				</nav>
 			</div>
 		</div>
     `;
+
+    // Add event listeners for hamburger menu
+    this.setupMobileMenu();
+  }
+
+  setupMobileMenu() {
+    const hamburger = this.querySelector('.hamburger-menu');
+    const mobileMenuOverlay = this.querySelector('.mobile-menu-overlay');
+    const mobileNavLinks = this.querySelectorAll('.mobile-nav-link');
+
+    hamburger.addEventListener('click', () => {
+      if (mobileMenuOverlay.classList.contains('active')) {
+        // Close menu
+        mobileMenuOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+      } else {
+        // Open menu
+        mobileMenuOverlay.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on overlay background
+    mobileMenuOverlay.addEventListener('click', (e) => {
+      if (e.target === mobileMenuOverlay) {
+        mobileMenuOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu when clicking on nav links
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+        mobileMenuOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
   }
 }
 

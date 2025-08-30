@@ -192,6 +192,7 @@ li {
 */
 
 #top-navigation {
+	font-size: 0.8rem;
 	position: fixed;
 	width: 100%;
 	left: 50%;
@@ -201,7 +202,6 @@ li {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 1px solid var(--color-primary);
 }
 
 #top-navigation .nav-left,
@@ -212,7 +212,9 @@ li {
 }
 
 #top-navigation .nav-center {
-	flex: 1;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 	justify-content: center;
 }
 
@@ -227,9 +229,123 @@ li {
 	transition: color 0.2s ease;
 }
 
+#top-navigation .nav-left a {
+	margin-right: 2rem;
+}
+
+#top-navigation .nav-left a:last-child {
+	margin-right: 0;
+}
+
+#top-navigation .nav-right a {
+	margin-left: 2rem;
+}
+
+#top-navigation .nav-right a:first-child {
+	margin-left: 0;
+}
+
 #top-navigation .nav-left a:hover,
 #top-navigation .nav-right a:hover {
 	color: var(--color-text-muted);
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.5rem;
+	z-index: 1001;
+}
+
+.hamburger-line {
+	display: block;
+	width: 20px;
+	height: 2px;
+	background-color: var(--color-primary);
+	margin: 4px 0;
+	transition: 0.3s ease;
+	transform-origin: 50% 50%;
+}
+
+/* Transform hamburger to X when menu is active */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+	transform: rotate(45deg) translate(0, 8px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+	transform: rotate(-45deg) translate(0, -8px);
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(48, 44, 34, 0.95);
+	z-index: 9999;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	display: none;
+}
+
+.mobile-menu-overlay.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.mobile-menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-background);
+	display: flex;
+	flex-direction: column;
+	opacity: 0;
+	transform: scale(0.95);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu-overlay.active .mobile-menu {
+	opacity: 1;
+	transform: scale(1);
+}
+
+
+
+.mobile-nav {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	flex: 1;
+}
+
+.mobile-nav-link {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--color-primary);
+	text-decoration: none;
+	padding: 1rem 0;
+	transition: color 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+	color: var(--color-text-muted);
+}
+
+.mobile-nav-link:last-child {
+	border-bottom: none;
 }
 
 
@@ -246,7 +362,6 @@ footer {
 	padding-top: 2rem;
 	padding-bottom: 8rem;
 	background: var(--color-brand);
-	border-top: 1px solid var(--color-primary);
 }
 
 .footer-content {
@@ -286,11 +401,11 @@ footer a {
 	padding-bottom: 4rem;
 }
 
-#index .projects-grid {
+#index .projects-grid, #physical .projects-grid, #digital .projects-grid {
 	padding-top: 6rem;
 }
 
-#index page-content {
+#index page-content, #physical page-content, #digital page-content {
 	border-bottom: 0;
 }
 
@@ -343,93 +458,10 @@ footer a {
   Projects Grid Layout
 */
 
-.filter-controls {
-	width: 100%;
-	margin-bottom: 2rem;
-	display: flex;
-	justify-content: left;
-}
-
-.segmented-control {
-	display: flex;
-	gap: 0.75rem;
-	position: relative;
-}
-
-/* Animated active indicator */
-.segmented-control::after {
-	content: "";
-	position: absolute;
-	left: var(--indicator-left, 0);
-	top: var(--indicator-top, 50%);
-	transform: translateY(-50%);
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	background: var(--color-brand);
-	transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	z-index: 0;
-}
-
-/* Jump animation keyframes */
-@keyframes jumpArc {
-	0% {
-		top: 50%;
-	}
-	50% {
-		top: -50%;
-	}
-	100% {
-		top: 50%;
-	}
-}
-
-.segmented-control.jumping::after {
-	animation: jumpArc 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.filter-btn {
-	background: transparent;
-	border: none;
-	font-size: 0.8rem;
-	font-weight: 600;
-	letter-spacing: -0.02em;
-	color: var(--color-primary);
-	cursor: pointer;
-	position: relative;
-	padding-left: 1.2rem;
-	transition: color 0.2s ease;
-}
-
-.filter-btn::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	background: var(--color-thumbnail-bg);
-}
-
-.filter-btn:hover {
-	color: var(--color-text-muted);
-}
-
-.filter-btn.active {
-	color: var(--color-primary);
-}
-
-.filter-btn.active::before {
-	background: var(--color-thumbnail-bg);
-	border-color: var(--color-primary);
-}
-
 /* Grid layout */
 .projects-container {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 	gap: 0.75rem;
 	transition: opacity 1s ease-in-out;
 }
@@ -730,6 +762,14 @@ h1 {
 	font-size: 5rem;
 }
 
+p:last-child{
+	margin-bottom: 1rem;
+}
+
+#index .projects-grid, #physical .projects-grid, #digital .projects-grid {
+	padding-top: 4rem;
+}
+
 .projects-container {
 	grid-template-columns: repeat(1, 1fr);
 }
@@ -756,8 +796,8 @@ h1 {
 	width: 100%;
 }
 
-.wrapper .row:first-child {
-	padding-bottom: 1.5rem;
+.wrapper .row:first-child, #about .wrapper .row:first-child {
+	padding: 1.5rem 0;
 }
 
 .wrapper .row:first-child .column:first-child {
@@ -789,15 +829,37 @@ h1 {
 	padding: 1rem;
 }
 
+/* Hide regular navigation on mobile */
 #top-navigation .nav-left,
-#top-navigation .nav-center,
 #top-navigation .nav-right {
-	flex: 0;
+	display: none;
 }
 
-#top-navigation .nav-left a,
-#top-navigation .nav-right a {
-	margin: 0;
+#top-navigation .nav-center {
+	position: static;
+	left: auto;
+	transform: none;
+}
+
+/* Make logo smaller on mobile */
+#top-navigation .nav-center .logo {
+	width: 40px;
+	height: auto;
+}
+
+/* Show hamburger menu on mobile */
+.hamburger-menu {
+	display: block;
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 10001;
+	padding: 0.5rem;
+}
+
+/* Show mobile menu overlay on mobile */
+.mobile-menu-overlay {
+	display: block;
 }
 
 footer {
@@ -811,27 +873,6 @@ footer {
 
 
 
-.filter-controls {
-	justify-content: center;
-}
 
-.segmented-control {
-	gap: 1.2rem;
-}
-
-.filter-btn {
-	padding-left: 1.8rem;
-}
-
-.filter-btn::before {
-	width: 24px;
-	height: 24px;
-}
-
-/* Animated active indicator */
-.segmented-control::after {
-	width: 24px;
-	height: 24px;
-}
 
 }

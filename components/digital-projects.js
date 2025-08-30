@@ -1,4 +1,4 @@
-class Projects extends HTMLElement {
+class DigitalProjects extends HTMLElement {
   constructor() {
     super();
   }
@@ -7,30 +7,6 @@ class Projects extends HTMLElement {
     this.innerHTML = `
       <div class="wrapper projects-grid">
         <div class="projects-container fade-in">
-          <a class="project-item physical" href="hallway-bench.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/hallway-bench-mikael-westman-05.jpg" alt="Hallway bench" class="progressive-image">
-            </div>
-            <span class="thumbnail-title">Hallway bench</span>
-          </a>
-          
-          <a class="project-item physical" href="stool.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/stool-thumb.jpg" alt="Ball stool" class="progressive-image">
-            </div>
-            <span class="thumbnail-title">Ball stool</span>
-          </a>
-          
-          <a class="project-item physical" href="pelican.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon" class="progressive-image">
-            </div>
-            <span class="thumbnail-title">Children's tableware</span>
-          </a>
-          
           <a class="project-item digital" href="square-for-restaurants.html">
             <div class="thumbnail-image-wrapper">
               <div class="image-placeholder"></div>
@@ -85,8 +61,6 @@ class Projects extends HTMLElement {
     this.setupProgressiveImageLoading();
   }
 
-
-
   setupProgressiveImageLoading() {
     const images = this.querySelectorAll('.progressive-image');
     
@@ -117,8 +91,6 @@ class Projects extends HTMLElement {
       });
     });
   }
-
-
 }
 
-customElements.define('projects-component', Projects);
+customElements.define('digital-projects-component', DigitalProjects);
