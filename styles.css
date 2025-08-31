@@ -240,7 +240,7 @@ li {
 }
 
 #top-navigation .nav-left a {
-	margin-right: 2rem;
+	margin-right: 3rem;
 }
 
 #top-navigation .nav-left a:last-child {
@@ -248,7 +248,7 @@ li {
 }
 
 #top-navigation .nav-right a {
-	margin-left: 2rem;
+	margin-left: 3rem;
 }
 
 #top-navigation .nav-right a:first-child {
