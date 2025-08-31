@@ -1,22 +1,56 @@
 class Analytics extends HTMLElement {
   connectedCallback() {
-    // Create and append the Google Analytics 4 script
-    const gtagScript = document.createElement('script');
-    gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-362299312';
+    // Only load analytics if not in development and no ad blocker detected
+    if (this.shouldLoadAnalytics()) {
+      this.loadAnalytics();
+    }
+  }
+
+  shouldLoadAnalytics() {
+    // Skip analytics in development
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return false;
+    }
     
-    // Create the inline script for gtag configuration
-    const inlineScript = document.createElement('script');
-    inlineScript.textContent = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-362299312');
-    `;
+    // Check for common ad blocker indicators
+    if (window.ads || window.adblocker) {
+      return false;
+    }
     
-    // Append both scripts to the head
-    document.head.appendChild(gtagScript);
-    document.head.appendChild(inlineScript);
+    return true;
+  }
+
+  loadAnalytics() {
+    try {
+      // Create and append the Google Analytics 4 script
+      const gtagScript = document.createElement('script');
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-362299312';
+      
+      // Add error handling for script loading
+      gtagScript.onerror = () => {
+        console.warn('Google Analytics failed to load');
+      };
+      
+      // Create the inline script for gtag configuration
+      const inlineScript = document.createElement('script');
+      inlineScript.textContent = `
+        try {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-362299312');
+        } catch (e) {
+          console.warn('Google Analytics configuration failed:', e);
+        }
+      `;
+      
+      // Append both scripts to the head
+      document.head.appendChild(gtagScript);
+      document.head.appendChild(inlineScript);
+    } catch (error) {
+      console.warn('Analytics loading failed:', error);
+    }
   }
 }
 
