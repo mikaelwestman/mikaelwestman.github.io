@@ -25,7 +25,6 @@ class Navigation extends HTMLElement {
 		<button class="hamburger-menu" aria-label="Toggle navigation menu">
 			<span class="hamburger-line"></span>
 			<span class="hamburger-line"></span>
-			<span class="hamburger-line"></span>
 		</button>
 		<div class="mobile-menu">
 			<nav class="mobile-nav">
@@ -41,6 +40,9 @@ class Navigation extends HTMLElement {
 
     // Add event listeners for hamburger menu
     this.setupMobileMenu();
+    
+    // Setup scroll-based navigation fade
+    this.setupScrollFade();
   }
 
   setupMobileMenu() {
@@ -88,6 +90,36 @@ class Navigation extends HTMLElement {
         document.body.style.overflow = '';
       }
     });
+  }
+
+  setupScrollFade() {
+    const nav = this.querySelector('#top-navigation');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateNav = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Only hide nav when scrolling down and not at the top
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    const requestTick = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    };
+
+    // Listen for scroll events
+    window.addEventListener('scroll', requestTick, { passive: true });
   }
 }
 

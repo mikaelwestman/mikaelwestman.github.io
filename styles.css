@@ -207,11 +207,17 @@ li {
 	width: 100%;
 	left: 50%;
 	transform: translateX(-50%);
-	height: 4rem;
+	height: 6rem;
 	z-index: 1000;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#top-navigation.nav-hidden {
+	opacity: 0;
+	transform: translateX(-50%) translateY(-100%);
 }
 
 #top-navigation .nav-left,
@@ -270,22 +276,18 @@ li {
 	width: 20px;
 	height: 2px;
 	background-color: var(--color-primary);
-	margin: 4px 0;
+	margin: 6px 0;
 	transition: 0.3s ease;
 	transform-origin: 50% 50%;
 }
 
 /* Transform hamburger to X when menu is active */
 .hamburger-menu.active .hamburger-line:nth-child(1) {
-	transform: rotate(45deg) translate(0, 8px);
+	transform: rotate(45deg) translate(0, 5px);
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(2) {
-	opacity: 0;
-}
-
-.hamburger-menu.active .hamburger-line:nth-child(3) {
-	transform: rotate(-45deg) translate(0, -8px);
+	transform: rotate(-45deg) translate(0, -5px);
 }
 
 /* Mobile menu */
