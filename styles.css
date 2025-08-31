@@ -154,6 +154,12 @@ a:hover {
   color: var(--color-text-muted);
 }
 
+/* Prevent thumbnail titles from changing color on hover */
+.projects-grid .thumbnail-title:hover,
+.projects-grid .project-item:hover .thumbnail-title {
+  color: var(--color-primary);
+}
+
 /* Lists */
 ul {
   list-style-type: none;
