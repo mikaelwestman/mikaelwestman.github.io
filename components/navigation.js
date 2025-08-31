@@ -94,6 +94,7 @@ class Navigation extends HTMLElement {
 
   setupScrollFade() {
     const nav = this.querySelector('#top-navigation');
+    const hamburger = this.querySelector('.hamburger-menu');
     let lastScrollY = window.scrollY;
     let ticking = false;
 
@@ -103,8 +104,10 @@ class Navigation extends HTMLElement {
       // Only hide nav when scrolling down and not at the top
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         nav.classList.add('nav-hidden');
+        hamburger.classList.add('nav-hidden');
       } else {
         nav.classList.remove('nav-hidden');
+        hamburger.classList.remove('nav-hidden');
       }
       
       lastScrollY = currentScrollY;

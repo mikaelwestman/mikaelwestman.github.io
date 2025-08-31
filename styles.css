@@ -871,6 +871,7 @@ p:last-child{
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
+	height: 4rem;
 }
 
 /* Hide regular navigation on mobile */
@@ -899,6 +900,12 @@ p:last-child{
 	right: 1rem;
 	z-index: 10001;
 	padding: 0.5rem;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger-menu.nav-hidden {
+	opacity: 0;
+	transform: translateY(-100%);
 }
 
 /* Show mobile menu on mobile */
