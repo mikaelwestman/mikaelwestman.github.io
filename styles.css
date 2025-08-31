@@ -690,14 +690,36 @@ footer a {
 	width: calc(50% - 0.375rem);  /*	Recalculate bio columns to be half width again*/
 }
 
-#about .about-intro {
-	width: 75%;
+#about .experience-section {
+	margin-bottom: 4rem;
+	width: 100%;
+}
+
+#about .experience-section:last-child {
+	margin-bottom: 0;
+}
+
+#about .section-header {
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid var(--color-primary);
+	padding-bottom: 1rem;
+}
+
+#about .experience-item {
+	margin-bottom: 2rem;
+}
+
+#about .experience-item:last-child {
+	margin-bottom: 0;
 }
 
 #about .hello-heading {
+	margin-top: -1.75rem;
 	margin-left: -1rem;
 	margin-bottom: 2rem;
-	font-size: 15rem;
+	font-size: 12rem;
 	font-weight: 500;
 	letter-spacing: -0.08em;
 }
@@ -828,10 +850,6 @@ p:last-child{
 
 #about .wrapper .row:first-child {
 	padding: 1.5rem 0 3rem 0;
-}
-
-#about .about-intro {
-	width: 100%;
 }
 
 #about .hello-heading {
