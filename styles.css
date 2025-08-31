@@ -182,6 +182,10 @@ a {
 	transition: color 0.2s;
 }
 
+a:hover {
+	color: var(--color-text-muted);
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -249,11 +253,6 @@ li {
 
 #top-navigation .nav-right a:first-child {
 	margin-left: 0;
-}
-
-#top-navigation .nav-left a:hover,
-#top-navigation .nav-right a:hover {
-	color: var(--color-text-muted);
 }
 
 /* Hamburger menu styles */
@@ -700,10 +699,8 @@ footer a {
 }
 
 #about .section-header {
-	text-transform: uppercase;
+	text-transform: lowercase;
 	font-size: 0.8rem;
-	font-weight: 600;
-	letter-spacing: 0.05em;
 	margin-bottom: 1.5rem;
 	border-bottom: 1px solid var(--color-primary);
 	padding-bottom: 1rem;
