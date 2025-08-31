@@ -289,9 +289,6 @@ page-content {
   display: none;
   background: none;
   border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1001;
 }
 
 .hamburger-line {
@@ -300,6 +297,7 @@ page-content {
   height: 2px;
   background-color: var(--color-primary);
   margin: 6px 0;
+  margin-left: auto;
   transition: 0.3s ease;
   transform-origin: 50% 50%;
 }
@@ -902,10 +900,12 @@ footer a:hover .bullet {
   .hamburger-menu {
     display: block;
     position: fixed;
+    padding: 0;
     top: 1rem;
     right: 1rem;
     z-index: 10001;
-    padding: 0.5rem;
+    width: 32px;
+    height: 32px;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
