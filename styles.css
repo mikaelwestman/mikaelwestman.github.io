@@ -662,11 +662,16 @@ footer a {
 
 #about #top-navigation {
 	background: var(--color-background);
-	transition: background-color 0.4s ease-in-out;
+	transition: background-color 0.4s ease-in-out, opacity 0.3s ease, transform 0.3s ease;
 }
 
 #about #top-navigation.background-fade-in {
 	background: var(--color-brand);
+}
+
+#about #top-navigation.nav-hidden {
+	opacity: 0;
+	transform: translateX(-50%) translateY(-100%);
 }
 
 #about .wrapper .row {
