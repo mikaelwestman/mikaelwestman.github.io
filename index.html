@@ -46,6 +46,10 @@
 	<script src="components/scripts.js"></script>
 	<script src="components/analytics.js"></script>
 	
+	<!-- Preload critical fonts for better LCP -->
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
+	
 	<!-- Preload critical images for better loading experience -->
 	<link rel="preload" as="image" href="images/hallway-bench-mikael-westman-05.jpg">
 	<link rel="preload" as="image" href="images/stool-thumb.jpg">

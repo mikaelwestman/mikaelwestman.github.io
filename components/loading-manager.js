@@ -3,7 +3,7 @@ class LoadingManager extends HTMLElement {
     super();
     this.loadedImages = new Set();
     this.totalImages = 0;
-    this.requiredImages = 1;
+    this.requiredImages = 0; // Don't wait for images for LCP
     this.animationTriggered = false;
     this.callbacks = [];
     this.initialized = false;
@@ -42,6 +42,9 @@ class LoadingManager extends HTMLElement {
 
   initialize() {
     if (this.initialized) return;
+    
+    // Trigger animation immediately for better LCP
+    this.triggerAnimation();
     
     setTimeout(() => {
       this.setupImageTracking();
