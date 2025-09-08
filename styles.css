@@ -649,7 +649,7 @@ page-content {
    ========================================================================== */
 
 #about {
-  background: var(--color-background);
+  background: var(--color-brand);
   transition: background-color 0.4s ease-in-out;
 }
 
@@ -658,7 +658,7 @@ page-content {
 }
 
 #about #top-navigation {
-  background: var(--color-background);
+  background: var(--color-brand);
   transition: background-color 0.4s ease-in-out, opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -995,9 +995,9 @@ footer a:hover .bullet {
 
 .tooltip {
   position: fixed;
-  bottom: 2rem;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   background-color: #afe190;
   border: 1px solid var(--color-primary);
   padding: 12px 20px;
@@ -1015,5 +1015,5 @@ footer a:hover .bullet {
 .tooltip.show {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(-8px);
+  transform: translate(-50%, -50%) translateY(-8px);
 }
