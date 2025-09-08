@@ -36,7 +36,7 @@
           <h3 class="section-header">Bio</h3>
           <h1 class="hello-heading">Hello,</h1>
           <p style="margin-bottom: 1rem;">I'm Mikael Westman, a Swedish designer based in Stockholm. After a decade in the tech industry making apps and websites, I'm shifting my focus from digital experiences to working in three dimensions, designing and crafting objects for the physical world.</p>
-          <p>Interested in working together? Message me at <a style="text-decoration: underline;" href="mailto:mikael@wst.mn">mikael@wst.mn</a> or <a style="text-decoration: underline;" href="https://www.linkedin.com/in/mikaelwestman/">connect on Linkedin</a>.</p>
+          <p>Interested in working together? Message me at <a id="email-link" style="text-decoration: underline; position: relative; cursor: pointer;">mikael@wst.mn</a> or <a style="text-decoration: underline;" href="https://www.linkedin.com/in/mikaelwestman/">connect on Linkedin</a>.</p>
         </div>
         <div class="column">
           <div class="experience-section">
@@ -86,5 +86,59 @@
     </div>
   </page-content>
   <footer-component></footer-component>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailLink = document.getElementById('email-link');
+      const email = 'mikael@wst.mn';
+      
+      // Create global tooltip element
+      let tooltip = document.querySelector('.tooltip');
+      if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+          Copied email
+        `;
+        document.body.appendChild(tooltip);
+      }
+      
+      emailLink.addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        try {
+          await navigator.clipboard.writeText(email);
+          
+          // Show tooltip
+          tooltip.classList.add('show');
+          
+          // Hide tooltip after 2 seconds
+          setTimeout(() => {
+            tooltip.classList.remove('show');
+          }, 2000);
+          
+        } catch (err) {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          
+          // Show tooltip
+          tooltip.classList.add('show');
+          
+          // Hide tooltip after 2 seconds
+          setTimeout(() => {
+            tooltip.classList.remove('show');
+          }, 2000);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

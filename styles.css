@@ -988,3 +988,32 @@ footer a:hover .bullet {
     height: 28px;
   }
 }
+
+/* ==========================================================================
+   Email Clipboard Tooltip Styles
+   ========================================================================== */
+
+.tooltip {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #afe190;
+  border: 1px solid var(--color-primary);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 10000;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+}
+
+.tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-8px);
+}
