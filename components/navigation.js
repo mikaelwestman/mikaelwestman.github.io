@@ -18,8 +18,8 @@ class Navigation extends HTMLElement {
 			</div>
 			<div class="nav-right">
 				<a href="about.html">About</a>
-				<a href="mailto:mikael@wst.mn">Email ↗</a>
-				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank">Linkedin ↗</a>
+				<a id="nav-email-link" style="cursor: pointer;">Email</a>
+				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank">Linkedin</a>
 			</div>
 		</div>
 		<button class="hamburger-menu" aria-label="Toggle navigation menu">
@@ -32,8 +32,8 @@ class Navigation extends HTMLElement {
 				<a href="digital.html" class="mobile-nav-link">Digital</a>
 				<a href="physical.html" class="mobile-nav-link">Physical</a>
 				<a href="about.html" class="mobile-nav-link">About</a>
-				<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email ↗</a>
-				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" class="mobile-nav-link">Linkedin ↗</a>
+				<a id="mobile-nav-email-link" class="mobile-nav-link" style="cursor: pointer;">Email</a>
+				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" class="mobile-nav-link">Linkedin</a>
 			</nav>
 		</div>
     `;
@@ -43,6 +43,9 @@ class Navigation extends HTMLElement {
     
     // Setup scroll-based navigation fade
     this.setupScrollFade();
+    
+    // Setup email clipboard functionality
+    this.setupEmailClipboard();
   }
 
   setupMobileMenu() {
@@ -123,6 +126,68 @@ class Navigation extends HTMLElement {
 
     // Listen for scroll events
     window.addEventListener('scroll', requestTick, { passive: true });
+  }
+  
+  setupEmailClipboard() {
+    const desktopEmailLink = this.querySelector('#nav-email-link');
+    const mobileEmailLink = this.querySelector('#mobile-nav-email-link');
+    const email = 'mikael@wst.mn';
+    
+    // Create or get global tooltip element
+    let tooltip = document.querySelector('.tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.className = 'tooltip';
+      tooltip.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
+          <path d="M20 6L9 17l-5-5"></path>
+        </svg>
+        Copied email (mikael@wst.mn)
+      `;
+      document.body.appendChild(tooltip);
+    }
+    
+    const handleEmailClick = async function(e) {
+      e.preventDefault();
+      
+      try {
+        await navigator.clipboard.writeText(email);
+        
+        // Show tooltip
+        tooltip.classList.add('show');
+        
+        // Hide tooltip after 2 seconds
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+        }, 2000);
+        
+      } catch (err) {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        // Show tooltip
+        tooltip.classList.add('show');
+        
+        // Hide tooltip after 2 seconds
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+        }, 2000);
+      }
+    };
+    
+    // Add event listeners to both email links
+    if (desktopEmailLink) {
+      desktopEmailLink.addEventListener('click', handleEmailClick);
+    }
+    
+    if (mobileEmailLink) {
+      mobileEmailLink.addEventListener('click', handleEmailClick);
+    }
   }
 }
 

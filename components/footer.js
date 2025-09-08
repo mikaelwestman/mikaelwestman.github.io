@@ -12,9 +12,9 @@ class Footer extends HTMLElement {
 					<span class="meta-data" style="opacity: 50%;">All rights reserved</span>
 				</div>
 				<div class="column">
-					<a id="footer-email-link" style="position: relative; cursor: pointer; display: inline-block;"><span class="bullet">↗</span>mikael@wst.mn</a>
-					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank"><span class="bullet">↗</span>Linkedin</a>
-					<a href="https://soundcloud.com/mikael-westman" target="_blank"><span class="bullet">↗</span>Soundcloud</a>
+					<a id="footer-email-link" style="position: relative; cursor: pointer; display: inline-block;">mikael@wst.mn</a>
+					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank">Linkedin</a>
+					<a href="https://soundcloud.com/mikael-westman" target="_blank">Soundcloud</a>
 				</div>
 			</div>
 			<div class="footer-logo">
@@ -44,7 +44,7 @@ class Footer extends HTMLElement {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
           <path d="M20 6L9 17l-5-5"></path>
         </svg>
-        Copied email
+        Copied email (mikael@wst.mn)
       `;
       document.body.appendChild(tooltip);
     }
