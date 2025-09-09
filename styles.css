@@ -949,6 +949,15 @@ footer a:hover .bullet {
     height: 400px;
   }
 
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-content .column {
+    width: 100%;
+  }
+
   .image-description {
     width: 100%;
     max-width: none;

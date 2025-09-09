@@ -32,7 +32,7 @@ class Navigation extends HTMLElement {
 				<a href="digital.html" class="mobile-nav-link">Digital</a>
 				<a href="physical.html" class="mobile-nav-link">Physical</a>
 				<a href="about.html" class="mobile-nav-link">About</a>
-				<a id="mobile-nav-email-link" class="mobile-nav-link" style="cursor: pointer;">Email</a>
+				<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email</a>
 				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" class="mobile-nav-link">Linkedin</a>
 			</nav>
 		</div>
@@ -130,7 +130,6 @@ class Navigation extends HTMLElement {
   
   setupEmailClipboard() {
     const desktopEmailLink = this.querySelector('#nav-email-link');
-    const mobileEmailLink = this.querySelector('#mobile-nav-email-link');
     const email = 'mikael@wst.mn';
     
     // Create or get global tooltip element
@@ -180,13 +179,9 @@ class Navigation extends HTMLElement {
       }
     };
     
-    // Add event listeners to both email links
+    // Add event listener only to desktop email link
     if (desktopEmailLink) {
       desktopEmailLink.addEventListener('click', handleEmailClick);
-    }
-    
-    if (mobileEmailLink) {
-      mobileEmailLink.addEventListener('click', handleEmailClick);
     }
   }
 }
