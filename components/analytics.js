@@ -25,7 +25,7 @@ class Analytics extends HTMLElement {
       // Create and append the Google Analytics 4 script
       const gtagScript = document.createElement('script');
       gtagScript.async = true;
-      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-362299312';
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-N6XN90D30E';
       
       // Add error handling for script loading
       gtagScript.onerror = () => {
@@ -39,7 +39,7 @@ class Analytics extends HTMLElement {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-362299312');
+          gtag('config', 'G-N6XN90D30E');
         } catch (e) {
           console.warn('Google Analytics configuration failed:', e);
         }
