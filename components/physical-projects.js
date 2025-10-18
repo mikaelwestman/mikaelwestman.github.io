@@ -15,6 +15,14 @@ class PhysicalProjects extends HTMLElement {
             <span class="thumbnail-title">Hallway bench</span>
           </a>
           
+          <a class="project-item physical" href="vattenlilja.html">
+            <div class="thumbnail-image-wrapper">
+              <div class="image-placeholder"></div>
+              <img src="images/vattenlilja-mikael-westman-01.jpg" alt="Vattenlilja" class="progressive-image">
+            </div>
+            <span class="thumbnail-title">Vattenlilja</span>
+          </a>
+          
           <a class="project-item physical" href="stool.html">
             <div class="thumbnail-image-wrapper">
               <div class="image-placeholder"></div>

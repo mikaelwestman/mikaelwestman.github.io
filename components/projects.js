@@ -4,85 +4,90 @@ class Projects extends HTMLElement {
   }
 
   connectedCallback() {
+    // Determine project type based on body ID or current page
+    const bodyId = document.body.id;
+    const isPhysicalPage = this.isPhysicalProject(bodyId);
+    const isDigitalPage = this.isDigitalProject(bodyId);
+    
+    // Get projects based on context
+    const projects = this.getProjectsForContext(isPhysicalPage, isDigitalPage, bodyId);
+    
     this.innerHTML = `
       <div class="wrapper projects-grid">
         <div class="projects-container fade-in">
-          <a class="project-item physical" href="hallway-bench.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/hallway-bench-mikael-westman-05.jpg" alt="Hallway bench" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Hallway bench</h3>
-          </a>
-          
-          <a class="project-item physical" href="stool.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/stool-thumb.jpg" alt="Ball stool" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Ball stool</h3>
-          </a>
-          
-          <a class="project-item physical" href="pelican.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/pelican-spoon-mikael-westman-02.jpg" alt="PEL-I-CAN spoon" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Children's tableware</h3>
-          </a>
-          
-          <a class="project-item digital" href="square-for-restaurants.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/square-mikael-westman-04.png" alt="Square for Restaurants" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Square for Restaurants</h3>
-          </a>
-          
-          <a class="project-item digital" href="square-pos.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/pos-mikael-westman-01.png" alt="Square Point of Sale tablet & mobile design for Android" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Square POS</h3>
-          </a>
-          
-          <a class="project-item digital" href="epidemic-sound.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/Epidemic-Sound-Artist.jpg" alt="Epidemic Sound artist page" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Epidemic Sound</h3>
-          </a>
-          
-          <a class="project-item digital" href="3d.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/3d-lighter-mikael-westman.jpg" alt="3D render of lighter" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">3D</h3>
-          </a>
-          
-          <a class="project-item digital" href="variable-font.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/variable-font-thumb.png" alt="Variable font" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Stretchy font</h3>
-          </a>
-          
-          <a class="project-item digital" href="vexillography.html">
-            <div class="thumbnail-image-wrapper">
-              <div class="image-placeholder"></div>
-              <img src="images/flag-eurasia-mikael-westman.jpg" alt="Flag" class="progressive-image">
-            </div>
-            <h3 class="thumbnail-title">Vexillography</h3>
-          </a>
+          ${projects}
         </div>
       </div>
     `;
 
     this.setupProgressiveImageLoading();
+  }
+
+  isPhysicalProject(bodyId) {
+    const physicalProjects = ['hallway-bench', 'vattenlilja', 'stool', 'pelican'];
+    return physicalProjects.includes(bodyId);
+  }
+
+  isDigitalProject(bodyId) {
+    const digitalProjects = ['square-for-restaurants', 'square-pos', 'epidemic-sound', '3d', 'variable-font', 'vexillography'];
+    return digitalProjects.includes(bodyId);
+  }
+
+  getProjectsForContext(isPhysicalPage, isDigitalPage, currentBodyId) {
+    if (isPhysicalPage) {
+      // Show other physical projects (excluding current one)
+      return this.getPhysicalProjects(currentBodyId);
+    } else if (isDigitalPage) {
+      // Show all digital projects (excluding current one)
+      return this.getDigitalProjects(currentBodyId);
+    } else {
+      // Default: show physical projects (for homepage)
+      return this.getPhysicalProjects();
+    }
+  }
+
+  getPhysicalProjects(excludeId = null) {
+    const physicalProjects = [
+      { id: 'hallway-bench', href: 'hallway-bench.html', image: 'images/hallway-bench-mikael-westman-05.jpg', title: 'Hallway bench' },
+      { id: 'vattenlilja', href: 'vattenlilja.html', image: 'images/vattenlilja-mikael-westman-01.jpg', title: 'Vattenlilja' },
+      { id: 'stool', href: 'stool.html', image: 'images/stool-thumb.jpg', title: 'Ball stool' },
+      { id: 'pelican', href: 'pelican.html', image: 'images/pelican-spoon-mikael-westman-02.jpg', title: 'Children\'s tableware' }
+    ];
+
+    return physicalProjects
+      .filter(project => project.id !== excludeId)
+      .map(project => `
+        <a class="project-item physical" href="${project.href}">
+          <div class="thumbnail-image-wrapper">
+            <div class="image-placeholder"></div>
+            <img src="${project.image}" alt="${project.title}" class="progressive-image">
+          </div>
+          <span class="thumbnail-title">${project.title}</span>
+        </a>
+      `).join('');
+  }
+
+  getDigitalProjects(excludeId = null) {
+    const digitalProjects = [
+      { id: 'square-for-restaurants', href: 'square-for-restaurants.html', image: 'images/square-mikael-westman-04.png', title: 'Square for Restaurants' },
+      { id: 'square-pos', href: 'square-pos.html', image: 'images/pos-mikael-westman-01.png', title: 'Square POS' },
+      { id: 'epidemic-sound', href: 'epidemic-sound.html', image: 'images/Epidemic-Sound-Artist.jpg', title: 'Epidemic Sound' },
+      { id: '3d', href: '3d.html', image: 'images/3d-lighter-mikael-westman.jpg', title: '3D' },
+      { id: 'variable-font', href: 'variable-font.html', image: 'images/variable-font-thumb.png', title: 'Stretchy font' },
+      { id: 'vexillography', href: 'vexillography.html', image: 'images/flag-eurasia-mikael-westman.jpg', title: 'Vexillography' }
+    ];
+
+    return digitalProjects
+      .filter(project => project.id !== excludeId)
+      .map(project => `
+        <a class="project-item digital" href="${project.href}">
+          <div class="thumbnail-image-wrapper">
+            <div class="image-placeholder"></div>
+            <img src="${project.image}" alt="${project.title}" class="progressive-image">
+          </div>
+          <span class="thumbnail-title">${project.title}</span>
+        </a>
+      `).join('');
   }
 
 

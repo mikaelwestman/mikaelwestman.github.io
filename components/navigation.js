@@ -7,9 +7,8 @@ class Navigation extends HTMLElement {
     this.innerHTML = `
 		<div id="top-navigation" class="row">
 			<div class="nav-left">
-				<a href="/">All projects</a>
+				<a href="/">Physical</a>
 				<a href="digital.html">Digital</a>
-				<a href="physical.html">Physical</a>
 			</div>
 			<div class="nav-center">
 				<a href="/"><svg class="logo" width="" height="28" viewBox="0 0 100 48" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +18,7 @@ class Navigation extends HTMLElement {
 			<div class="nav-right">
 				<a href="about.html">About</a>
 				<a id="nav-email-link" style="cursor: pointer;">Email</a>
-				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank">Linkedin</a>
+				<a href="https://www.instagram.com/mestman/" target="_blank">Instagram</a>
 			</div>
 		</div>
 		<button class="hamburger-menu" aria-label="Toggle navigation menu">
@@ -28,12 +27,11 @@ class Navigation extends HTMLElement {
 		</button>
 		<div class="mobile-menu">
 			<nav class="mobile-nav">
-				<a href="/" class="mobile-nav-link">All projects</a>
+				<a href="/" class="mobile-nav-link">Physical</a>
 				<a href="digital.html" class="mobile-nav-link">Digital</a>
-				<a href="physical.html" class="mobile-nav-link">Physical</a>
 				<a href="about.html" class="mobile-nav-link">About</a>
 				<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email</a>
-				<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" class="mobile-nav-link">Linkedin</a>
+				<a href="https://www.instagram.com/mestman/" target="_blank" class="mobile-nav-link">Instagram</a>
 			</nav>
 		</div>
     `;

@@ -13,6 +13,7 @@ class Footer extends HTMLElement {
 				</div>
 				<div class="column">
 					<a id="footer-email-link" style="position: relative; cursor: pointer; display: inline-block;">mikael@wst.mn</a>
+					<a href="https://www.instagram.com/mestman/" target="_blank">Instagram</a>
 					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank">Linkedin</a>
 					<a href="https://soundcloud.com/mikael-westman" target="_blank">Soundcloud</a>
 				</div>
