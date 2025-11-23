@@ -50,7 +50,7 @@ class Projects extends HTMLElement {
     const physicalProjects = [
       { id: 'hallway-bench', href: 'hallway-bench.html', image: 'images/hallway-bench-mikael-westman-05.jpg', title: 'Hallway bench' },
       { id: 'vattenlilja', href: 'vattenlilja.html', image: 'images/vattenlilja-mikael-westman-01.jpg', title: 'Vattenlilja' },
-      { id: 'goblin-lamp', href: 'goblin-lamp.html', image: 'images/goblin-lamp-mikael-westman-01.jpg', title: 'Goblin lamp' },
+      { id: 'goblin-lamp', href: 'goblin-lamp.html', image: 'images/goblin-lamp-mikael-westman-02.jpg', title: 'Goblin lamp' },
       { id: 'stool', href: 'stool.html', image: 'images/stool-thumb.jpg', title: 'Ball stool' },
       { id: 'pelican', href: 'pelican.html', image: 'images/pelican-spoon-mikael-westman-02.jpg', title: 'Children\'s tableware' }
     ];
