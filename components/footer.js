@@ -8,7 +8,7 @@ class Footer extends HTMLElement {
 		<footer>
 			<div class="footer-content">
 				<div class="column">
-					<span class="meta-data">Mikael Westman © 2025</span>
+					<span class="meta-data">Mikael Westman © 2026</span>
 					<span class="meta-data" style="opacity: 50%;">All rights reserved</span>
 				</div>
 				<div class="column">
