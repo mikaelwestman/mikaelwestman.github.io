@@ -789,6 +789,7 @@ footer {
   margin: auto;
 }
 
+
 .footer-logo {
   width: 150%;
   margin-top: 2rem;
@@ -796,6 +797,10 @@ footer {
   display: flex;
   justify-content: center;
   color: var(--color-primary);
+}
+
+footer .meta-data {
+  margin-bottom: 0.5rem;
 }
 
 footer a {
