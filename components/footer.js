@@ -9,13 +9,13 @@ class Footer extends HTMLElement {
 			<div class="footer-content">
 				<div class="column">
 					<span class="meta-data">Mikael Westman © 2026</span>
-					<span class="meta-data" style="opacity: 50%;">All rights reserved</span>
+					<span class="meta-data footer-rights">All rights reserved</span>
 				</div>
 				<div class="column">
-					<a id="footer-email-link" style="position: relative; cursor: pointer; display: inline-block;">mikael@wst.mn</a>
-					<a href="https://www.instagram.com/mestman/" target="_blank">Instagram</a>
-					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank">Linkedin</a>
-					<a href="https://soundcloud.com/mikael-westman" target="_blank">Soundcloud</a>
+					<a id="footer-email-link" class="email-link">mikael@wst.mn</a>
+					<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer">Instagram</a>
+					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+					<a href="https://soundcloud.com/mikael-westman" target="_blank" rel="noopener noreferrer">Soundcloud</a>
 				</div>
 			</div>
 			<div class="footer-logo">
@@ -31,57 +31,7 @@ class Footer extends HTMLElement {
   }
   
   setupEmailClipboard() {
-    const emailLink = this.querySelector('#footer-email-link');
-    if (!emailLink) return;
-    
-    const email = 'mikael@wst.mn';
-    
-    // Create or get global tooltip element
-    let tooltip = document.querySelector('.tooltip');
-    if (!tooltip) {
-      tooltip = document.createElement('div');
-      tooltip.className = 'tooltip';
-      tooltip.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
-          <path d="M20 6L9 17l-5-5"></path>
-        </svg>
-        Copied email (mikael@wst.mn)
-      `;
-      document.body.appendChild(tooltip);
-    }
-    
-    emailLink.addEventListener('click', async function(e) {
-      e.preventDefault();
-      
-      try {
-        await navigator.clipboard.writeText(email);
-        
-        // Show tooltip
-        tooltip.classList.add('show');
-        
-        // Hide tooltip after 2 seconds
-        setTimeout(() => {
-          tooltip.classList.remove('show');
-        }, 2000);
-        
-      } catch (err) {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = email;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        
-        // Show tooltip
-        tooltip.classList.add('show');
-        
-        // Hide tooltip after 2 seconds
-        setTimeout(() => {
-          tooltip.classList.remove('show');
-        }, 2000);
-      }
-    });
+    EmailClipboard.setup('#footer-email-link', 'mikael@wst.mn');
   }
 }
 

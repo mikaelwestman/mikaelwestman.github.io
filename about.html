@@ -5,21 +5,18 @@
   <title>Mikael Westman — About</title>
   <meta name="description" content="Mikael Westman - Swedish product designer based in Stockholm">
   <meta property='og:title' content='Mikael Westman — About'/>
-  <meta property='og:image' content='images/me.jpg'/>
+  <meta property='og:image' content='https://wst.mn/images/me.jpg'/>
   <meta property='og:description' content='Mikael Westman - Swedish product designer based in Stockholm'/>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mikael Westman — About">
   <meta name="twitter:description" content="Mikael Westman - Swedish product designer based in Stockholm">
-  <meta name="twitter:image" content="images/me.jpg">
+  <meta name="twitter:image" content="https://wst.mn/images/me.jpg">
   <link rel="canonical" href="https://wst.mn/about.html">
   <link rel="stylesheet" href="styles.css">
-  <!-- Preload critical fonts for better LCP -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
   <script src="components/common-head.js"></script>
-  <script src="components/fonts.js"></script>
+  <script src="components/fonts.js" defer></script>
   <script src="components/scripts.js"></script>
-  <script src="components/analytics.js"></script>
+  <script src="components/analytics.js" defer></script>
 </head>
 
 <body id="about">
@@ -35,8 +32,8 @@
         <div class="column">
           <h3 class="section-header">Bio</h3>
           <h1 class="hello-heading">Hello,</h1>
-          <p style="margin-bottom: 1rem;">I'm Mikael Westman, a Swedish designer based in Stockholm. After a decade in the tech industry, I'm shifting my focus from digital experiences to working in three dimensions, designing and building objects for the physical world.</p>
-          <p>Interested in working together? Message me at <a id="email-link" style="text-decoration: underline; position: relative; cursor: pointer;">mikael@wst.mn</a> or <a style="text-decoration: underline;" href="https://www.linkedin.com/in/mikaelwestman/">connect on Linkedin</a>.</p>
+          <p>I'm Mikael Westman, a Swedish designer based in Stockholm. After a decade in the tech industry, I'm shifting my focus from digital experiences to working in three dimensions, designing and building objects for the physical world.</p>
+          <p>Interested in working together? Message me at <a id="email-link" class="link-underline email-link">mikael@wst.mn</a> or <a class="link-underline" href="https://www.linkedin.com/in/mikaelwestman/">connect on Linkedin</a>.</p>
         </div>
         <div class="column">
           <div class="experience-section">
@@ -89,55 +86,7 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const emailLink = document.getElementById('email-link');
-      const email = 'mikael@wst.mn';
-      
-      // Create global tooltip element
-      let tooltip = document.querySelector('.tooltip');
-      if (!tooltip) {
-        tooltip = document.createElement('div');
-        tooltip.className = 'tooltip';
-        tooltip.innerHTML = `
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
-            <path d="M20 6L9 17l-5-5"></path>
-          </svg>
-          Copied email (mikael@wst.mn)
-        `;
-        document.body.appendChild(tooltip);
-      }
-      
-      emailLink.addEventListener('click', async function(e) {
-        e.preventDefault();
-        
-        try {
-          await navigator.clipboard.writeText(email);
-          
-          // Show tooltip
-          tooltip.classList.add('show');
-          
-          // Hide tooltip after 2 seconds
-          setTimeout(() => {
-            tooltip.classList.remove('show');
-          }, 2000);
-          
-        } catch (err) {
-          // Fallback for older browsers
-          const textArea = document.createElement('textarea');
-          textArea.value = email;
-          document.body.appendChild(textArea);
-          textArea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textArea);
-          
-          // Show tooltip
-          tooltip.classList.add('show');
-          
-          // Hide tooltip after 2 seconds
-          setTimeout(() => {
-            tooltip.classList.remove('show');
-          }, 2000);
-        }
-      });
+      EmailClipboard.setup('#email-link', 'mikael@wst.mn');
     });
   </script>
 </body>

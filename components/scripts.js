@@ -2,6 +2,7 @@ class Scripts extends HTMLElement {
   connectedCallback() {
     // Create script elements for common components
     const scripts = [
+      { src: 'components/email-clipboard.js', defer: false },
       { src: 'components/navigation.js', defer: false }, // Load navigation synchronously to prevent blinking
       { src: 'components/footer.js', defer: true },
       { src: 'components/projects.js', defer: true },
@@ -15,6 +16,8 @@ class Scripts extends HTMLElement {
       script.type = 'text/javascript';
       if (scriptConfig.defer) {
         script.defer = true;
+      } else {
+        script.async = false;
       }
       document.head.appendChild(script);
     });

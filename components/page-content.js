@@ -4,6 +4,7 @@ class PageContent extends HTMLElement {
   }
 
   connectedCallback() {
+    this.setAttribute('role', 'main');
     // Wait for the loading manager to be available and initialized
     this.waitForLoadingManager();
   }

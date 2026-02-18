@@ -816,6 +816,10 @@ footer a:hover .bullet {
   top: 4px;
 }
 
+.email-link { position: relative; cursor: pointer; display: inline-block; }
+.footer-rights { opacity: 50%; }
+.link-underline { text-decoration: underline; }
+
 /* ==========================================================================
    Responsive Design - Mobile
    ========================================================================== */
@@ -987,7 +991,7 @@ footer a:hover .bullet {
    Responsive Design - Desktop
    ========================================================================== */
 
-@media screen and (min-width: 961px) {
+@media screen and (min-width: 769px) {
   /* Hide hamburger menu on desktop */
   .hamburger-menu {
     display: none;

@@ -18,7 +18,7 @@ class Navigation extends HTMLElement {
 			<div class="nav-right">
 				<a href="about.html">About</a>
 				<a id="nav-email-link" style="cursor: pointer;">Email</a>
-				<a href="https://www.instagram.com/mestman/" target="_blank">Instagram</a>
+				<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer">Instagram</a>
 			</div>
 		</div>
 		<button class="hamburger-menu" aria-label="Toggle navigation menu">
@@ -31,7 +31,7 @@ class Navigation extends HTMLElement {
 				<a href="digital.html" class="mobile-nav-link">Digital</a>
 				<a href="about.html" class="mobile-nav-link">About</a>
 				<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email</a>
-				<a href="https://www.instagram.com/mestman/" target="_blank" class="mobile-nav-link">Instagram</a>
+				<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Instagram</a>
 			</nav>
 		</div>
     `;
@@ -127,60 +127,7 @@ class Navigation extends HTMLElement {
   }
   
   setupEmailClipboard() {
-    const desktopEmailLink = this.querySelector('#nav-email-link');
-    const email = 'mikael@wst.mn';
-    
-    // Create or get global tooltip element
-    let tooltip = document.querySelector('.tooltip');
-    if (!tooltip) {
-      tooltip = document.createElement('div');
-      tooltip.className = 'tooltip';
-      tooltip.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
-          <path d="M20 6L9 17l-5-5"></path>
-        </svg>
-        Copied email (mikael@wst.mn)
-      `;
-      document.body.appendChild(tooltip);
-    }
-    
-    const handleEmailClick = async function(e) {
-      e.preventDefault();
-      
-      try {
-        await navigator.clipboard.writeText(email);
-        
-        // Show tooltip
-        tooltip.classList.add('show');
-        
-        // Hide tooltip after 2 seconds
-        setTimeout(() => {
-          tooltip.classList.remove('show');
-        }, 2000);
-        
-      } catch (err) {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = email;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        
-        // Show tooltip
-        tooltip.classList.add('show');
-        
-        // Hide tooltip after 2 seconds
-        setTimeout(() => {
-          tooltip.classList.remove('show');
-        }, 2000);
-      }
-    };
-    
-    // Add event listener only to desktop email link
-    if (desktopEmailLink) {
-      desktopEmailLink.addEventListener('click', handleEmailClick);
-    }
+    EmailClipboard.setup('#nav-email-link', 'mikael@wst.mn');
   }
 }
 
