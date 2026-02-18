@@ -27,17 +27,6 @@ class LoadingManager extends HTMLElement {
       this.initialize();
     }
 
-    // Force reload on back/forward navigation to ensure proper loading
-    window.addEventListener('pageshow', (event) => {
-      if (event.persisted) {
-        window.location.reload();
-      }
-    });
-
-    // Alternative approach: force reload on popstate
-    window.addEventListener('popstate', () => {
-      window.location.reload();
-    });
   }
 
   initialize() {
@@ -49,43 +38,8 @@ class LoadingManager extends HTMLElement {
     setTimeout(() => {
       this.setupImageTracking();
       this.setupLazyLoading();
-      this.setupPageTransitions();
       this.initialized = true;
     }, 100);
-  }
-
-  setupPageTransitions() {
-    // Use event delegation for better performance
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href]');
-      if (!link) return;
-      
-      const href = link.getAttribute('href');
-      
-      // Only handle internal links
-      if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-        e.preventDefault();
-        this.handlePageTransition(href);
-      }
-    });
-  }
-
-  handlePageTransition(targetUrl) {
-    this.triggerFadeOut(() => {
-      window.location.href = targetUrl;
-    });
-  }
-
-  triggerFadeOut(callback) {
-    if (this.pageContent) {
-      this.pageContent.classList.add('page-fade-out');
-      
-      setTimeout(() => {
-        if (callback) callback();
-      }, 300);
-    } else {
-      if (callback) callback();
-    }
   }
 
   setupImageTracking() {

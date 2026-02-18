@@ -1,3 +1,10 @@
+// Detect view transition arrival early to suppress manual fade-in
+window.addEventListener('pagereveal', (e) => {
+  if (e.viewTransition) {
+    document.documentElement.classList.add('vt-reveal');
+  }
+});
+
 class CommonHead extends HTMLElement {
   connectedCallback() {
     // Create charset meta tag

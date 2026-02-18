@@ -57,6 +57,35 @@ header, footer, figure {
 }
 
 /* ==========================================================================
+   View Transitions
+   ========================================================================== */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(content) {
+  animation: 0.2s ease both vt-fade-out;
+}
+
+::view-transition-new(content) {
+  animation: 0.35s ease both vt-fade-in;
+}
+
+::view-transition-old(navigation),
+::view-transition-new(navigation) {
+  animation: none;
+}
+
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+}
+
+/* ==========================================================================
    Animations & Keyframes
    ========================================================================== */
 
@@ -229,14 +258,16 @@ page-content {
   border-bottom: 1px solid var(--color-primary);
   display: block;
   min-height: 1px;
+  view-transition-name: content;
 }
 
 .page-content {
   animation: fadeIn 0.7s ease-out forwards;
 }
 
-.page-fade-out {
-  animation: fadeOut 0.3s ease-out forwards;
+/* Skip manual fade-in when arriving via view transition */
+.vt-reveal .page-content {
+  animation: none;
 }
 
 /* ==========================================================================
@@ -257,6 +288,7 @@ page-content {
   transition: opacity 0.3s ease, transform 0.3s ease;
   background: var(--color-background);
   opacity: 1;
+  view-transition-name: navigation;
 }
 
 #top-navigation.nav-hidden {
