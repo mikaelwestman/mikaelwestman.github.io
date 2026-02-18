@@ -26,20 +26,6 @@
 }
 
 /* ==========================================================================
-   Critical CSS for LCP
-   ========================================================================== */
-
-/* Ensure critical elements are visible immediately */
-body, html {
-  opacity: 1;
-}
-
-/* Make sure text content is visible */
-h1, h2, h3, h4, h5, h6, p, a, span, div {
-  opacity: 1;
-}
-
-/* ==========================================================================
    CSS Reset & Base Styles
    ========================================================================== */
 
@@ -97,17 +83,6 @@ header, footer, figure {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20px);
   }
 }
 
@@ -420,7 +395,6 @@ page-content {
 .mobile-menu.active .mobile-nav-link:nth-child(3) { transition-delay: 0.2s; }
 .mobile-menu.active .mobile-nav-link:nth-child(4) { transition-delay: 0.25s; }
 .mobile-menu.active .mobile-nav-link:nth-child(5) { transition-delay: 0.3s; }
-.mobile-menu.active .mobile-nav-link:nth-child(6) { transition-delay: 0.35s; }
 
 .mobile-nav-link:hover {
   color: var(--color-text-muted);
@@ -549,11 +523,7 @@ page-content {
   opacity: 1;
 }
 
-/* Progressive image loading */
-.projects-grid .thumbnail-image-wrapper {
-  position: relative;
-}
-
+/* Progressive image loading (shared rules for full-page and thumbnail images) */
 .image-wrapper.progressive {
   position: relative;
   display: block;
@@ -562,57 +532,7 @@ page-content {
   overflow: hidden;
 }
 
-.image-wrapper.progressive .image-placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-thumbnail-bg);
-  transition: opacity 0.3s ease;
-  z-index: 1;
-  border-radius: var(--border-radius-large);
-}
-
-.image-wrapper.progressive.loading .image-placeholder {
-  background: linear-gradient(90deg, 
-    var(--color-thumbnail-bg) 0%, 
-    rgba(207, 210, 198, 0.8) 50%, 
-    var(--color-thumbnail-bg) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-.image-wrapper.progressive.loading img {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.image-wrapper.progressive.loaded img {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.image-wrapper.progressive img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover;
-}
-
-.image-wrapper.progressive.error .image-placeholder {
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 0.875rem;
-}
-
-.image-wrapper.progressive.error .image-placeholder::after {
-  content: "Image failed to load";
-}
-
+.image-wrapper.progressive .image-placeholder,
 .projects-grid .thumbnail-image-wrapper .image-placeholder {
   position: absolute;
   top: 0;
@@ -625,26 +545,36 @@ page-content {
   border-radius: var(--border-radius-large);
 }
 
+.image-wrapper.progressive.loading .image-placeholder,
 .projects-grid .thumbnail-image-wrapper.loading .image-placeholder {
-  background: linear-gradient(90deg, 
-    var(--color-thumbnail-bg) 0%, 
-    rgba(207, 210, 198, 0.8) 50%, 
+  background: linear-gradient(90deg,
+    var(--color-thumbnail-bg) 0%,
+    rgba(207, 210, 198, 0.8) 50%,
     var(--color-thumbnail-bg) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
+.image-wrapper.progressive.loading img,
 .projects-grid .thumbnail-image-wrapper.loading .progressive-image {
   opacity: 0;
   transform: scale(0.95);
 }
 
+.image-wrapper.progressive.loaded img,
 .projects-grid .thumbnail-image-wrapper.loaded .progressive-image {
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+.image-wrapper.progressive img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+}
+
+.image-wrapper.progressive.error .image-placeholder,
 .projects-grid .thumbnail-image-wrapper.error .image-placeholder {
   background: #f0f0f0;
   display: flex;
@@ -654,6 +584,7 @@ page-content {
   font-size: 0.875rem;
 }
 
+.image-wrapper.progressive.error .image-placeholder::after,
 .projects-grid .thumbnail-image-wrapper.error .image-placeholder::after {
   content: "Image failed to load";
 }
@@ -824,7 +755,7 @@ footer a {
   font-weight: 500;
   padding-bottom: 0.25rem;
   color: var(--color-text-muted);
-  margin-top: -1rem;
+  margin-top: 0.5rem;
 }
 
 /* When image description is in a row with multiple columns, make it full width and on new line */
@@ -847,7 +778,6 @@ footer a {
   top: 0;
 }
 
-.big-link:hover .bullet,
 footer a:hover .bullet {
   transform: rotate(45deg);
   top: 4px;
@@ -921,7 +851,7 @@ footer a:hover .bullet {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     margin-bottom: 2rem;
   }
 
@@ -1013,6 +943,7 @@ footer a:hover .bullet {
   .image-description {
     width: 100%;
     max-width: 100%;
+    margin-top: 0;
   }
 
   /* Mobile: When image description is in a row with multiple columns, make it full width and on new line */
@@ -1020,7 +951,7 @@ footer a:hover .bullet {
     width: 100%;
     max-width: 100%;
     flex-basis: 100%;
-    margin-top: 0.5rem;
+    margin-top: 0;
   }
 }
 

@@ -62,34 +62,7 @@ class DigitalProjects extends HTMLElement {
   }
 
   setupProgressiveImageLoading() {
-    const images = this.querySelectorAll('.progressive-image');
-    
-    images.forEach(img => {
-      const wrapper = img.closest('.thumbnail-image-wrapper');
-      const placeholder = wrapper.querySelector('.image-placeholder');
-      
-      // Add loading class to wrapper
-      wrapper.classList.add('loading');
-      
-      // Handle image load event
-      img.addEventListener('load', () => {
-        wrapper.classList.remove('loading');
-        wrapper.classList.add('loaded');
-        
-        // Add a small delay to ensure smooth transition
-        setTimeout(() => {
-          if (placeholder) {
-            placeholder.style.opacity = '0';
-          }
-        }, 100);
-      });
-      
-      // Handle image error
-      img.addEventListener('error', () => {
-        wrapper.classList.remove('loading');
-        wrapper.classList.add('error');
-      });
-    });
+    ProgressiveImages.setup(this);
   }
 }
 

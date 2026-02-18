@@ -18,16 +18,7 @@ window.EmailClipboard = {
 
     el.addEventListener('click', async function(e) {
       e.preventDefault();
-      try {
-        await navigator.clipboard.writeText(email);
-      } catch (err) {
-        const textArea = document.createElement('textarea');
-        textArea.value = email;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-      }
+      await navigator.clipboard.writeText(email);
       tooltip.classList.add('show');
       setTimeout(() => { tooltip.classList.remove('show'); }, 2000);
     });

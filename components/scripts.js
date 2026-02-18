@@ -5,8 +5,8 @@ class Scripts extends HTMLElement {
       { src: 'components/email-clipboard.js', defer: false },
       { src: 'components/navigation.js', defer: false }, // Load navigation synchronously to prevent blinking
       { src: 'components/footer.js', defer: true },
-      { src: 'components/projects.js', defer: true },
       { src: 'components/loading-manager.js', defer: true },
+      { src: 'components/projects.js', defer: true },
       { src: 'components/page-content.js', defer: true }
     ];
     

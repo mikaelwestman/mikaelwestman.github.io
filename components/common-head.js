@@ -5,42 +5,31 @@ window.addEventListener('pagereveal', (e) => {
   }
 });
 
+// Shared progressive-image loading utility (used by projects & digital-projects)
+window.ProgressiveImages = {
+  setup(container) {
+    const images = container.querySelectorAll('.progressive-image');
+    images.forEach(img => {
+      const wrapper = img.closest('.thumbnail-image-wrapper');
+      const placeholder = wrapper.querySelector('.image-placeholder');
+      wrapper.classList.add('loading');
+      img.addEventListener('load', () => {
+        wrapper.classList.remove('loading');
+        wrapper.classList.add('loaded');
+        setTimeout(() => { if (placeholder) placeholder.style.opacity = '0'; }, 100);
+      });
+      img.addEventListener('error', () => {
+        wrapper.classList.remove('loading');
+        wrapper.classList.add('error');
+      });
+    });
+  }
+};
+
 class CommonHead extends HTMLElement {
   connectedCallback() {
-    // Create charset meta tag
-    const charset = document.createElement('meta');
-    charset.charset = 'utf-8';
-    
-    // Create viewport meta tag
-    const viewport = document.createElement('meta');
-    viewport.name = 'viewport';
-    viewport.content = 'width=device-width, initial-scale=1.0';
-    
-    // Create favicon link
-    const favicon = document.createElement('link');
-    favicon.rel = 'shortcut icon';
-    favicon.type = 'image/png';
-    favicon.href = 'icon.png';
-    
-    // Font preload
-    const fontPreload = document.createElement('link');
-    fontPreload.rel = 'preload';
-    fontPreload.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
-    fontPreload.as = 'style';
-    fontPreload.onload = function() { this.onload = null; this.rel = 'stylesheet'; };
-
-    const fontFallback = document.createElement('noscript');
-    const fontLink = document.createElement('link');
-    fontLink.rel = 'stylesheet';
-    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
-    fontFallback.appendChild(fontLink);
-
-    // Append all elements to the head
-    document.head.appendChild(charset);
-    document.head.appendChild(viewport);
-    document.head.appendChild(favicon);
-    document.head.appendChild(fontPreload);
-    document.head.appendChild(fontFallback);
+    // No-op: meta tags are now in static HTML.
+    // This class is kept to avoid removing <common-head> from all pages.
   }
 }
 
