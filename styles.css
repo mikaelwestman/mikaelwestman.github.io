@@ -241,7 +241,8 @@ page-content {
 }
 
 /* Skip manual fade-in when arriving via view transition */
-.vt-reveal .page-content {
+.vt-reveal .page-content,
+html:active-view-transition .page-content {
   animation: none;
 }
 
