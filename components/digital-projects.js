@@ -7,6 +7,14 @@ class DigitalProjects extends HTMLElement {
     this.innerHTML = `
       <div class="wrapper projects-grid">
         <div class="projects-container fade-in">
+          <a class="project-item digital" href="rolo-radio.html">
+            <div class="thumbnail-image-wrapper">
+              <div class="image-placeholder"></div>
+              <img src="images/rolo-radio_mikael-westman_01.png" alt="Rolo Radio" class="progressive-image">
+            </div>
+            <span class="thumbnail-title">Rolo Radio</span>
+          </a>
+
           <a class="project-item digital" href="square-for-restaurants.html">
             <div class="thumbnail-image-wrapper">
               <div class="image-placeholder"></div>
