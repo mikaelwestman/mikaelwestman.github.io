@@ -70,7 +70,7 @@ class Projects extends HTMLElement {
 
   getDigitalProjects(excludeId = null) {
     const digitalProjects = [
-      { id: 'rolo-radio', href: 'rolo-radio.html', image: 'images/rolo-radio_mikael-westman_01.png', title: 'Rolo Radio' },
+      { id: 'rolo-radio', href: 'rolo-radio.html', image: 'images/rolo-radio_mikael-westman_thumbnail.png', title: 'Rolo Radio' },
       { id: 'square-for-restaurants', href: 'square-for-restaurants.html', image: 'images/square-mikael-westman-04.png', title: 'Square for Restaurants' },
       { id: 'square-pos', href: 'square-pos.html', image: 'images/pos-mikael-westman-01.png', title: 'Square POS' },
       { id: 'epidemic-sound', href: 'epidemic-sound.html', image: 'images/Epidemic-Sound-Artist.jpg', title: 'Epidemic Sound' },

@@ -10,7 +10,7 @@ class DigitalProjects extends HTMLElement {
           <a class="project-item digital" href="rolo-radio.html">
             <div class="thumbnail-image-wrapper">
               <div class="image-placeholder"></div>
-              <img src="images/rolo-radio_mikael-westman_01.png" alt="Rolo Radio" class="progressive-image">
+              <img src="images/rolo-radio_mikael-westman_thumbnail.png" alt="Rolo Radio" class="progressive-image">
             </div>
             <span class="thumbnail-title">Rolo Radio</span>
           </a>
