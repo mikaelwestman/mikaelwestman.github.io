@@ -952,7 +952,6 @@ footer a:hover .bullet {
   .image-description {
     width: 100%;
     max-width: 100%;
-    margin-top: 0;
   }
 
   /* Mobile: When image description is in a row with multiple columns, make it full width and on new line */
@@ -960,7 +959,6 @@ footer a:hover .bullet {
     width: 100%;
     max-width: 100%;
     flex-basis: 100%;
-    margin-top: 0;
   }
 }
 
