@@ -7,8 +7,9 @@ class Navigation extends HTMLElement {
     this.innerHTML = `
 		<div id="top-navigation" class="row">
 			<div class="nav-left">
-				<a href="/">Physical</a>
+				<span class="nav-label">Projects:</span>
 				<a href="digital.html">Digital</a>
+				<a href="physical.html">Physical</a>
 			</div>
 			<div class="nav-center">
 				<a href="/" aria-label="Mikael Westman home"><svg class="logo" width="" height="28" viewBox="0 0 100 48" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,8 +28,8 @@ class Navigation extends HTMLElement {
 		</button>
 		<div class="mobile-menu">
 			<nav class="mobile-nav">
-				<a href="/" class="mobile-nav-link">Physical</a>
 				<a href="digital.html" class="mobile-nav-link">Digital</a>
+				<a href="physical.html" class="mobile-nav-link">Physical</a>
 				<a href="about.html" class="mobile-nav-link">About</a>
 				<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email</a>
 				<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Instagram</a>

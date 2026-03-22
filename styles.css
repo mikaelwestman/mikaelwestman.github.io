@@ -58,9 +58,12 @@ header, footer, figure {
   animation: 0.35s ease both vt-fade-in;
 }
 
-::view-transition-old(navigation),
+::view-transition-old(navigation) {
+  animation: 0.3s ease both vt-fade-out;
+}
+
 ::view-transition-new(navigation) {
-  animation: none;
+  animation: 0.3s ease both vt-fade-in;
 }
 
 @keyframes vt-fade-out {
@@ -302,6 +305,12 @@ html:active-view-transition .page-content {
 #top-navigation .nav-right a {
   margin: 0;
   transition: color 0.2s ease;
+}
+
+.nav-label {
+  margin-right: 3rem;
+  opacity: 0.5;
+  text-transform: uppercase;
 }
 
 #top-navigation .nav-left a {
@@ -618,6 +627,137 @@ html:active-view-transition .page-content {
 }
 
 /* ==========================================================================
+   Home Page (Split Layout)
+   ========================================================================== */
+
+#home page-content {
+  border-bottom: 0;
+}
+
+#home #top-navigation {
+  background: transparent;
+  color: var(--color-background);
+}
+
+#home #top-navigation a,
+#home #top-navigation .logo,
+#home #top-navigation .nav-label {
+  color: var(--color-background);
+}
+
+#home #top-navigation a:hover {
+  color: var(--color-background);
+  opacity: 0.6;
+}
+
+#home .hamburger-line {
+  background-color: var(--color-background);
+}
+
+#home .hamburger-menu.active .hamburger-line {
+  background-color: var(--color-primary);
+}
+
+.home-split {
+  display: flex;
+  height: 100vh;
+}
+
+.home-half {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: var(--color-background);
+  overflow: hidden;
+  position: relative;
+}
+
+.home-half::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.home-half:hover::before {
+  transform: scale(1.03);
+}
+
+.home-half:hover {
+  color: var(--color-background);
+}
+
+.home-half-left {
+  align-items: flex-start;
+  padding-left: 2rem;
+}
+
+.home-half-right {
+  align-items: flex-end;
+  padding-right: 2rem;
+  text-align: right;
+}
+
+.home-half-left::before {
+  background-image: linear-gradient(to bottom, transparent 20%, #121010), url('images/rolo-radio_mikael-westman_05.png');
+}
+
+.home-half-right::before {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), url('images/goblin-lamp-mikael-westman-04.jpg');
+}
+
+.home-half-text,
+.home-half-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.home-half-text {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 7vw, 9rem);
+  line-height: 100%;
+  letter-spacing: -0.07em;
+  transition: transform 0.4s ease;
+  color: var(--color-background);
+  opacity: 1;
+}
+
+.home-half:hover .home-half-text {
+  color: var(--color-background);
+}
+
+.home-half:hover .home-half-text {
+  transform: translateY(-2rem);
+}
+
+.home-half-cta {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.home-half-cta {
+  color: var(--color-background);
+}
+
+.home-half:hover .home-half-cta {
+  opacity: 1;
+  transform: translateY(-2rem);
+  color: var(--color-background);
+}
+
+/* ==========================================================================
    About Page
    ========================================================================== */
 
@@ -866,6 +1006,20 @@ footer a:hover .bullet {
 
   .column {
     width: 100%;
+  }
+
+  /* Home page mobile adjustments */
+  .home-split {
+    flex-direction: column;
+  }
+
+  .home-half {
+    width: 100%;
+    height: 50vh;
+    align-items: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: left;
   }
 
   /* About page mobile adjustments */

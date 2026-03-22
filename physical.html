@@ -5,16 +5,16 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="image/png" href="icon.png">
-	<title>Mikael Westman — Product Designer</title>
-	<meta name="description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
-	<meta property='og:title' content='Mikael Westman — Product Designer'/>
+	<title>Physical Projects — Mikael Westman</title>
+	<meta name="description" content="Physical projects by Mikael Westman, Product Designer based in Stockholm.">
+	<meta property='og:title' content='Physical Projects — Mikael Westman'/>
 	<meta property='og:image' content='https://wst.mn/images/3d-pingpong-mikael-westman.jpg'/>
-	<meta property='og:description' content='Portfolio of Mikael Westman, Product Designer based in Stockholm.'/>
+	<meta property='og:description' content='Physical projects by Mikael Westman, Product Designer based in Stockholm.'/>
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Mikael Westman — Product Designer">
-	<meta name="twitter:description" content="Portfolio of Mikael Westman, Product Designer based in Stockholm.">
+	<meta name="twitter:title" content="Physical Projects — Mikael Westman">
+	<meta name="twitter:description" content="Physical projects by Mikael Westman, Product Designer based in Stockholm.">
 	<meta name="twitter:image" content="https://wst.mn/images/3d-pingpong-mikael-westman.jpg">
-	<link rel="canonical" href="https://wst.mn/">
+	<link rel="canonical" href="https://wst.mn/physical">
 	<link rel="stylesheet" href="styles.css">
 	<script type="application/ld+json">
 	{
@@ -48,25 +48,23 @@
 	<script src="components/fonts.js" defer></script>
 	<script src="components/scripts.js"></script>
 	<script src="components/analytics.js" defer></script>
+
+	<!-- Preload critical images for better loading experience -->
+	<link rel="preload" as="image" href="images/hallway-bench-mikael-westman-05.jpg">
+	<link rel="preload" as="image" href="images/stool-thumb.jpg">
+	<link rel="preload" as="image" href="images/pelican-spoon-mikael-westman-02.jpg">
 </head>
 
-<body id="home">
+<body id="physical">
 	<common-head></common-head>
 	<fonts-component></fonts-component>
 	<scripts-component></scripts-component>
 	<analytics-component></analytics-component>
 	<navigation-component></navigation-component>
+	<loading-manager></loading-manager>
 	<page-content>
-		<div class="home-split">
-			<a href="digital.html" class="home-half home-half-left">
-				<span class="home-half-text">I design for screens.</span>
-				<span class="home-half-cta">View digital projects →</span>
-			</a>
-			<a href="physical.html" class="home-half home-half-right">
-				<span class="home-half-text">And homes.</span>
-				<span class="home-half-cta">View physical projects →</span>
-			</a>
-		</div>
+		<projects-component></projects-component>
 	</page-content>
+	<footer-component></footer-component>
 </body>
 </html>
