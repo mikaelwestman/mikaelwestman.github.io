@@ -5,6 +5,14 @@ window.addEventListener('pagereveal', (e) => {
   }
 });
 
+// Scroll to top before the view transition snapshot is taken
+// so the old page doesn't visibly scroll up during the transition
+window.addEventListener('pageswap', (e) => {
+  if (e.viewTransition) {
+    document.documentElement.scrollTop = 0;
+  }
+});
+
 // Shared progressive-image loading utility (used by projects & digital-projects)
 window.ProgressiveImages = {
   setup(container) {

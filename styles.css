@@ -51,19 +51,19 @@ header, footer, figure {
 }
 
 ::view-transition-old(content) {
-  animation: 0.2s ease both vt-fade-out;
+  animation: 0.6s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
 }
 
 ::view-transition-new(content) {
-  animation: 0.35s ease both vt-fade-in;
+  animation: 0.9s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-in;
 }
 
 ::view-transition-old(navigation) {
-  animation: 0.3s ease both vt-fade-out;
+  animation: 0.7s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
 }
 
 ::view-transition-new(navigation) {
-  animation: 0.3s ease both vt-fade-in;
+  animation: 0.7s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-in;
 }
 
 @keyframes vt-fade-out {
