@@ -538,6 +538,7 @@ html:active-view-transition .page-content {
   width: 100%;
   border-radius: var(--border-radius-large);
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .image-wrapper.progressive .image-placeholder,
