@@ -17,6 +17,7 @@ class Navigation extends HTMLElement {
 				</svg></a>
 			</div>
 			<div class="nav-right">
+				<span class="nav-label">Me:</span>
 				<a href="about.html">About</a>
 				<a id="nav-email-link" style="cursor: pointer;">Email</a>
 				<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -28,8 +29,10 @@ class Navigation extends HTMLElement {
 		</button>
 		<div class="mobile-menu">
 			<nav class="mobile-nav">
+				<span class="nav-label">Projects:</span>
 				<a href="digital.html" class="mobile-nav-link">Digital</a>
 				<a href="physical.html" class="mobile-nav-link">Physical</a>
+				<span class="nav-label">Me:</span>
 				<a href="about.html" class="mobile-nav-link">About</a>
 				<a href="mailto:mikael@wst.mn" class="mobile-nav-link">Email</a>
 				<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Instagram</a>
