@@ -701,7 +701,7 @@ html:active-view-transition .page-content {
 
 #home #top-navigation {
   background: transparent;
-  animation: homeFadeIn 0.8s ease-out 1.4s backwards;
+  animation: homeFadeIn 1.2s ease-out 0s backwards;
 }
 
 #home #top-navigation .nav-right,
@@ -710,8 +710,16 @@ html:active-view-transition .page-content {
   color: var(--color-background);
 }
 
+#home .home-half {
+  background: var(--color-primary);
+}
+
+#home .home-half::before {
+  animation: homeFadeIn 2s cubic-bezier(0.16, 1, 0.3, 1) 0s backwards;
+}
+
 #home .home-split {
-  animation: homeLogoReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0s backwards;
+  animation: homeLogoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) 0s backwards;
 }
 
 #home .home-link-left .home-half-text {
