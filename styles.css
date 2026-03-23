@@ -107,6 +107,26 @@ header, footer, figure {
   }
 }
 
+@keyframes homeLogoReveal {
+  from { transform: translateX(-50%) scale(0.5); }
+  to   { transform: translateX(-50%) scale(1); }
+}
+
+@keyframes homeLogoRevealMobile {
+  from { transform: translateX(-50%) rotate(90deg) scale(0.5); }
+  to   { transform: translateX(-50%) rotate(90deg) scale(1); }
+}
+
+@keyframes homeFadeSlideUp {
+  from { opacity: 0; transform: translateY(3rem); }
+  to   { opacity: 1; transform: translateY(1rem); }
+}
+
+@keyframes homeFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ==========================================================================
    Base Typography & Layout
    ========================================================================== */
@@ -667,6 +687,12 @@ html:active-view-transition .page-content {
 
 #home page-content {
   border-bottom: 0;
+  opacity: 1;
+  transform: none;
+}
+
+#home .page-content {
+  animation: none;
 }
 
 #home #top-navigation .nav-center {
@@ -675,12 +701,25 @@ html:active-view-transition .page-content {
 
 #home #top-navigation {
   background: transparent;
+  animation: homeFadeIn 0.8s ease-out 1.4s backwards;
 }
 
 #home #top-navigation .nav-right,
 #home #top-navigation .nav-right a,
 #home #top-navigation .nav-right .nav-label {
   color: var(--color-background);
+}
+
+#home .home-split {
+  animation: homeLogoReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0s backwards;
+}
+
+#home .home-link-left .home-half-text {
+  animation: homeFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+}
+
+#home .home-link-right .home-half-text {
+  animation: homeFadeIn 0.8s ease-out 1.0s backwards;
 }
 
 .home-container {
@@ -1098,6 +1137,22 @@ footer a:hover .bullet {
   .home-link:hover .home-half-text,
   .home-link:hover .home-half-cta {
     transform: none;
+  }
+
+  #home .home-split {
+    animation-name: homeLogoRevealMobile;
+  }
+
+  #home .home-link-left .home-half-text {
+    animation-name: homeFadeIn;
+  }
+
+  #home .home-link-left .home-half-cta {
+    animation: homeFadeIn 0.8s ease-out 0.8s backwards;
+  }
+
+  #home .home-link-right .home-half-cta {
+    animation: homeFadeIn 0.8s ease-out 1.2s backwards;
   }
 
   /* About page mobile adjustments */
