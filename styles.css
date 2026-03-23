@@ -723,7 +723,7 @@ html:active-view-transition .page-content {
 .home-half-text {
   font-family: Inter, sans-serif;
   font-weight: 400;
-  font-size: clamp(3rem, 7vw, 9rem);
+  font-size: clamp(3rem, 5vw, 7rem);
   line-height: 100%;
   letter-spacing: -0.07em;
   transition: transform 0.4s ease;
@@ -1025,6 +1025,14 @@ footer a:hover .bullet {
 
   .home-half-cta {
     opacity: 1;
+    transform: none;
+  }
+
+  .home-half:hover .home-half-text {
+    transform: none;
+  }
+
+  .home-half:hover .home-half-cta {
     transform: none;
   }
 
