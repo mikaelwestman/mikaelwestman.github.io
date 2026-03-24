@@ -196,11 +196,6 @@ p:last-child {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--color-text-muted);
 }
 
 /* Prevent thumbnail titles from changing color on hover */
@@ -329,7 +324,26 @@ html:active-view-transition .page-content {
 #top-navigation .nav-left a,
 #top-navigation .nav-right a {
   margin: 0;
-  transition: color 0.2s ease;
+  position: relative;
+}
+
+#top-navigation .nav-left a::after,
+#top-navigation .nav-right a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+#top-navigation .nav-left a:hover::after,
+#top-navigation .nav-right a:hover::after {
+  transform: scaleX(1);
 }
 
 .nav-label {
@@ -426,6 +440,20 @@ html:active-view-transition .page-content {
   transition: color 0.2s ease;
   transform: translateY(20px);
   opacity: 0;
+  position: relative;
+}
+
+.mobile-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1.5rem;
+  width: 100%;
+  height: 1px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .mobile-menu.active .mobile-nav-link,
@@ -451,8 +479,8 @@ html:active-view-transition .page-content {
 .mobile-menu.active .mobile-nav > :nth-child(6) { transition-delay: 0.35s; }
 .mobile-menu.active .mobile-nav > :nth-child(7) { transition-delay: 0.4s; }
 
-.mobile-nav-link:hover {
-  color: var(--color-text-muted);
+.mobile-nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 .mobile-nav-link:last-child {
@@ -697,7 +725,7 @@ html:active-view-transition .page-content {
 
 #home #top-navigation {
   background: transparent;
-  animation: homeFadeIn 1.2s ease-out 0s backwards;
+  animation: none;
 }
 
 #home #top-navigation .nav-right,
@@ -706,24 +734,28 @@ html:active-view-transition .page-content {
   color: var(--color-background);
 }
 
+#home #top-navigation .nav-right a::after {
+  background: var(--color-background);
+}
+
 #home .home-half {
   background: var(--color-primary);
 }
 
-#home .home-half::before {
-  animation: homeFadeIn 2s cubic-bezier(0.16, 1, 0.3, 1) 0s backwards;
+#home .home-half-bg {
+  animation: none;
 }
 
 #home .home-split {
-  animation: homeLogoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) 0s backwards;
+  animation: none;
 }
 
 #home .home-link-left .home-half-text {
-  animation: homeFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+  animation: none;
 }
 
 #home .home-link-right .home-half-text {
-  animation: homeFadeIn 0.8s ease-out 1.0s backwards;
+  animation: none;
 }
 
 .home-container {
@@ -760,30 +792,24 @@ html:active-view-transition .page-content {
   overflow: hidden;
 }
 
-.home-half::before {
-  content: '';
+.home-half-bg {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: calc(60vw * 48 / 100);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: transform 0.5s ease;
 }
 
-.home-half-left::before {
+.home-half-left .home-half-bg {
   background-image: url('images/rolo-radio_mikael-westman_home.jpg');
 }
 
-.home-half-right::before {
+.home-half-right .home-half-bg {
   background-image: url('images/goblin-lamp-mikael-westman-03.jpg');
-}
-
-.home-container:has(.home-link-left:hover) .home-half-left::before {
-  transform: scale(1.03);
-}
-
-.home-container:has(.home-link-right:hover) .home-half-right::before {
-  transform: scale(1.03);
 }
 
 .home-link {
@@ -975,6 +1001,24 @@ footer .meta-data {
 
 footer a {
   padding-bottom: 0.5rem;
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0.25rem;
+  width: 100%;
+  height: 1px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+footer a:hover::after {
+  transform: scaleX(1);
 }
 
 /* ==========================================================================
@@ -1129,17 +1173,9 @@ footer a:hover .bullet {
     transform: translateX(-50%) rotate(90deg);
   }
 
-  .home-half::before {
+  .home-half-bg {
     transform: rotate(-90deg);
     background-size: cover;
-  }
-
-  .home-container:has(.home-link-left:hover) .home-half-left::before {
-    transform: rotate(-90deg) scale(1.03);
-  }
-
-  .home-container:has(.home-link-right:hover) .home-half-right::before {
-    transform: rotate(-90deg) scale(1.03);
   }
 
   .home-half-text {
@@ -1157,19 +1193,19 @@ footer a:hover .bullet {
   }
 
   #home .home-split {
-    animation-name: homeLogoRevealMobile;
+    animation: none;
   }
 
   #home .home-link-left .home-half-text {
-    animation-name: homeFadeIn;
+    animation: none;
   }
 
   #home .home-link-left .home-half-cta {
-    animation: homeFadeIn 0.8s ease-out 0.8s backwards;
+    animation: none;
   }
 
   #home .home-link-right .home-half-cta {
-    animation: homeFadeIn 0.8s ease-out 1.2s backwards;
+    animation: none;
   }
 
   /* About page mobile adjustments */
