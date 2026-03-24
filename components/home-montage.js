@@ -61,43 +61,52 @@ class HomeMontage extends HTMLElement {
     rightLink.addEventListener('mouseenter', () => this.startCycling('right'));
     rightLink.addEventListener('mouseleave', () => this.stopCycling('right'));
 
-    this.preloadImages([...this.digitalImages, ...this.physicalImages]);
+    this.leftReady = 0;
+    this.rightReady = 0;
+    this.preloadSide(this.digitalImages, 'left');
+    this.preloadSide(this.physicalImages, 'right');
   }
 
-  preloadImages(urls) {
+  preloadSide(urls, side) {
+    const key = side + 'Ready';
     let i = 0;
     const next = () => {
-      if (i >= urls.length) {
-        this.imagesPreloaded = true;
-        return;
-      }
+      if (i >= urls.length) return;
       const img = new Image();
-      img.onload = img.onerror = () => { i++; next(); };
+      img.onload = img.onerror = () => {
+        this[key]++;
+        i++;
+        next();
+      };
       img.src = urls[i];
     };
     next();
   }
 
   startCycling(side) {
-    if (!this.imagesPreloaded) return;
+    const ready = side === 'left' ? this.leftReady : this.rightReady;
+    if (ready < 2) return;
 
     const timeoutKey = side + 'Timeout';
     this[timeoutKey] = setTimeout(() => {
-      const images = side === 'left' ? this.digitalImages : this.physicalImages;
+      const allImages = side === 'left' ? this.digitalImages : this.physicalImages;
+      const readyKey = side + 'Ready';
       const indexKey = side + 'Index';
       const bg = side === 'left' ? this.leftBg : this.rightBg;
       const intervalKey = side + 'Interval';
 
       this[indexKey] = 1;
       this[intervalKey] = setInterval(() => {
-        bg.style.backgroundImage = `url('${images[this[indexKey]]}')`;
+        const available = Math.min(this[readyKey], allImages.length);
+        if (this[indexKey] >= available) this[indexKey] = 0;
+        bg.style.backgroundImage = `url('${allImages[this[indexKey]]}')`;
         bg.style.transform = 'scale(1.06)';
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             bg.style.transform = 'scale(1)';
           });
         });
-        this[indexKey] = (this[indexKey] + 1) % images.length;
+        this[indexKey] = (this[indexKey] + 1) % available;
       }, 300);
     }, 200);
   }
