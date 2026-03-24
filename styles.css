@@ -735,7 +735,7 @@ html:active-view-transition .page-content {
   height: 100dvh;
   display: flex;
   overflow: hidden;
-  background: linear-gradient(to right, var(--color-background) 50%, #203A05 50%);
+  background: linear-gradient(to right, var(--color-background) 50%, var(--color-primary) 50%);
 }
 
 .home-split {
