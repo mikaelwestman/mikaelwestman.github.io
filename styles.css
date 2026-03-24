@@ -51,19 +51,19 @@ header, footer, figure {
 }
 
 ::view-transition-old(content) {
-  animation: 0.6s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
+  animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
 }
 
 ::view-transition-new(content) {
-  animation: 0.9s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-in;
+  animation: 0.45s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-in;
 }
 
 ::view-transition-old(navigation) {
-  animation: 0.7s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
+  animation: 0.35s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
 }
 
 ::view-transition-new(navigation) {
-  animation: 0.7s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-in;
+  animation: 0.35s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-in;
 }
 
 ::view-transition-old(hamburger) {
@@ -90,11 +90,9 @@ header, footer, figure {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -261,7 +259,6 @@ img.lazy-error, video.lazy-error {
 
 page-content {
   opacity: 0;
-  transform: translateY(20px);
   border-bottom: 1px solid var(--color-primary);
   display: block;
   min-height: 1px;
@@ -269,14 +266,13 @@ page-content {
 }
 
 .page-content {
-  animation: fadeIn 0.7s ease-out forwards;
+  animation: fadeIn 0.35s ease-out forwards;
 }
 
 /* View-transition arrival: show content immediately (VT handles the animation) */
 .vt-reveal page-content,
 html:active-view-transition page-content {
   opacity: 1;
-  transform: translateY(0);
 }
 
 /* Skip manual fade-in when arriving via view transition */
@@ -1131,6 +1127,19 @@ footer a:hover .bullet {
   .home-split {
     width: 100vw;
     transform: translateX(-50%) rotate(90deg);
+  }
+
+  .home-half::before {
+    transform: rotate(-90deg);
+    background-size: cover;
+  }
+
+  .home-container:has(.home-link-left:hover) .home-half-left::before {
+    transform: rotate(-90deg) scale(1.03);
+  }
+
+  .home-container:has(.home-link-right:hover) .home-half-right::before {
+    transform: rotate(-90deg) scale(1.03);
   }
 
   .home-half-text {
