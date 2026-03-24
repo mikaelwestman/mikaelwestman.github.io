@@ -1105,7 +1105,7 @@ footer a:hover .bullet {
   /* Home page mobile adjustments */
   .home-container {
     flex-direction: column;
-    background: linear-gradient(to bottom, var(--color-background) 50%, #3E5312 50%);
+    background: linear-gradient(to bottom, var(--color-background) 50%, var(--color-primary) 50%);
   }
 
   .home-link {
