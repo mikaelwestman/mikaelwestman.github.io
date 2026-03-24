@@ -1,7 +1,7 @@
 class HomeMontage extends HTMLElement {
   connectedCallback() {
     if (document.body.id !== 'home') return;
-    if (!window.matchMedia('(hover: hover)').matches) return;
+    if (!window.matchMedia('(hover: hover) and (min-width: 769px)').matches) return;
 
     this.imagesPreloaded = false;
     this.leftIndex = 0;
@@ -100,14 +100,14 @@ class HomeMontage extends HTMLElement {
         const available = Math.min(this[readyKey], allImages.length);
         if (this[indexKey] >= available) this[indexKey] = 0;
         bg.style.backgroundImage = `url('${allImages[this[indexKey]]}')`;
-        bg.style.transform = 'scale(1.06)';
+        bg.style.transform = 'scale(1.15)';
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             bg.style.transform = 'scale(1)';
           });
         });
         this[indexKey] = (this[indexKey] + 1) % available;
-      }, 300);
+      }, 500);
     }, 200);
   }
 

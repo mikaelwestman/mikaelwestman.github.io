@@ -803,7 +803,7 @@ html:active-view-transition .page-content {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: transform 120ms ease-out;
+  transition: transform 250ms ease-out;
 }
 
 .home-half-left .home-half-bg {
@@ -1178,6 +1178,9 @@ footer a:hover .bullet {
 
   .home-half-bg {
     transform: rotate(-90deg);
+    inset: 0 -50vh;
+    height: auto;
+    margin: 0;
     background-size: cover;
   }
 
