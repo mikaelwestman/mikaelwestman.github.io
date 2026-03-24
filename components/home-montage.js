@@ -36,9 +36,9 @@ class HomeMontage extends HTMLElement {
       'images/montage/vattenlilja-mikael-westman-01.jpg',
       'images/montage/vattenlilja-mikael-westman-02.jpg',
       'images/montage/vattenlilja-mikael-westman-03.jpg',
-      'images/montage/stool-thumb.jpg',
-      'images/montage/stool-mikael.westman-01.jpg',
-      'images/montage/stool-mikael.westman-03.jpg',
+      'images/montage/stool-mikael-westman-01.jpg',
+      'images/montage/stool-mikael-westman-02.jpg',
+      'images/montage/stool-mikael-westman-03.jpg',
     ];
 
     if (document.readyState === 'loading') {
@@ -91,8 +91,14 @@ class HomeMontage extends HTMLElement {
       this[indexKey] = 1;
       this[intervalKey] = setInterval(() => {
         bg.style.backgroundImage = `url('${images[this[indexKey]]}')`;
+        bg.style.transform = 'scale(1.06)';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            bg.style.transform = 'scale(1)';
+          });
+        });
         this[indexKey] = (this[indexKey] + 1) % images.length;
-      }, 150);
+      }, 300);
     }, 200);
   }
 
@@ -108,6 +114,7 @@ class HomeMontage extends HTMLElement {
     this[intervalKey] = null;
 
     bg.style.backgroundImage = `url('${defaultImage}')`;
+    bg.style.transform = '';
   }
 }
 
