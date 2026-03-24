@@ -1002,6 +1002,7 @@ footer .meta-data {
 footer a {
   padding-bottom: 0.5rem;
   position: relative;
+  width: fit-content;
 }
 
 footer a::after {
