@@ -48,7 +48,6 @@
 	<script src="components/fonts.js" defer></script>
 	<script src="components/scripts.js"></script>
 	<script src="components/analytics.js" defer></script>
-	<script src="components/home-montage.js" defer></script>
 </head>
 
 <body id="home">
@@ -56,14 +55,21 @@
 	<fonts-component></fonts-component>
 	<scripts-component></scripts-component>
 	<analytics-component></analytics-component>
-	<home-montage></home-montage>
 	<navigation-component></navigation-component>
 	<page-content>
 		<div class="home-container">
-			<div class="home-split">
-				<div class="home-half home-half-left"><div class="home-half-bg"></div></div>
-				<div class="home-half home-half-right"><div class="home-half-bg"></div></div>
-			</div>
+			<svg class="home-logo-stroke" viewBox="0 0 438 209" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+				<defs>
+					<mask id="logo-mask-default">
+						<path class="home-logo-path" d="M40.0107 164.497L82.6558 40.011L144.796 168.011L187.441 40.011L249.581 164.497L292.226 40.011L354.366 164.497L397.011 40.011" stroke="white" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/>
+					</mask>
+					<mask id="logo-mask-hover">
+						<path class="home-logo-hover-path" d="M397.011 40.011L354.366 164.497L292.226 40.011L249.581 164.497L187.441 40.011L144.796 168.011L82.6558 40.011L40.0107 164.497" stroke="white" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/>
+					</mask>
+				</defs>
+				<image class="logo-image-default" href="images/rolo-radio_mikael-westman_home.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
+				<image class="logo-image-hover" href="images/stool-mikael-westman-01.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-hover)"/>
+			</svg>
 			<a href="digital.html" class="home-link home-link-left">
 				<span class="home-half-text">I design software.</span>
 				<span class="home-half-cta">View digital projects →</span>
@@ -74,5 +80,39 @@
 			</a>
 		</div>
 	</page-content>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			const introPath = document.querySelector('.home-logo-path');
+			const hoverPath = document.querySelector('.home-logo-hover-path');
+			const rightLink = document.querySelector('.home-link-right');
+			if (!introPath || !hoverPath) return;
+
+			const length = introPath.getTotalLength();
+
+			// Intro draw animation
+			introPath.style.strokeDasharray = `${length} ${length * 2}`;
+			introPath.style.strokeDashoffset = length;
+			requestAnimationFrame(() => requestAnimationFrame(() => {
+				introPath.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+				introPath.style.strokeDashoffset = 0;
+			}));
+
+			// Hover path starts hidden — transition added after rAF so it doesn't animate on load
+			hoverPath.style.strokeDasharray = `${length} ${length * 2}`;
+			hoverPath.style.strokeDashoffset = length;
+			requestAnimationFrame(() => requestAnimationFrame(() => {
+				hoverPath.style.transition = 'stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+			}));
+
+			rightLink.addEventListener('mouseenter', () => {
+				hoverPath.style.transitionTimingFunction = 'cubic-bezier(0.4, 0, 0.2, 1)';
+				hoverPath.style.strokeDashoffset = 0;
+			});
+			rightLink.addEventListener('mouseleave', () => {
+				hoverPath.style.transitionTimingFunction = 'cubic-bezier(0.4, 0, 1, 1)';
+				hoverPath.style.strokeDashoffset = length;
+			});
+		});
+	</script>
 </body>
 </html>
