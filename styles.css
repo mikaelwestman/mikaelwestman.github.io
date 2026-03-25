@@ -1286,6 +1286,29 @@ footer a:hover .bullet {
     width: auto;
     height: 28px;
   }
+
+  #home .home-link-left {
+    justify-content: flex-start;
+    padding-top: 8rem;
+  }
+
+  #home .home-logo-stroke {
+    top: calc(50% + 3rem);
+    width: min(70vw, 960px);
+  }
+
+  #home .home-link-left .home-half-text {
+    transform: none;
+  }
+
+  #home .home-link-left:hover .home-half-text {
+    transform: none;
+  }
+
+  #home .home-link-left:hover .home-half-cta {
+    opacity: 1;
+    transform: translateY(1rem);
+  }
 }
 
 /* ==========================================================================
