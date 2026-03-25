@@ -723,10 +723,27 @@ html:active-view-transition .page-content {
 #home #top-navigation .nav-right a,
 #home #top-navigation .nav-right .nav-label {
   color: var(--color-background);
+  transition: color 0.4s ease;
 }
 
 #home #top-navigation .nav-right a::after {
   background: var(--color-background);
+}
+
+#home #top-navigation .nav-left a,
+#home #top-navigation .nav-left .nav-label {
+  transition: color 0.4s ease;
+}
+
+#home:has(.home-link-right:hover) #top-navigation .nav-left a,
+#home:has(.home-link-right:hover) #top-navigation .nav-left .nav-label {
+  color: #EFE8CF;
+}
+
+#home:has(.home-link-right:hover) #top-navigation .nav-right,
+#home:has(.home-link-right:hover) #top-navigation .nav-right a,
+#home:has(.home-link-right:hover) #top-navigation .nav-right .nav-label {
+  color: #1E1A14;
 }
 
 
@@ -744,6 +761,31 @@ html:active-view-transition .page-content {
   display: flex;
   overflow: hidden;
   background: linear-gradient(to right, var(--color-background) 50%, var(--color-primary) 50%);
+}
+
+.home-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #1E1A14 50%, #D3B729 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-container:has(.home-link-right:hover)::after {
+  opacity: 1;
+}
+
+.home-container:has(.home-link-right:hover) .home-link-left .home-half-text,
+.home-container:has(.home-link-right:hover) .home-link-left .home-half-cta {
+  color: #EFE8CF;
+}
+
+.home-container:has(.home-link-right:hover) .home-link-right .home-half-text,
+.home-container:has(.home-link-right:hover) .home-link-right .home-half-cta {
+  color: #1E1A14;
 }
 
 .home-logo-stroke {
@@ -797,7 +839,7 @@ html:active-view-transition .page-content {
   letter-spacing: -0.07em;
   color: var(--color-primary);
   transform: translateY(1rem);
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, color 0.4s ease;
 }
 
 .home-link:hover .home-half-text {
@@ -810,7 +852,7 @@ html:active-view-transition .page-content {
   color: var(--color-primary);
   opacity: 0;
   transform: translateY(0rem);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.4s ease;
 }
 
 .home-link:hover .home-half-cta {
