@@ -823,7 +823,7 @@ html:active-view-transition .page-content {
 
 .home-half-text {
   font-family: Inter, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(2rem, 3vw, 5rem);
   line-height: 100%;
   letter-spacing: -0.07em;
@@ -837,7 +837,6 @@ html:active-view-transition .page-content {
 }
 
 .home-half-cta {
-  font-size: 0.8rem;
   margin-top: 1rem;
   color: var(--color-primary);
   opacity: 0;
@@ -928,9 +927,8 @@ html:active-view-transition .page-content {
   margin-top: 1rem;
   margin-left: -1rem;
   margin-bottom: 2rem;
-  font-size: 12rem;
-  font-weight: 500;
-  letter-spacing: -0.08em;
+  font-size: 4rem;
+  font-weight: 600;
 }
 
 #about .meta-data {
@@ -1199,8 +1197,6 @@ footer a:hover .bullet {
   #about .hello-heading {
     margin-left: -0.75rem;
     margin-bottom: 1.5rem;
-    font-size: 10rem;
-    letter-spacing: -0.07em;
   }
 
   /* Navigation mobile adjustments */
