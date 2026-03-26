@@ -735,11 +735,6 @@ html:active-view-transition .page-content {
   transition: color 0.4s ease;
 }
 
-#home:has(.home-link-right:hover) #top-navigation .nav-left a,
-#home:has(.home-link-right:hover) #top-navigation .nav-left .nav-label {
-  color: #EFE8CF;
-}
-
 #home:has(.home-link-right:hover) #top-navigation .nav-right,
 #home:has(.home-link-right:hover) #top-navigation .nav-right a,
 #home:has(.home-link-right:hover) #top-navigation .nav-right .nav-label {
@@ -767,7 +762,7 @@ html:active-view-transition .page-content {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #1E1A14 50%, #D3B729 50%);
+  background: linear-gradient(to right, transparent 50%, var(--color-brand) 50%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -776,11 +771,6 @@ html:active-view-transition .page-content {
 
 .home-container:has(.home-link-right:hover)::after {
   opacity: 1;
-}
-
-.home-container:has(.home-link-right:hover) .home-link-left .home-half-text,
-.home-container:has(.home-link-right:hover) .home-link-left .home-half-cta {
-  color: #EFE8CF;
 }
 
 .home-container:has(.home-link-right:hover) .home-link-right .home-half-text,
