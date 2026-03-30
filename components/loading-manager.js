@@ -133,8 +133,8 @@ class LoadingManager extends HTMLElement {
   }
 
   setupProgressiveLoading(img) {
-    // Skip footer logo and images that already have progressive loading setup
-    if (img.classList.contains('footer-logo-img') || img.closest('.thumbnail-image-wrapper') || img.closest('.image-wrapper.progressive')) {
+    // Skip footer logo, hero images, and images that already have progressive loading setup
+    if (img.classList.contains('footer-logo-img') || img.closest('.thumbnail-image-wrapper') || img.closest('.image-wrapper.progressive') || img.closest('.about-hero')) {
       return;
     }
 

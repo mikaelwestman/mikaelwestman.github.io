@@ -110,7 +110,7 @@ class Navigation extends HTMLElement {
 
     const updateNav = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Only hide nav when scrolling down and not at the top
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         nav.classList.add('nav-hidden');
@@ -119,7 +119,17 @@ class Navigation extends HTMLElement {
         nav.classList.remove('nav-hidden');
         hamburger.classList.remove('nav-hidden');
       }
-      
+
+      // About page: give nav a background once scrolled past the hero
+      if (document.body.id === 'about') {
+        const hero = document.querySelector('.about-hero');
+        if (hero && currentScrollY > hero.offsetHeight - nav.offsetHeight) {
+          nav.classList.add('nav-scrolled');
+        } else {
+          nav.classList.remove('nav-scrolled');
+        }
+      }
+
       lastScrollY = currentScrollY;
       ticking = false;
     };
@@ -130,6 +140,9 @@ class Navigation extends HTMLElement {
         ticking = true;
       }
     };
+
+    // Set initial nav state
+    updateNav();
 
     // Listen for scroll events
     window.addEventListener('scroll', requestTick, { passive: true });

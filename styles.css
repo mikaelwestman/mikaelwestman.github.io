@@ -6,7 +6,7 @@
   /* Color palette */
   --color-primary: rgb(29, 26, 21);
   --color-background: #f7f8f3;
-  --color-brand: #cfa3ce;
+  --color-brand: #D3B729;
   --color-selection: #00000037;
   --color-thumbnail-bg: #cfd2c6;
   --color-text-muted: rgba(29, 26, 21, 0.6);
@@ -858,17 +858,41 @@ html:active-view-transition .page-content {
   transition: background-color 0.4s ease-in-out;
 }
 
+#about .wrapper {
+  padding-top: 0;
+}
+
 #about.background-fade-in {
   background: var(--color-brand);
 }
 
 #about #top-navigation {
-  background: var(--color-brand);
+  background: transparent;
   transition: background-color 0.4s ease-in-out, opacity 0.3s ease, transform 0.3s ease;
 }
 
 #about #top-navigation.background-fade-in {
+  background: transparent;
+}
+
+#about #top-navigation.nav-scrolled {
   background: var(--color-brand);
+}
+
+#about .about-hero {
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+}
+
+
+#about .about-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  margin-bottom: 0;
+  opacity: 1;
 }
 
 #about #top-navigation.nav-hidden {
@@ -925,10 +949,8 @@ html:active-view-transition .page-content {
 
 #about .hello-heading {
   margin-top: 1rem;
-  margin-left: -1rem;
+  margin-left: -0.3rem;
   margin-bottom: 2rem;
-  font-size: 4rem;
-  font-weight: 600;
 }
 
 #about .meta-data {
@@ -1199,7 +1221,6 @@ footer a:hover .bullet {
   }
 
   #about .hello-heading {
-    margin-left: -0.75rem;
     margin-bottom: 1.5rem;
   }
 
