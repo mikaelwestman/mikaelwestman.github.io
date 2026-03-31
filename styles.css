@@ -423,7 +423,7 @@ html:active-view-transition .page-content {
 }
 
 .mobile-nav-link {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 400;
   letter-spacing: -0.03em;
   color: var(--color-primary);
@@ -489,7 +489,7 @@ html:active-view-transition .page-content {
 }
 
 .mobile-nav .nav-label:nth-of-type(2) {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 /* ==========================================================================
@@ -497,7 +497,7 @@ html:active-view-transition .page-content {
    ========================================================================== */
 
 .wrapper, #top-navigation, .footer-content {
-  max-width: 2000px;
+  max-width: 1600px;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -890,12 +890,11 @@ html:active-view-transition .page-content {
   font-size: 4rem;
 }
 
-.bio {
+.bio, .experience-section {
   width: 80%;
 }
 
 #about .section-header {
-  text-transform: lowercase;
   font-size: 0.8rem;
   margin-bottom: 1.5rem;
   border-top: 1px solid var(--color-primary);
@@ -1055,8 +1054,8 @@ footer a:hover .bullet {
   }
 
   .wrapper, #top-navigation, .footer-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .wrapper .row:first-child {
@@ -1128,7 +1127,7 @@ footer a:hover .bullet {
     margin-bottom: 1.5rem;
   }
 
-  .bio, .about-hero {
+  .bio, .experience-section, .about-hero {
     width: 100%;
   }
 
@@ -1148,7 +1147,8 @@ footer a:hover .bullet {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     height: 4rem;
   }
 
