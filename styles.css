@@ -905,6 +905,27 @@ html:active-view-transition .page-content {
   margin-bottom: 2rem;
 }
 
+#about .experience-item h2 a {
+  position: relative;
+}
+
+#about .experience-item h2 a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+#about .experience-item h2 a:hover::after {
+  transform: scaleX(1);
+}
+
 #about .meta-data {
   margin-bottom: 0.5rem;
 }
