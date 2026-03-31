@@ -127,7 +127,7 @@ html {
 body {
   font-weight: 400;
   letter-spacing: -0.03em;
-  font-feature-settings: "calt", "ss01", "cv01", "cv08", "cv09";
+  font-feature-settings: "calt", "ss01", "cv01", "cv09";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -746,6 +746,18 @@ html:active-view-transition .page-content {
   width: auto;
   max-width: min(90vw, 960px);
   pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+
+.home-container:has(.home-software-trigger:hover) .home-logo-stroke,
+.home-container:has(.home-hardware-trigger:hover) .home-logo-stroke,
+.home-container:has(.home-i-link:hover) .home-logo-stroke {
+  animation: logo-pulse 0.5s ease-in-out 1;
 }
 
 .logo-bg {
@@ -781,6 +793,15 @@ html:active-view-transition .page-content {
   text-align: center;
 }
 
+.home-link-sup {
+  font-size: 0.3em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: text-top;
+  margin-left: 0.1em;
+  font-style: normal;
+}
+
 .home-software-trigger,
 .home-hardware-trigger,
 .home-i-link {
@@ -798,7 +819,7 @@ html:active-view-transition .page-content {
 .home-i-link::before {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: calc(100% + 12px);
+  bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   font-family: 'Geist Mono', monospace;
@@ -822,7 +843,7 @@ html:active-view-transition .page-content {
 .home-i-link::after {
   content: '';
   position: absolute;
-  bottom: calc(100% + 6px);
+  bottom: calc(100% + 2px);
   left: 50%;
   width: 10px;
   height: 10px;
