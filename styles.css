@@ -542,14 +542,12 @@ html:active-view-transition .page-content {
 
 .wrapper .row:first-child .column:first-child {
   padding-right: 2rem;
-  width: 50%;
 }
 
 .wrapper .row:first-child .column:last-child {
   align-items: flex-start;
   border-left: 1px solid var(--color-primary);
   padding-left: 2rem;
-  width: 50%;
 }
 
 .wrapper .row:first-child .column:only-child {
@@ -847,102 +845,35 @@ html:active-view-transition .page-content {
    About Page
    ========================================================================== */
 
-#about {
-  background: var(--color-brand);
-  transition: background-color 0.4s ease-in-out;
+.about-hero {
+  width: max(680px, 60%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 6rem;
 }
 
-#about.background-fade-in {
-  background: var(--color-brand);
+.about-hero h1 {
+  padding-top: 2rem;
+  font-size: 4rem;
 }
 
-#about #top-navigation {
-  background: transparent;
-  transition: background-color 0.4s ease-in-out, opacity 0.3s ease, transform 0.3s ease;
-}
-
-#about #top-navigation.background-fade-in {
-  background: transparent;
-}
-
-#about #top-navigation.nav-scrolled {
-  background: var(--color-brand);
-}
-
-#about .wrapper {
-  padding-top: 0;
-}
-
-#about .about-hero {
-  width: 100%;
-  height: 75vh;
-  overflow: hidden;
-}
-
-#about .about-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0;
-  margin-bottom: 0;
-  opacity: 1;
-}
-
-#about #top-navigation.nav-hidden {
-  opacity: 0;
-  transform: translateX(-50%) translateY(-100%);
-}
-
-#about .wrapper .row {
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-primary);
-}
-
-#about .wrapper .row:first-child {
-  padding-top: 3rem;
-  border: 0;
-}
-
-#about img {
-  margin-bottom: 3rem;
-}
-
-#about .column {
-  width: 100%; /* Makes CV columns full width */
-}
-
-#about .row:first-child .column {
-  width: calc(50% - 0.375rem); /* Recalculate bio columns to be half width */
-}
-
-#about .experience-section {
-  margin-bottom: 4rem;
-  width: 100%;
-}
-
-#about .experience-section:last-child {
-  margin-bottom: 0;
+.bio {
+  width: 80%;
 }
 
 #about .section-header {
   text-transform: lowercase;
   font-size: 0.8rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-primary);
-  padding-bottom: 1rem;
+  border-top: 1px solid var(--color-primary);
+  padding-top: 1rem;
 }
 
 #about .experience-item {
-  margin-bottom: 2rem;
-}
-
-#about .experience-item:last-child {
-  margin-bottom: 0;
-}
-
-#about .hello-heading {
-  margin-top: 1rem;
-  margin-left: -0.3rem;
   margin-bottom: 2rem;
 }
 
@@ -1160,6 +1091,20 @@ footer a:hover .bullet {
 
   #about .hello-heading {
     margin-bottom: 1.5rem;
+  }
+
+  .bio, .about-hero {
+    width: 100%;
+  }
+
+  .about-hero {
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+
+  .about-hero img {
+    height: 60vh;
+    object-fit: cover;
   }
 
   /* Navigation mobile adjustments */
