@@ -134,7 +134,7 @@ class LoadingManager extends HTMLElement {
 
   setupProgressiveLoading(img) {
     // Skip footer logo, hero images, and images that already have progressive loading setup
-    if (img.classList.contains('footer-logo-img') || img.closest('.thumbnail-image-wrapper') || img.closest('.image-wrapper.progressive') || img.closest('.about-hero') || img.closest('.about-image')) {
+    if (img.classList.contains('footer-logo-img') || img.closest('.thumbnail-image-wrapper') || img.closest('.image-wrapper.progressive') || img.closest('.about-hero') || img.closest('.about-image') || img.closest('.app-store-badge')) {
       return;
     }
 
