@@ -1094,13 +1094,19 @@ footer a:hover .bullet {
   }
 
   /* Home page mobile adjustments */
+  .home-container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
   .home-top-text,
   .home-bottom-text {
-    padding: 0 2rem;
+    font-size: 2rem;
+    padding: 0 1.5rem;
   }
 
   .home-logo-wrapper {
-    width: 130vw;
+    width: 140vw;
   }
 
   .home-logo-stroke {
