@@ -751,6 +751,11 @@ html:active-view-transition .page-content {
   fill: var(--color-brand);
 }
 
+.logo-image-default {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
 .logo-image-software,
 .logo-image-me,
 .logo-image-hover {

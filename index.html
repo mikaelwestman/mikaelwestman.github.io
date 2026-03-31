@@ -67,6 +67,7 @@
 						</mask>
 					</defs>
 					<rect class="logo-bg" x="0" y="0" width="438" height="209" mask="url(#logo-mask-default)"/>
+					<image class="logo-image-default" href="images/stool-mikael-westman-01.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
 					<image class="logo-image-software" href="images/rolo-radio_mikael-westman_home.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
 					<image class="logo-image-me" href="images/me.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
 					<image class="logo-image-hover" href="images/vattenlilja-mikael-westman-01.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
@@ -90,10 +91,11 @@
 				introPath.style.strokeDashoffset = 0;
 			}));
 
+			const imgDefault = document.querySelector('.logo-image-default');
 			const imgSoftware = document.querySelector('.logo-image-software');
 			const imgHardware = document.querySelector('.logo-image-hover');
 			const imgMe = document.querySelector('.logo-image-me');
-			const allImages = [imgSoftware, imgHardware, imgMe];
+			const allImages = [imgDefault, imgSoftware, imgHardware, imgMe];
 
 			function showOnly(target) {
 				allImages.forEach(img => { if (img) img.style.opacity = img === target ? 1 : 0; });
@@ -103,9 +105,18 @@
 			const hardwareTrigger = document.querySelector('.home-hardware-trigger');
 			const iLink = document.querySelector('.home-i-link');
 
-			if (softwareTrigger) softwareTrigger.addEventListener('mouseenter', () => showOnly(imgSoftware));
-			if (hardwareTrigger) hardwareTrigger.addEventListener('mouseenter', () => showOnly(imgHardware));
-			if (iLink) iLink.addEventListener('mouseenter', () => showOnly(imgMe));
+			if (softwareTrigger) {
+				softwareTrigger.addEventListener('mouseenter', () => showOnly(imgSoftware));
+				softwareTrigger.addEventListener('mouseleave', () => showOnly(imgDefault));
+			}
+			if (hardwareTrigger) {
+				hardwareTrigger.addEventListener('mouseenter', () => showOnly(imgHardware));
+				hardwareTrigger.addEventListener('mouseleave', () => showOnly(imgDefault));
+			}
+			if (iLink) {
+				iLink.addEventListener('mouseenter', () => showOnly(imgMe));
+				iLink.addEventListener('mouseleave', () => showOnly(imgDefault));
+			}
 		});
 	</script>
 </body>
