@@ -81,16 +81,49 @@
 			const introPath = document.querySelector('.home-logo-path');
 			if (!introPath) return;
 
+			const topText = document.querySelector('.home-top-text');
+			const bottomText = document.querySelector('.home-bottom-text');
+			const logoWrapper = document.querySelector('.home-logo-wrapper');
 			const length = introPath.getTotalLength();
+			const TEXT_DURATION = 2500; // ms for text fade
 
-			// Intro draw animation
-			introPath.style.strokeDasharray = `${length} ${length * 2}`;
-			introPath.style.strokeDashoffset = length;
-			requestAnimationFrame(() => requestAnimationFrame(() => {
-				introPath.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
-				introPath.style.strokeDashoffset = 0;
-			}));
+			// Preload default image
+			const preload = new Image();
+			const imageReady = new Promise(resolve => {
+				if (preload.complete && preload.naturalHeight !== 0) {
+					resolve();
+				} else {
+					preload.addEventListener('load', resolve);
+					preload.addEventListener('error', resolve);
+				}
+				preload.src = 'images/stool-mikael-westman-01.jpg';
+			});
 
+			// Once image is loaded, reveal text and logo together
+			imageReady.then(() => {
+				requestAnimationFrame(() => requestAnimationFrame(() => {
+					if (topText) {
+						topText.style.transition = `opacity ${TEXT_DURATION}ms ease`;
+						topText.style.opacity = 1;
+					}
+					if (bottomText) {
+						bottomText.style.transition = `opacity ${TEXT_DURATION}ms ease`;
+						bottomText.style.opacity = 1;
+					}
+					if (logoWrapper) {
+						logoWrapper.style.transition = 'opacity 0.4s ease';
+						logoWrapper.style.opacity = 1;
+					}
+					introPath.style.strokeDasharray = `${length} ${length * 2}`;
+					introPath.style.strokeDashoffset = length;
+					requestAnimationFrame(() => requestAnimationFrame(() => {
+						introPath.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+						introPath.style.strokeDashoffset = 0;
+					}));
+				}));
+			});
+
+			// Image hover switching
 			const imgDefault = document.querySelector('.logo-image-default');
 			const imgSoftware = document.querySelector('.logo-image-software');
 			const imgHardware = document.querySelector('.logo-image-hover');

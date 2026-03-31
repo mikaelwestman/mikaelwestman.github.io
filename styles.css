@@ -738,6 +738,7 @@ html:active-view-transition .page-content {
   justify-content: center;
   width: 100%;
   padding: 4rem 0;
+  opacity: 0;
 }
 
 .home-logo-stroke {
@@ -766,6 +767,7 @@ html:active-view-transition .page-content {
 .home-top-text,
 .home-bottom-text {
   flex-shrink: 0;
+  opacity: 0;
 }
 
 .home-top-text,
