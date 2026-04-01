@@ -793,15 +793,6 @@ html:active-view-transition .page-content {
   text-align: center;
 }
 
-.home-link-sup {
-  font-size: 0.3em;
-  line-height: 1;
-  display: inline-block;
-  vertical-align: text-top;
-  margin-left: 0.1em;
-  font-style: normal;
-}
-
 .home-software-trigger,
 .home-hardware-trigger,
 .home-i-link {
