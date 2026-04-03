@@ -6,7 +6,7 @@
   /* Color palette */
   --color-primary: rgb(29, 26, 21);
   --color-background: #f7f8f3;
-  --color-brand: #D3B729;
+  --color-brand: #CFA3CE;
   --color-selection: #00000037;
   --color-thumbnail-bg: #cfd2c6;
   --color-text-muted: rgba(29, 26, 21, 0.6);
@@ -786,13 +786,7 @@ html:active-view-transition .page-content {
   letter-spacing: -0.02em;
   text-align: center;
   width: 80vw;
-  background-color: var(--color-primary);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-primary);
 }
 
 .home-software-trigger,
@@ -802,6 +796,15 @@ html:active-view-transition .page-content {
   text-decoration-style: dotted;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.1em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease, text-underline-offset 0.2s ease;
+}
+
+.home-software-trigger:hover,
+.home-hardware-trigger:hover {
+  color: var(--color-brand);
+  text-decoration-style: solid;
+  text-decoration-color: var(--color-brand);
+  text-underline-offset: 0.15em;
 }
 
 
