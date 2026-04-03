@@ -14,6 +14,7 @@ class Projects extends HTMLElement {
     
     this.innerHTML = `
       <div class="wrapper projects-grid">
+        ${bodyId !== 'physical' ? '<p class="more-projects-title">More projects</p>' : ''}
         <div class="projects-container fade-in">
           ${projects}
         </div>
@@ -62,8 +63,8 @@ class Projects extends HTMLElement {
           <div class="thumbnail-image-wrapper">
             <div class="image-placeholder"></div>
             <img src="${project.image}" alt="${project.title}" class="progressive-image">
+            <span class="thumbnail-title">${project.title}</span>
           </div>
-          <span class="thumbnail-title">${project.title}</span>
         </a>
       `).join('');
   }
@@ -86,8 +87,8 @@ class Projects extends HTMLElement {
           <div class="thumbnail-image-wrapper">
             <div class="image-placeholder"></div>
             <img src="${project.image}" alt="${project.title}" class="progressive-image">
+            <span class="thumbnail-title">${project.title}</span>
           </div>
-          <span class="thumbnail-title">${project.title}</span>
         </a>
       `).join('');
   }

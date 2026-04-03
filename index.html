@@ -58,98 +58,33 @@
 	<navigation-component></navigation-component>
 	<page-content>
 		<div class="home-container">
-			<p class="home-top-text">Hello, <a href="about.html" class="home-i-link" data-tooltip="About me">I</a> design <a href="digital.html" class="home-software-trigger" data-tooltip="View digital projects">software</a>.</p>
-			<div class="home-logo-wrapper">
-				<svg class="home-logo-stroke" viewBox="0 0 438 209" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<defs>
-						<mask id="logo-mask-default">
-							<path class="home-logo-path" d="M40.0107 164.497L82.6558 40.011L144.796 168.011L187.441 40.011L249.581 164.497L292.226 40.011L354.366 164.497L397.011 40.011" stroke="white" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/>
-						</mask>
-					</defs>
-					<rect class="logo-bg" x="0" y="0" width="438" height="209" mask="url(#logo-mask-default)"/>
-					<image class="logo-image-default" href="images/stool-mikael-westman-01.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
-					<image class="logo-image-software" href="images/rolo-radio_mikael-westman_home.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
-					<image class="logo-image-me" href="images/me.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
-					<image class="logo-image-hover" href="images/vattenlilja-mikael-westman-01.jpg" x="0" y="0" width="438" height="209" preserveAspectRatio="xMidYMid slice" mask="url(#logo-mask-default)"/>
-				</svg>
-			</div>
-			<p class="home-bottom-text"><em>And</em> <a href="physical.html" class="home-hardware-trigger" data-tooltip="View physical projects">homeware</a>.</p>
+			<p class="home-text">Mikael Westman. Designs for <a href="digital.html" class="home-software-trigger">phones</a> & <a href="physical.html" class="home-hardware-trigger">homes</a>. Based in Stockholm, Sweden.</p>
 		</div>
 	</page-content>
 	<script>
 		window.addEventListener('DOMContentLoaded', () => {
-			const introPath = document.querySelector('.home-logo-path');
-			if (!introPath) return;
+			const TEXT_DURATION = 2500;
+			const homeText = document.querySelector('.home-text');
 
-			const topText = document.querySelector('.home-top-text');
-			const bottomText = document.querySelector('.home-bottom-text');
-			const logoWrapper = document.querySelector('.home-logo-wrapper');
-			const length = introPath.getTotalLength();
-			const TEXT_DURATION = 2500; // ms for text fade
-
-			// Preload default image
-			const preload = new Image();
-			const imageReady = new Promise(resolve => {
-				if (preload.complete && preload.naturalHeight !== 0) {
-					resolve();
-				} else {
-					preload.addEventListener('load', resolve);
-					preload.addEventListener('error', resolve);
-				}
-				preload.src = 'images/stool-mikael-westman-01.jpg';
-			});
-
-			// Once image is loaded, reveal text and logo together
-			imageReady.then(() => {
+			// Nav logo stroke draw animation
+			const navPath = document.querySelector('.nav-center .logo path');
+			if (navPath) {
+				navPath.setAttribute('fill', 'none');
+				navPath.setAttribute('stroke', 'currentColor');
+				navPath.setAttribute('stroke-width', '3');
+				const length = navPath.getTotalLength();
+				navPath.style.strokeDasharray = `${length} ${length * 2}`;
+				navPath.style.strokeDashoffset = length;
 				requestAnimationFrame(() => requestAnimationFrame(() => {
-					if (topText) {
-						topText.style.transition = `opacity ${TEXT_DURATION}ms ease`;
-						topText.style.opacity = 1;
-					}
-					if (bottomText) {
-						bottomText.style.transition = `opacity ${TEXT_DURATION}ms ease`;
-						bottomText.style.opacity = 1;
-					}
-					if (logoWrapper) {
-						logoWrapper.style.transition = 'opacity 0.4s ease';
-						logoWrapper.style.opacity = 1;
-					}
-					introPath.style.strokeDasharray = `${length} ${length * 2}`;
-					introPath.style.strokeDashoffset = length;
-					requestAnimationFrame(() => requestAnimationFrame(() => {
-						introPath.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
-						introPath.style.strokeDashoffset = 0;
-					}));
+					navPath.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+					navPath.style.strokeDashoffset = 0;
 				}));
-			});
-
-			// Image hover switching
-			const imgDefault = document.querySelector('.logo-image-default');
-			const imgSoftware = document.querySelector('.logo-image-software');
-			const imgHardware = document.querySelector('.logo-image-hover');
-			const imgMe = document.querySelector('.logo-image-me');
-			const allImages = [imgDefault, imgSoftware, imgHardware, imgMe];
-
-			function showOnly(target) {
-				allImages.forEach(img => { if (img) img.style.opacity = img === target ? 1 : 0; });
 			}
 
-			const softwareTrigger = document.querySelector('.home-software-trigger');
-			const hardwareTrigger = document.querySelector('.home-hardware-trigger');
-			const iLink = document.querySelector('.home-i-link');
-
-			if (softwareTrigger) {
-				softwareTrigger.addEventListener('mouseenter', () => showOnly(imgSoftware));
-				softwareTrigger.addEventListener('mouseleave', () => showOnly(imgDefault));
-			}
-			if (hardwareTrigger) {
-				hardwareTrigger.addEventListener('mouseenter', () => showOnly(imgHardware));
-				hardwareTrigger.addEventListener('mouseleave', () => showOnly(imgDefault));
-			}
-			if (iLink) {
-				iLink.addEventListener('mouseenter', () => showOnly(imgMe));
-				iLink.addEventListener('mouseleave', () => showOnly(imgDefault));
-			}
+			// Fade in text
+			requestAnimationFrame(() => requestAnimationFrame(() => {
+				if (homeText) { homeText.style.transition = `opacity ${TEXT_DURATION}ms ease`; homeText.style.opacity = 1; }
+			}));
 		});
 	</script>
 </body>
