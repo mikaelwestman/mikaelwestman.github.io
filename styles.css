@@ -785,7 +785,7 @@ html:active-view-transition .page-content {
   opacity: 0;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 700;
-  font-size: clamp(5rem, 10vw, 11rem);
+  font-size: clamp(4.5rem, 10vw, 11rem);
   font-stretch: 85%;
   text-transform: uppercase;
   line-height: 100%;
@@ -837,7 +837,7 @@ html:active-view-transition .page-content {
   width: 80%;
 }
 
-#about .section-header {
+.section-header {
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -847,15 +847,15 @@ html:active-view-transition .page-content {
   letter-spacing: 0.03em;
 }
 
-#about .experience-item {
+.experience-item {
   margin-bottom: 2rem;
 }
 
-#about .experience-item h2 a {
+.experience-item h2 a {
   position: relative;
 }
 
-#about .experience-item h2 a::after {
+.experience-item h2 a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -868,11 +868,11 @@ html:active-view-transition .page-content {
   transition: transform 0.3s ease;
 }
 
-#about .experience-item h2 a:hover::after {
+.experience-item h2 a:hover::after {
   transform: scaleX(1);
 }
 
-#about .experience-item h4 + h4 {
+.experience-item h4 + h4 {
   color: var(--color-text-muted);
 }
 
@@ -956,9 +956,9 @@ footer a:hover::after {
 }
 
 .meta-data, .nav-label {
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
 }
 
 .bullet {
@@ -1043,6 +1043,8 @@ footer a:hover .bullet {
    ========================================================================== */
 
 @media screen and (max-width: 768px) {
+  #hover-popup { display: none; }
+
   /* Always show thumbnail titles and overlay on mobile (no hover) */
   .projects-grid .thumbnail-title {
     opacity: 1;
@@ -1054,7 +1056,7 @@ footer a:hover .bullet {
   }
 
   .projects-container {
-  padding-top: 0;
+    gap: 3rem;
   }
 
   /* Typography adjustments */
@@ -1102,11 +1104,6 @@ footer a:hover .bullet {
   .home-container {
     padding-top: 5rem;
     padding-bottom: 5rem;
-  }
-
-  .home-text, {
-    font-size: 2rem;
-    padding: 0 1.5rem;
   }
 
 
