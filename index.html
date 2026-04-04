@@ -61,6 +61,12 @@
 			<p class="home-text">Mikael Westman. Designs for <a href="digital.html" class="home-software-trigger">phones</a> & <a href="physical.html" class="home-hardware-trigger">homes</a>. Based in Stockholm, Sweden.</p>
 		</div>
 	</page-content>
+	<div id="hover-popup" aria-hidden="true">
+		<div id="hover-popup-inner">
+			<img id="hover-popup-img" src="" alt="" draggable="false">
+			<div id="hover-popup-glare"></div>
+		</div>
+	</div>
 	<script>
 		window.addEventListener('DOMContentLoaded', () => {
 			const TEXT_DURATION = 2500;
@@ -85,6 +91,96 @@
 			requestAnimationFrame(() => requestAnimationFrame(() => {
 				if (homeText) { homeText.style.transition = `opacity ${TEXT_DURATION}ms ease`; homeText.style.opacity = 1; }
 			}));
+
+			// — Hover image popup —
+			const popup      = document.getElementById('hover-popup');
+			const popupInner = document.getElementById('hover-popup-inner');
+			const popupImg   = document.getElementById('hover-popup-img');
+			const popupGlare = document.getElementById('hover-popup-glare');
+
+			const POPUP_W = 200;
+			const POPUP_H = 267;
+
+			// Preload images for instant display
+			['images/rolo-radio_mikael-westman_home.jpg', 'images/hallway-bench-mikael-westman-03.jpg']
+				.forEach(src => { const i = new Image(); i.src = src; });
+
+			let mouseX = 0, mouseY = 0;
+			let currentTrigger = null;
+			let hideToken = 0;
+
+			function applyRotation(rotY, rotX) {
+				popupInner.style.transform = `perspective(700px) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
+				// Shadow shifts opposite to horizontal tilt
+				const sx = -rotY * 1.5;
+				const sy = 20 + rotX * 0.8;
+				popupInner.style.boxShadow = `${sx}px ${sy}px 50px rgba(0,0,0,0.18), ${sx * 0.3}px 8px 18px rgba(0,0,0,0.08)`;
+				// Radial glare moves to the "lit" side (opposite of tilt direction)
+				const gx = 50 - rotY * 3.5;
+				const gy = 50 + rotX * 3.5;
+				popupGlare.style.background = `radial-gradient(ellipse at ${gx}% ${gy}%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0) 70%)`;
+			}
+
+			function setPosition(trigger) {
+				const rect = trigger.getBoundingClientRect();
+				const cx = rect.left + rect.width / 2;
+				const x = Math.min(Math.max(cx - POPUP_W / 2, 8), window.innerWidth - POPUP_W - 8);
+				const y = Math.max(rect.top - POPUP_H - 4, 8);
+				popup.style.left = x + 'px';
+				popup.style.top  = y + 'px';
+			}
+
+			function calcRotation(e) {
+				const left = parseFloat(popup.style.left);
+				const top  = parseFloat(popup.style.top);
+				const nx = (e.clientX - (left + POPUP_W / 2)) / (POPUP_W / 2);
+				const ny = (e.clientY - (top  + POPUP_H / 2)) / (POPUP_H / 2);
+				const rotY =  Math.max(-8, Math.min(8, nx * 8));
+				const rotX = -Math.max(-6, Math.min(6, ny * 6));
+				return [rotY, rotX];
+			}
+
+			document.addEventListener('mousemove', e => {
+				mouseX = e.clientX;
+				mouseY = e.clientY;
+				if (!currentTrigger) return;
+				applyRotation(...calcRotation(e));
+			});
+
+			function showPopup(trigger, src) {
+				hideToken++; // invalidate any pending hide
+				currentTrigger = trigger;
+				popupImg.src = src;
+				setPosition(trigger);
+				applyRotation(...calcRotation({ clientX: mouseX, clientY: mouseY }));
+				popupInner.classList.remove('leaving');
+				popupInner.classList.remove('animating');
+				void popupInner.offsetWidth;
+				popupInner.classList.add('animating');
+				popup.classList.add('visible');
+			}
+
+			function hidePopup() {
+				currentTrigger = null;
+				popupInner.classList.remove('animating');
+				popupInner.classList.add('leaving');
+				const token = ++hideToken;
+				popupInner.addEventListener('animationend', () => {
+					if (hideToken !== token) return;
+					popup.classList.remove('visible');
+					popupInner.classList.remove('leaving');
+				}, { once: true });
+			}
+
+			document.querySelector('.home-software-trigger')
+				?.addEventListener('mouseenter', function() { showPopup(this, 'images/rolo-radio_mikael-westman_home.jpg'); });
+			document.querySelector('.home-software-trigger')
+				?.addEventListener('mouseleave', hidePopup);
+
+			document.querySelector('.home-hardware-trigger')
+				?.addEventListener('mouseenter', function() { showPopup(this, 'images/hallway-bench-mikael-westman-03.jpg'); });
+			document.querySelector('.home-hardware-trigger')
+				?.addEventListener('mouseleave', hidePopup);
 		});
 	</script>
 </body>
