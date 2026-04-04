@@ -872,8 +872,8 @@ html:active-view-transition .page-content {
   transform: scaleX(1);
 }
 
-#about .meta-data {
-  margin-bottom: 0.5rem;
+#about .experience-item h4 + h4 {
+  color: var(--color-text-muted);
 }
 
 /* ==========================================================================
@@ -974,9 +974,18 @@ footer a:hover .bullet {
   top: 4px;
 }
 
-.email-link { position: relative; cursor: pointer; display: inline-block; }
-.footer-rights { opacity: 50%; }
-.link-underline { text-decoration: underline; }
+.email-link { 
+  position: relative; 
+  cursor: pointer; 
+  display: inline-block; }
+
+.footer-rights { 
+  color: var(--color-text-muted);
+}
+
+.link-underline { 
+  text-decoration: underline; 
+}
 
 /* ==========================================================================
    Hover Image Popup
