@@ -7,7 +7,8 @@ class Scripts extends HTMLElement {
       { src: 'components/footer.js', defer: true },
       { src: 'components/loading-manager.js', defer: true },
       { src: 'components/projects.js', defer: true },
-      { src: 'components/page-content.js', defer: true }
+      { src: 'components/page-content.js', defer: true },
+      { src: 'components/sheet.js', defer: true }
     ];
     
     scripts.forEach(scriptConfig => {

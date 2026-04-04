@@ -59,7 +59,7 @@ class Projects extends HTMLElement {
     return physicalProjects
       .filter(project => project.id !== excludeId)
       .map(project => `
-        <a class="project-item physical" href="${project.href}">
+        <a class="project-item" href="${project.href}">
           <div class="thumbnail-image-wrapper">
             <div class="image-placeholder"></div>
             <img src="${project.image}" alt="${project.title}" class="progressive-image">
@@ -83,7 +83,7 @@ class Projects extends HTMLElement {
     return digitalProjects
       .filter(project => project.id !== excludeId)
       .map(project => `
-        <a class="project-item digital" href="${project.href}">
+        <a class="project-item" href="${project.href}">
           <div class="thumbnail-image-wrapper">
             <div class="image-placeholder"></div>
             <img src="${project.image}" alt="${project.title}" class="progressive-image">
