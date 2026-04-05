@@ -983,7 +983,7 @@ footer a:hover::after {
 #sheet-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.65);
   opacity: 0;
   transition: opacity 0.45s ease;
 }
@@ -1069,15 +1069,7 @@ footer a:hover::after {
   to { transform: rotate(360deg); }
 }
 
-/* Scale down background when sheet is open */
-body.sheet-open page-content {
-  transform: scale(0.94) translateY(-12px);
-  transform-origin: top center;
-  filter: brightness(0.65);
-  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), filter 0.5s ease;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-}
+
 /* ==========================================================================
    Tablet (≤1024px)
    ========================================================================== */
