@@ -1038,7 +1038,7 @@ footer a:hover::after {
   /* Side padding */
 
   .about-section,  .resume-section, footer {
-  padding: 5rem 3rem;
+  padding: 3rem 1.5rem;
   }
 
   .work-section {
@@ -1046,21 +1046,21 @@ footer a:hover::after {
   }
 
   .scroll-section h5 {
-    padding-left: max(3rem, calc((100vw - 1440px) / 2));
+    padding-left: max(1.5rem, calc((100vw - 1440px) / 2));
   }
 
   .scroll-row {
-    padding: 0 2rem 1rem max(3rem, calc((100vw - 1440px) / 2));
+    padding: 0 2rem 1rem max(1.5rem, calc((100vw - 1440px) / 2));
   }
 
   .scroll-progress-track {
-    margin: 0.75rem max(3rem, calc((100vw - 1440px) / 2)) 0;
+    margin: 0.75rem max(1.5rem, calc((100vw - 1440px) / 2)) 0;
   }
 
 
 
   #sheet-panel {
-    width: calc(100% - 3rem);
+    width: calc(100% - 1.5rem);
   }
 
   .wrapper {
@@ -1115,8 +1115,7 @@ footer a:hover::after {
   /* Side padding */
 
   #sheet-panel {
-    top: 0.5rem;
-    width: calc(100% - 1rem);
+    width: 100%;
   }
 
   #sheet-topbar {
