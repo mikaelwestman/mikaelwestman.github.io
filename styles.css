@@ -645,6 +645,11 @@ html:active-view-transition [data-animate] {
   cursor: grabbing;
 }
 
+html.is-dragging,
+html.is-dragging * {
+  cursor: grabbing !important;
+}
+
 /* Fixed width for cards inside scroll rows (4:3 at 480px tall = 640px wide) */
 .scroll-row .project-item {
   flex: 0 0 640px;

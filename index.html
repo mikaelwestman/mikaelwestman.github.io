@@ -317,6 +317,7 @@
 					if (!isDown) return;
 					isDown = false;
 					row.classList.remove('is-dragging');
+					document.documentElement.classList.remove('is-dragging');
 					document.removeEventListener('mousemove', onMouseMove);
 					document.removeEventListener('mouseup', onMouseUp);
 					applyMomentum();
@@ -326,6 +327,7 @@
 					isDown = true;
 					hasDragged = false;
 					row.classList.add('is-dragging');
+					document.documentElement.classList.add('is-dragging');
 					startX = e.pageX;
 					scrollLeftStart = row.scrollLeft;
 					velocity = 0;

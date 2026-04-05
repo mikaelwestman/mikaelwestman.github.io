@@ -127,27 +127,39 @@
 
   function initImages(container) {
     const imgs = container.querySelectorAll('img');
+    const videos = container.querySelectorAll('video');
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const img = entry.target;
-        observer.unobserve(img);
+        const el = entry.target;
+        observer.unobserve(el);
+
+        if (el.tagName === 'VIDEO') {
+          if (el.readyState >= 2) {
+            el.classList.add('lazy-loaded');
+          } else {
+            el.addEventListener('loadeddata', () => el.classList.add('lazy-loaded'), { once: true });
+            el.addEventListener('error', () => el.classList.add('lazy-loaded'), { once: true });
+          }
+          return;
+        }
 
         // Already loaded (e.g. SVG or inline style opacity:1)
-        if (img.complete && img.naturalWidth > 0) {
-          img.classList.add('lazy-loaded');
+        if (el.complete && el.naturalWidth > 0) {
+          el.classList.add('lazy-loaded');
           return;
         }
 
         const tmp = new Image();
-        tmp.onload  = () => img.classList.add('lazy-loaded');
-        tmp.onerror = () => img.classList.add('lazy-loaded');
-        tmp.src = img.src;
+        tmp.onload  = () => el.classList.add('lazy-loaded');
+        tmp.onerror = () => el.classList.add('lazy-loaded');
+        tmp.src = el.src;
       });
     }, { root: panel, rootMargin: '300px 0px' });
 
     imgs.forEach(img => observer.observe(img));
+    videos.forEach(video => observer.observe(video));
   }
 
   if (document.readyState === 'loading') {
