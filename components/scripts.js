@@ -3,7 +3,7 @@ class Scripts extends HTMLElement {
     // Create script elements for common components
     const scripts = [
       { src: 'components/email-clipboard.js', defer: false },
-      { src: 'components/footer.js', defer: true },
+      { src: 'components/footer.js', defer: false },
       { src: 'components/projects.js', defer: true },
       { src: 'components/page-content.js', defer: true },
       { src: 'components/sheet.js', defer: true }
