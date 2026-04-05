@@ -272,27 +272,6 @@ html:active-view-transition [data-animate] {
    Navigation
    ========================================================================== */
 
-.logo {
-  display: block;
-  color: var(--color-primary);
-}
-
-/* Project-page logo (fixed top-left) */
-.site-logo-link {
-  position: fixed;
-  top: 1.5rem;
-  left: 2rem;
-  z-index: 100;
-  color: var(--color-primary);
-  display: block;
-  opacity: 0.8;
-  transition: 0.2s ease;
-}
-
-.site-logo-link:hover {
-  opacity: 1;
-}
-
 /* Homepage logo (in hero) */
 .home-logo {
   display: block;
@@ -762,18 +741,6 @@ html:active-view-transition [data-animate] {
   gap: 3rem;
 }
 
-.about-heading {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
-  font-size: 6rem;
-  line-height: 85%;
-  letter-spacing: -0.02em;
-  font-stretch: 85%;
-  text-transform: uppercase;
-  color: #FF5090;
-  text-align: center;
-}
-
 .about-photo {
   max-width: 800px;
   height: 480px;
@@ -961,11 +928,6 @@ footer a:hover::after {
 }
 
 /* ==========================================================================
-   Hover Image Popup (home page)
-   ========================================================================== */
-
-
-/* ==========================================================================
    Project Sheet
    ========================================================================== */
 
@@ -1044,9 +1006,6 @@ footer a:hover::after {
 
 #sheet-close:hover {
   transform: scale(0.95);
-}
-
-#sheet-body {
 }
 
 #sheet-loading {
