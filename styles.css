@@ -847,12 +847,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
 .footer-link {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 700;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: 5rem;
   line-height: 1.1em;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -1083,6 +1084,10 @@ footer a:hover::after {
     font-size: 5rem;
   }
 
+  .footer-link {
+    font-size: 3rem;
+  }
+
   .home-container {
     height: 100%;
     padding: 7rem 3rem;
@@ -1126,13 +1131,13 @@ footer a:hover::after {
     padding: 0 1.5rem 1.5rem 1.5rem;
   }
 
-  /* Scroll rows thumbnails — width an hight */
+  /* Scroll rows thumbnails — width and height */
   .scroll-row .project-item {
     flex: 0 0 65vw;
   }
 
   .scroll-row .thumbnail-image-wrapper {
-    height: 360px;
+    height: 85vw;
   }
 
   .scroll-row {
@@ -1147,12 +1152,6 @@ footer a:hover::after {
   .thumbnail-image-wrapper::after {
     opacity: 1;
     font-size: 1.5rem;
-  }
-
-  /* Footer */
-
-  .footer-link {
-    font-size: clamp(1.75rem, 8vw, 3rem);
   }
 
   /* Utilities */
