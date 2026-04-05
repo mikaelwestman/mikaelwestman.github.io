@@ -7,12 +7,12 @@ class Footer extends HTMLElement {
     this.innerHTML = `
 		<footer>
 			<div id="footer" class="footer-inner">
-				<h5>C. Contact</h5>
+				<h5>Contact</h5>
 				<nav class="footer-links">
 					<a id="footer-email-link" class="email-link footer-link" style="cursor: pointer;">Email</a>
-					<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
-					<a href="https://soundcloud.com/mikael-westman" target="_blank" rel="noopener noreferrer" class="footer-link">Soundcloud</a>
 					<a href="https://www.linkedin.com/in/mikaelwestman/" target="_blank" rel="noopener noreferrer" class="footer-link">Linkedin</a>
+    			<a href="https://www.instagram.com/mestman/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+					<a href="https://soundcloud.com/mikael-westman" target="_blank" rel="noopener noreferrer" class="footer-link">Soundcloud</a>
 				</nav>
 				<div class="footer-logo">
 					<svg width="100" height="48" viewBox="0 0 100 48" fill="none" xmlns="http://www.w3.org/2000/svg">
