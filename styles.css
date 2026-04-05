@@ -1082,7 +1082,7 @@ footer a:hover::after {
 @media screen and (max-width: 768px) {
 
   h1 { 
-    font-size: 6rem; 
+    font-size: 5rem; 
   }
 
   h2 {
@@ -1095,7 +1095,7 @@ footer a:hover::after {
 
   .home-container {
     height: 100%;
-    padding: 7rem 3rem;
+    padding: 5rem 3rem;
   }
 
   .nav-button {
