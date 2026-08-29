@@ -1,6 +1,5 @@
 class Analytics extends HTMLElement {
   connectedCallback() {
-    // Only load analytics if not in development and no ad blocker detected
     if (this.shouldLoadAnalytics()) {
       this.loadAnalytics();
     }
@@ -8,16 +7,7 @@ class Analytics extends HTMLElement {
 
   shouldLoadAnalytics() {
     // Skip analytics in development
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      return false;
-    }
-    
-    // Check for common ad blocker indicators
-    if (window.ads || window.adblocker) {
-      return false;
-    }
-    
-    return true;
+    return window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
   }
 
   loadAnalytics() {

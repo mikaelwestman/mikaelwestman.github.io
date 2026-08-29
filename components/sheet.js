@@ -1,11 +1,6 @@
 // Opens project pages as a sheet overlay when on the index page
 (() => {
-  const PROJECT_PAGES = new Set([
-    'hallway-bench.html', 'vattenlilja.html', 'goblin-lamp.html',
-    'stool.html', 'pelican.html', 'rolo-radio.html',
-    'square-for-restaurants.html', 'square-pos.html',
-    'epidemic-sound.html', '3d.html', 'variable-font.html', 'vexillography.html'
-  ]);
+  const PROJECT_PAGES = window.PROJECT_PAGES;
 
   let sheetEl, panel, body;
   let isOpen = false;

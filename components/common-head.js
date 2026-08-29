@@ -1,14 +1,17 @@
+// Shared list of project pages that open as a sheet overlay on the homepage
+// (also used by components/sheet.js)
+window.PROJECT_PAGES = new Set([
+  'hallway-bench.html', 'vattenlilja.html', 'goblin-lamp.html',
+  'stool.html', 'pelican.html', 'rolo-radio.html',
+  'square-for-restaurants.html', 'square-pos.html',
+  'epidemic-sound.html', '3d.html', 'variable-font.html', 'vexillography.html'
+]);
+
 // Redirect project pages to the homepage with the sheet open
 (function() {
-  const PROJECT_PAGES = [
-    'hallway-bench.html', 'vattenlilja.html', 'goblin-lamp.html',
-    'stool.html', 'pelican.html', 'rolo-radio.html',
-    'square-for-restaurants.html', 'square-pos.html',
-    'epidemic-sound.html', '3d.html', 'variable-font.html', 'vexillography.html'
-  ];
   const raw = location.pathname.split('/').pop();
   const filename = raw.endsWith('.html') ? raw : raw + '.html';
-  if (PROJECT_PAGES.indexOf(filename) !== -1) {
+  if (window.PROJECT_PAGES.has(filename)) {
     location.replace('/?sheet=' + filename);
   }
 })();
