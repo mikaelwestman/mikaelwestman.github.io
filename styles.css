@@ -4,14 +4,15 @@
 
 :root {
   --color-primary: rgb(29, 26, 21);
-  --color-background: #f7f8f3;
+  --color-background: #F7F8F4;
   --color-brand: #E9B5E6;
   --color-brand-alt: #155513;
   --color-selection: #00000037;
-  --color-thumbnail-bg: #cfd2c6;
+  --color-thumbnail-bg: #d2d2d2;
   --color-text-muted: rgba(29, 26, 21, 0.6);
-  --border-radius: 16px;
-  font-family: 'Geist Mono', monospace;
+  --color-stroke: #d2d2d2;
+  --border-radius: 4px;
+  font-family: 'Inter', sans-serif;
   font-feature-settings: 'liga' 1, 'calt' 1;
 }
 
@@ -71,14 +72,14 @@ header, footer, figure {
    Animations
    ========================================================================== */
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes animateIn {
@@ -101,6 +102,7 @@ html {
 }
 
 body {
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.03em;
   font-feature-settings: "calt", "ss01", "cv01", "cv09";
@@ -115,11 +117,8 @@ body {
   background: var(--color-selection);
 }
 
-h1, h2, h3, .thumbnail-title, .more-projects-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
-}
-
 h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 700;
   font-size: 8rem;
   line-height: 85%;
@@ -138,28 +137,34 @@ h2 {
 }
 
 h3 {
-  font-weight: 600;
-  font-size: 1.6rem;
-  letter-spacing: -0.04em;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
   font-stretch: 90%;
   margin-bottom: 0.5rem;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 400;
+  letter-spacing: -0.03em;
   margin-top: 0.3rem;
-}
-
-h5, .meta-data, .nav-button {
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  width: 100%;
+  opacity: 60%;
 }
 
 h5 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 100%;
   margin-bottom: 1.5rem;
+}
+
+.meta-data {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  width: 100%;
+  text-transform: uppercase;
 }
 
 p {
@@ -208,14 +213,6 @@ img, video {
 
 img.lazy-loaded, video.lazy-loaded {
   opacity: 1;
-}
-
-img.lazy-loading, video.lazy-loading {
-  opacity: 0;
-}
-
-img.lazy-error, video.lazy-error {
-  opacity: 0.3;
 }
 
 /* ==========================================================================
@@ -269,47 +266,6 @@ html:active-view-transition [data-animate] {
 }
 
 /* ==========================================================================
-   Navigation
-   ========================================================================== */
-
-/* Homepage logo (in hero) */
-.home-logo {
-  display: block;
-  color: var(--color-primary);
-  margin-bottom: 3rem;
-}
-
-/* Navigation */
-.nav {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 3rem 2rem 0;
-  pointer-events: none;
-}
-
-.nav-button {
-  pointer-events: all;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 0;
-  width: 120px;
-  border: 1.5px solid var(--color-primary);
-  border-radius: 9999px;
-  color: var(--color-primary);
-  background: var(--color-background);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: 0.2s ease;
-}
-
-.nav-button:hover {
-  background: var(--color-primary);
-  color: var(--color-background);
-}
-
-/* ==========================================================================
    Layout
    ========================================================================== */
 
@@ -358,6 +314,7 @@ html:active-view-transition [data-animate] {
 
 .wrapper .row:first-child .column:only-child p {
   text-align: left;
+  width: 100%;
 }
 
 .wrapper .row:first-child .column:only-child .meta-data {
@@ -402,14 +359,13 @@ html:active-view-transition [data-animate] {
 
 /* Title */
 .thumbnail-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 600;
   font-size: 2rem;
   line-height: 85%;
   letter-spacing: -0.03em;
   font-stretch: 90%;
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 10%;
   left: 1.5rem;
   right: 1.5rem;
   color: var(--color-background);
@@ -503,7 +459,6 @@ html:active-view-transition [data-animate] {
   padding-top: 3rem;
 }
 
-.projects-container.fade-out { opacity: 0; }
 .projects-container.fade-in  { opacity: 1; }
 
 .more-projects-title {
@@ -578,226 +533,231 @@ html:active-view-transition [data-animate] {
 }
 
 /* ==========================================================================
-   Hero
+   Intro Section
    ========================================================================== */
 
 #home page-content {
   opacity: 1;
 }
 
-.home-container {
-  position: relative;
-  height: 85dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.intro-section {
+  padding: 12rem 0;
 }
 
-.home-text {
-  flex-shrink: 0;
-  opacity: 0;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
-  font-size: clamp(3.5rem, 7vw, 8rem);
-  font-stretch: 85%;
-  text-transform: uppercase;
-  line-height: 100%;
-  letter-spacing: -0.02em;
-  text-align: center;
-  width: 80vw;
-  color: var(--color-primary);
-}
-
-
-/* ==========================================================================
-   Work Section (horizontal scroll rows)
-   ========================================================================== */
-
-.work-section {
-  margin: 0 auto;
-  padding: 0 0 2rem 0;
-}
-
-.scroll-section {
-  margin-bottom: 3rem;
-}
-
-.scroll-section h5 {
-  padding-left: max(5rem, calc((100vw - 1440px) / 2));
-}
-
-.scroll-row {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding: 0 2rem 1rem max(5rem, calc((100vw - 1440px) / 2));
-  scrollbar-width: none;
-  cursor: grab;
-  user-select: none;
-}
-
-.scroll-row::-webkit-scrollbar {
-  display: none;
-}
-
-.scroll-row.is-dragging {
-  cursor: grabbing;
-}
-
-html.is-dragging,
-html.is-dragging * {
-  cursor: grabbing !important;
-}
-
-/* Fixed width for cards inside scroll rows (4:3 at 480px tall = 640px wide) */
-.scroll-row .project-item {
-  flex: 0 0 640px;
-}
-
-/* Wrapper for arrow button positioning */
-.scroll-row-wrapper {
-  position: relative;
-}
-
-/* Navigation arrows */
-.scroll-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: rgb(233 233 233);
-  border: 0;
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  transition: 0.2s ease;
-  z-index: 10;
-  padding: 0;
-  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.15);
-}
-
-.scroll-nav:hover {
-  background: rgb(220 220 220);
-}
-
-
-.scroll-section:hover .scroll-nav:not(.is-hidden) {
-  opacity: 1;
-}
-
-.scroll-prev { left: 1rem; }
-.scroll-next { right: 1rem; }
-
-.scroll-nav.is-hidden {
-  pointer-events: none;
-  opacity: 0 !important;
-}
-
-/* Progress bar */
-.scroll-progress-track {
-  height: 2px;
-  background: var(--color-thumbnail-bg);
-  margin: 0.75rem max(5rem, calc((100vw - 1440px) / 2)) 0;
-  border-radius: 1px;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.scroll-section:hover .scroll-progress-track,
-.scroll-section.is-scrolling .scroll-progress-track {
-  opacity: 1;
-}
-
-.scroll-progress-thumb {
-  height: 100%;
-  background: var(--color-primary);
-  border-radius: 1px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: width 0.08s, left 0.08s;
-}
-
-/* ==========================================================================
-   About Section
-   ========================================================================== */
-
-.about-section {
-  background: var(--color-brand-alt);
-  color: var(--color-brand);
-  padding: 6rem 6rem;
-}
-
-.about-section-inner {
-  max-width: 1440px;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-}
-
-.about-photo {
-  max-width: 800px;
-  height: 480px;
-  width: 100%;
-  border-radius: var(--border-radius);
-  opacity: 1 !important;
-  object-fit: cover;
-}
-
-.about-bio {
+.intro-bio {
   max-width: 640px;
-  width: 100%;
+  margin: 0 auto;
 }
 
-.about-bio a {
-  color: var(--color-brand);
+.intro-bio a {
+  color: var(--color-primary);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   transition: text-underline-offset 0.2s ease;
 }
 
-.about-bio a:hover {
+.intro-bio a:hover {
   text-underline-offset: 6px;
 }
 
+
 /* ==========================================================================
-   Resume Section
+   Work Section (project grid)
    ========================================================================== */
 
-.resume-section {
+.work-section {
+  margin: 0 auto;
+}
+
+.work-section-inner {
+  width: 100%;
+  margin: 0;
+}
+
+.project-grid-section:last-child {
+  margin-bottom: 0;
+}
+
+.project-grid .project-item.is-hidden {
+  display: none;
+}
+
+.project-grid .view-more-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  padding: 1.5rem;
+  border: 0;
+  background: var(--color-background);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.3s ease;
+}
+
+.project-grid .view-more-tile.is-full-width {
+  grid-column: 1 / -1;
+  aspect-ratio: auto;
+  padding: 5rem 1.5rem;
+}
+
+.project-grid .view-more-tile.is-fading-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Cascading reveal for previously-hidden project cards — plain opacity fade,
+   no translateY, since the grid reflow already moves these into place */
+.project-grid .project-item.reveal-in {
+  animation: fadeIn 0.6s ease var(--anim-delay, 0ms) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-grid .view-more-tile {
+    transition: background 0.2s ease;
+  }
+  .project-grid .project-item.reveal-in {
+    animation: none;
+  }
+}
+
+.project-grid .view-more-tile:hover {
+  background: var(--color-thumbnail-bg);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--color-stroke);
+  border-top: 1px solid var(--color-stroke);
+  border-bottom: 1px solid var(--color-stroke);
+  box-sizing: border-box;
+}
+
+.project-grid > * {
+  min-width: 0;
+}
+
+.project-grid .thumbnail-image-wrapper {
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  box-sizing: border-box;
+  background: var(--color-background);
+}
+
+
+/* Main image is a centered 4:3 box at 50% of the card's size */
+.project-grid .thumbnail-image-wrapper .progressive-image {
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  border-radius: 2px;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.project-grid .project-item:hover .thumbnail-image-wrapper .progressive-image {
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+.project-grid .thumbnail-image-wrapper.loading .progressive-image {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.project-grid .thumbnail-image-wrapper.loaded .progressive-image {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Secondary photo — revealed on hover, rotates in from flat, centered on the main image */
+.project-grid .hover-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  z-index: 1;
+  border-radius: 2px;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s ease;
+}
+
+.project-grid .project-item:hover .hover-image {
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.project-grid .image-placeholder {
+  border-radius: 0;
+  background: var(--color-background);
+}
+
+.project-grid .thumbnail-image-wrapper::after {
+  content: none;
+}
+
+.project-grid .thumbnail-title {
+  opacity: 0;
+  bottom: 8%;
+  color: var(--color-primary);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6em;
+  letter-spacing: -0.02em;
+  text-align: center;
+  transition: opacity 0.4s ease;
+}
+
+.project-grid .project-item:hover .thumbnail-title {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+
+.contact-section {
   background: var(--color-background);
   color: var(--color-primary);
-  padding: 6rem 6rem;
 }
 
-.resume-section-inner {
-  max-width: 1440px;
-  margin: 0 auto;
+.contact-section-inner {
+  margin: 0 auto 0 0;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--color-stroke);
+  border-bottom: 1px solid var(--color-stroke);
+  box-sizing: border-box;
 }
 
-.resume-section h5 {
-  margin-bottom: 3rem;
+.contact-info-cell,
+.experience-cell {
+  background: var(--color-background);
+  padding: 3rem;
+}
+
+.contact-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  opacity: 1 !important;
+  margin-top: 2rem;
 }
 
 .experience-item {
   width: 100%;
-  max-width: 640px;
   margin-bottom: 2rem;
 }
 
@@ -824,7 +784,6 @@ html.is-dragging * {
 
 .line {
   width: 100%;
-  max-width: 640px;
   margin: 1.5rem 0 3rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -1043,27 +1002,9 @@ footer a:hover::after {
 
   /* Side padding */
 
-  .about-section,  .resume-section, footer {
-  padding: 3rem 1.5rem;
+  .intro-section, footer {
+  padding: 4rem 1.5rem;
   }
-
-  .work-section {
-      padding: 0 0 1rem 0;
-  }
-
-  .scroll-section h5 {
-    padding-left: max(1.5rem, calc((100vw - 1440px) / 2));
-  }
-
-  .scroll-row {
-    padding: 0 2rem 1rem max(1.5rem, calc((100vw - 1440px) / 2));
-  }
-
-  .scroll-progress-track {
-    margin: 0.75rem max(1.5rem, calc((100vw - 1440px) / 2)) 0;
-  }
-
-
 
   #sheet-panel {
     width: calc(100% - 1.5rem);
@@ -1091,17 +1032,6 @@ footer a:hover::after {
 
   .footer-link {
     font-size: 3rem;
-  }
-
-  .home-container {
-    height: 100%;
-    padding: 5rem 3rem;
-  }
-
-  .nav-button {
-    width: 100%;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 
   .projects-container {
@@ -1136,27 +1066,36 @@ footer a:hover::after {
     padding: 0 1.5rem 1.5rem 1.5rem;
   }
 
-  /* Scroll rows thumbnails — width and height */
-  .scroll-row .project-item {
-    flex: 0 0 65vw;
+  .contact-section-inner {
+    grid-template-columns: 1fr;
   }
 
-  .scroll-row .thumbnail-image-wrapper {
-    height: 85vw;
+  /* Portrait 4:3 thumbnails on mobile */
+  .project-grid .thumbnail-image-wrapper {
+    aspect-ratio: 3 / 4;
   }
 
-  .scroll-row {
-    gap: 0.5rem;
-  } 
+  /* Let the tile stretch to match its (now taller) row instead of leaving
+     a gap below it that exposes the grid's stroke-color background */
+  .project-grid .view-more-tile {
+    aspect-ratio: auto;
+    height: 100%;
+  }
 
-  .scroll-nav {
-    display: none;
+  .contact-info-cell,
+  .experience-cell {
+    padding: 4rem 1.5rem;
   }
 
   .thumbnail-title,
   .thumbnail-image-wrapper::after {
     opacity: 1;
     font-size: 1.5rem;
+  }
+
+  /* No hover on touch — keep titles visible; accent color/hover photo stay off */
+  .project-grid .thumbnail-title {
+    opacity: 1;
   }
 
   /* Utilities */

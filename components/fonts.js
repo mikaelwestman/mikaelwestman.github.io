@@ -20,19 +20,19 @@ class Fonts extends HTMLElement {
         console.warn('Bricolage Grotesque font failed to load');
       };
 
-      // Create stylesheet link for Geist Mono
-      const geistStylesheet = document.createElement('link');
-      geistStylesheet.rel = 'stylesheet';
-      geistStylesheet.href = 'https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap';
+      // Create stylesheet link for Inter
+      const interStylesheet = document.createElement('link');
+      interStylesheet.rel = 'stylesheet';
+      interStylesheet.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
 
-      geistStylesheet.onerror = () => {
-        console.warn('Geist Mono font failed to load');
+      interStylesheet.onerror = () => {
+        console.warn('Inter font failed to load');
       };
 
       // Append all links to the head
       document.head.appendChild(bricolagePreconnect);
       document.head.appendChild(bricolageStylesheet);
-      document.head.appendChild(geistStylesheet);
+      document.head.appendChild(interStylesheet);
     } catch (error) {
       console.warn('Font loading failed:', error);
     }
