@@ -591,7 +591,6 @@ html:active-view-transition [data-animate] {
   padding: 1.5rem;
   border: 0;
   background: var(--color-background);
-  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
@@ -708,7 +707,6 @@ html:active-view-transition [data-animate] {
   opacity: 0;
   bottom: 8%;
   color: var(--color-primary);
-  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.6em;

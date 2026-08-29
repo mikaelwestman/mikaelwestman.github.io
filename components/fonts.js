@@ -20,10 +20,16 @@ class Fonts extends HTMLElement {
         console.warn('Bricolage Grotesque font failed to load');
       };
 
+      // Create preconnect link for rsms.me (serves Inter unsubsetted, with full glyph coverage —
+      // Google Fonts' Inter delivery splits into per-script subsets that drop symbols like ↴/●/◦)
+      const interPreconnect = document.createElement('link');
+      interPreconnect.rel = 'preconnect';
+      interPreconnect.href = 'https://rsms.me';
+
       // Create stylesheet link for Inter
       const interStylesheet = document.createElement('link');
       interStylesheet.rel = 'stylesheet';
-      interStylesheet.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
+      interStylesheet.href = 'https://rsms.me/inter/inter.css';
 
       interStylesheet.onerror = () => {
         console.warn('Inter font failed to load');
@@ -32,6 +38,7 @@ class Fonts extends HTMLElement {
       // Append all links to the head
       document.head.appendChild(bricolagePreconnect);
       document.head.appendChild(bricolageStylesheet);
+      document.head.appendChild(interPreconnect);
       document.head.appendChild(interStylesheet);
     } catch (error) {
       console.warn('Font loading failed:', error);
