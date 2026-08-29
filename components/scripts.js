@@ -4,7 +4,6 @@ class Scripts extends HTMLElement {
     const scripts = [
       { src: 'components/email-clipboard.js', defer: false },
       { src: 'components/footer.js', defer: false },
-      { src: 'components/projects.js', defer: true },
       { src: 'components/page-content.js', defer: true },
       { src: 'components/sheet.js', defer: true }
     ];

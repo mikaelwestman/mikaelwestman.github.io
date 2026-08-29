@@ -325,9 +325,41 @@ html:active-view-transition [data-animate] {
 }
 
 /* ==========================================================================
-   Thumbnail Cards
-   — shared by project grid (project pages) and scroll rows (home page)
+   Intro Section
    ========================================================================== */
+
+#home page-content {
+  opacity: 1;
+}
+
+.intro-section {
+  padding: 12rem 0;
+}
+
+.intro-bio {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.intro-bio a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-underline-offset 0.2s ease;
+}
+
+.intro-bio a:hover {
+  text-underline-offset: 6px;
+}
+
+/* ==========================================================================
+   Project Thumbnails & Grid
+   Shared thumbnail-card component, used only by the main work grid on
+   the home page.
+   ========================================================================== */
+
+/* --- Thumbnail card (shared component) --- */
 
 .project-item {
   display: block;
@@ -359,37 +391,20 @@ html:active-view-transition [data-animate] {
 
 /* Title */
 .thumbnail-title {
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 85%;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6em;
+  letter-spacing: -0.02em;
   font-stretch: 90%;
   position: absolute;
-  bottom: 10%;
+  bottom: 4%;
   left: 1.5rem;
   right: 1.5rem;
-  color: var(--color-background);
+  color: var(--color-primary);
   opacity: 0;
   z-index: 2;
-  transition: 0.5s ease;
-}
-
-.thumbnail-image-wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  opacity: 0;
-  z-index: 1;
-  transition: 0.5s ease;
-}
-
-.project-item:hover .thumbnail-image-wrapper::after {
-  opacity: 1;
+  text-align: center;
+  transition: opacity 0.4s ease;
 }
 
 /* Hover */
@@ -397,7 +412,7 @@ html:active-view-transition [data-animate] {
   transform: scale(1.03);
 }
 
-.project-item:hover .thumbnail-title  {
+.project-item:hover .thumbnail-title {
   opacity: 1;
 }
 
@@ -447,124 +462,7 @@ html:active-view-transition [data-animate] {
   content: "Image failed to load";
 }
 
-/* ==========================================================================
-   Projects Grid (project pages — "More projects" section)
-   ========================================================================== */
-
-.projects-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  transition: opacity 1s ease-in-out;
-  padding-top: 3rem;
-}
-
-.projects-container.fade-in  { opacity: 1; }
-
-.more-projects-title {
-  font-weight: 700;
-  font-size: 6rem;
-  line-height: 85%;
-  letter-spacing: -0.02em;
-  font-stretch: 85%;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-/* Progressive image loading for full-page content images (not thumbnails) */
-.image-wrapper.progressive {
-  position: relative;
-  display: block;
-  width: 100%;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.image-wrapper.progressive .image-placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-thumbnail-bg);
-  transition: opacity 0.3s ease;
-  z-index: 1;
-  border-radius: var(--border-radius);
-}
-
-.image-wrapper.progressive.loading .image-placeholder {
-  background: linear-gradient(90deg,
-    var(--color-thumbnail-bg) 0%,
-    rgba(207, 210, 198, 0.8) 50%,
-    var(--color-thumbnail-bg) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-.image-wrapper.progressive.loading img {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.image-wrapper.progressive.loaded img {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.image-wrapper.progressive img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover;
-}
-
-.image-wrapper.progressive.error .image-placeholder {
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 0.875rem;
-}
-
-.image-wrapper.progressive.error .image-placeholder::after {
-  content: "Image failed to load";
-}
-
-/* ==========================================================================
-   Intro Section
-   ========================================================================== */
-
-#home page-content {
-  opacity: 1;
-}
-
-.intro-section {
-  padding: 12rem 0;
-}
-
-.intro-bio {
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.intro-bio a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  transition: text-underline-offset 0.2s ease;
-}
-
-.intro-bio a:hover {
-  text-underline-offset: 6px;
-}
-
-
-/* ==========================================================================
-   Work Section (project grid)
-   ========================================================================== */
+/* --- Work section / main project grid (home page) --- */
 
 .work-section {
   margin: 0 auto;
@@ -657,8 +555,8 @@ html:active-view-transition [data-animate] {
 .project-grid .thumbnail-image-wrapper .progressive-image {
   top: 50%;
   left: 50%;
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
   border-radius: 2px;
   z-index: 2;
   transform: translate(-50%, -50%);
@@ -681,8 +579,8 @@ html:active-view-transition [data-animate] {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
   z-index: 1;
   border-radius: 2px;
   opacity: 0.9;
@@ -697,26 +595,6 @@ html:active-view-transition [data-animate] {
 .project-grid .image-placeholder {
   border-radius: 0;
   background: var(--color-background);
-}
-
-.project-grid .thumbnail-image-wrapper::after {
-  content: none;
-}
-
-.project-grid .thumbnail-title {
-  opacity: 0;
-  bottom: 8%;
-  color: var(--color-primary);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.6em;
-  letter-spacing: -0.02em;
-  text-align: center;
-  transition: opacity 0.4s ease;
-}
-
-.project-grid .project-item:hover .thumbnail-title {
-  opacity: 1;
 }
 
 /* ==========================================================================
@@ -883,14 +761,43 @@ footer a:hover::after {
   margin-top: 1rem;
 }
 
+.link-underline {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Email Clipboard
+   Click-to-copy email link (intro bio, contact cell, footer) and the
+   confirmation tooltip it triggers.
+   ========================================================================== */
+
 .email-link {
   position: relative;
   cursor: pointer;
   display: inline-block;
 }
 
-.link-underline {
-  text-decoration: underline;
+.tooltip {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 10000;
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) translateY(-8px);
 }
 
 /* ==========================================================================
@@ -1023,8 +930,8 @@ footer a:hover::after {
 
 @media screen and (max-width: 768px) {
 
-  h1 { 
-    font-size: 5rem; 
+  h1 {
+    font-size: 5rem;
   }
 
   h2 {
@@ -1033,11 +940,6 @@ footer a:hover::after {
 
   .footer-link {
     font-size: 3rem;
-  }
-
-  .projects-container {
-    grid-template-columns: 1fr;
-    gap: 3rem;
   }
 
   .wrapper .row:first-child {
@@ -1088,14 +990,8 @@ footer a:hover::after {
     padding: 4rem 1.5rem;
   }
 
-  .thumbnail-title,
-  .thumbnail-image-wrapper::after {
-    opacity: 1;
-    font-size: 1.5rem;
-  }
-
   /* No hover on touch — keep titles visible */
-  .project-grid .thumbnail-title {
+  .thumbnail-title {
     opacity: 1;
   }
 
@@ -1113,32 +1009,4 @@ footer a:hover::after {
   .row:has(.column) .image-description {
     flex-basis: 100%;
   }
-}
-
-
-/* ==========================================================================
-   Email Clipboard Tooltip
-   ========================================================================== */
-
-.tooltip {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--color-primary);
-  color: var(--color-background);
-  padding: 1.5rem 2rem;
-  border-radius: 8px;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s ease;
-  z-index: 10000;
-  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.15);
-}
-
-.tooltip.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) translateY(-8px);
 }
