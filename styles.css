@@ -746,12 +746,12 @@ html:active-view-transition [data-animate] {
 }
 
 .contact-photo {
-  width: 100%;
+  width: 50%;
   height: auto;
   display: block;
   border-radius: 0;
   opacity: 1 !important;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .experience-item {
@@ -759,11 +759,13 @@ html:active-view-transition [data-animate] {
   margin-bottom: 2rem;
 }
 
-.experience-item h3 a {
+.experience-item h3 a,
+.contact-info-cell .experience-item h4 a {
   position: relative;
 }
 
-.experience-item h3 a::after {
+.experience-item h3 a::after,
+.contact-info-cell .experience-item h4 a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -776,7 +778,8 @@ html:active-view-transition [data-animate] {
   transition: transform 0.3s ease;
 }
 
-.experience-item h3 a:hover::after {
+.experience-item h3 a:hover::after,
+.contact-info-cell .experience-item h4 a:hover::after {
   transform: scaleX(1);
 }
 
