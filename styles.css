@@ -5,8 +5,6 @@
 :root {
   --color-primary: rgb(29, 26, 21);
   --color-background: #F7F8F4;
-  --color-brand: #E9B5E6;
-  --color-brand-alt: #155513;
   --color-selection: #00000037;
   --color-thumbnail-bg: #d2d2d2;
   --color-text-muted: rgba(29, 26, 21, 0.6);
@@ -127,15 +125,6 @@ h1 {
   text-transform: uppercase;
 }
 
-h2 {
-  font-weight: 700;
-  font-stretch: 85%;
-  letter-spacing: -0.02em;
-  font-size: 7.5rem;
-  line-height: 90%;
-  text-transform: uppercase;
-}
-
 h3 {
   font-size: 14px;
   font-weight: 400;
@@ -190,14 +179,6 @@ li {
   margin-bottom: 0.75rem;
 }
 
-sup {
-  font-size: 0.2em;
-  position: relative;
-  top: -0.9em;
-  left: 0.1em;
-  letter-spacing: 0;
-}
-
 /* ==========================================================================
    Images
    ========================================================================== */
@@ -232,8 +213,7 @@ page-content {
   transform: scale(0.97);
 }
 
-[data-animate="up"],
-[data-animate="scroll-up"] {
+[data-animate="up"] {
   opacity: 0;
   transform: translateY(2rem);
 }
@@ -242,8 +222,7 @@ page-content {
   animation: animateIn 0.8s cubic-bezier(0.2, 0, 0, 1) var(--anim-delay, 0ms) both;
 }
 
-[data-animate="up"].animated,
-[data-animate="scroll-up"].animated {
+[data-animate="up"].animated {
   animation: animateInUp 0.8s cubic-bezier(0.2, 0, 0, 1) var(--anim-delay, 0ms) both;
 }
 
@@ -256,9 +235,7 @@ html:active-view-transition [data-animate] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-animate].animated,
-  [data-animate="up"].animated,
-  [data-animate="scroll-up"].animated {
+  [data-animate].animated {
     animation: none;
     opacity: 1;
     transform: none;
@@ -668,81 +645,6 @@ html:active-view-transition [data-animate] {
 }
 
 /* ==========================================================================
-   Footer
-   ========================================================================== */
-
-footer {
-  width: 100%;
-  background: var(--color-brand);
-  color: var(--color-brand-alt);
-  padding: 6rem 6rem;
-}
-
-.footer-inner {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.footer-link {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
-  font-size: 5rem;
-  line-height: 1.1em;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  font-stretch: 85%;
-  color: var(--color-brand-alt);
-  display: block;
-  position: relative;
-}
-
-footer a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--color-brand-alt);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-footer a:hover::after {
-  transform: scaleX(1);
-}
-
-.footer-logo {
-  width: 200px;
-  margin-top: 6rem;
-  color: var(--color-brand-alt);
-}
-
-.footer-logo svg {
-  opacity: 1 !important;
-  border-radius: 0;
-  width: 100%;
-  height: auto;
-}
-
-.footer-copy {
-  font-size: 0.7rem;
-  margin-top: 2rem;
-  text-transform: uppercase;
-}
-
-/* ==========================================================================
    Utility Classes
    ========================================================================== */
 
@@ -931,10 +833,6 @@ footer a:hover::after {
 @media screen and (max-width: 768px) {
 
   h1 {
-    font-size: 5rem;
-  }
-
-  h2 {
     font-size: 5rem;
   }
 
