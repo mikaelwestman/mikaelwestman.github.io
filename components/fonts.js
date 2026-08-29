@@ -20,6 +20,15 @@ class Fonts extends HTMLElement {
         console.warn('Bricolage Grotesque font failed to load');
       };
 
+      // Create stylesheet link for Hedvig Letters Serif (h1, trial)
+      const hedvigStylesheet = document.createElement('link');
+      hedvigStylesheet.rel = 'stylesheet';
+      hedvigStylesheet.href = 'https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&display=swap';
+
+      hedvigStylesheet.onerror = () => {
+        console.warn('Hedvig Letters Serif font failed to load');
+      };
+
       // Create preconnect link for rsms.me (serves Inter unsubsetted, with full glyph coverage —
       // Google Fonts' Inter delivery splits into per-script subsets that drop symbols like ↴/●/◦)
       const interPreconnect = document.createElement('link');
@@ -38,6 +47,7 @@ class Fonts extends HTMLElement {
       // Append all links to the head
       document.head.appendChild(bricolagePreconnect);
       document.head.appendChild(bricolageStylesheet);
+      document.head.appendChild(hedvigStylesheet);
       document.head.appendChild(interPreconnect);
       document.head.appendChild(interStylesheet);
     } catch (error) {

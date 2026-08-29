@@ -116,13 +116,12 @@ body {
 }
 
 h1 {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
+  font-family: 'Hedvig Letters Serif', serif;
+  font-weight: 400;
   font-size: 8rem;
-  line-height: 85%;
+  line-height: 95%;
   letter-spacing: -0.02em;
-  font-stretch: 85%;
-  text-transform: uppercase;
+  margin-bottom: 4rem;
 }
 
 h3 {
@@ -295,7 +294,7 @@ html:active-view-transition [data-animate] {
 }
 
 .wrapper .row:first-child .column:only-child .meta-data {
-  padding: 3rem;
+  padding: 0 0 3rem 0;
   width: 100%;
   text-align: center;
   margin-bottom: 0;
