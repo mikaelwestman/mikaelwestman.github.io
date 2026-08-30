@@ -51,6 +51,13 @@ window.ProgressiveImages = {
       });
       if (img.complete && img.naturalWidth > 0) markLoaded();
     });
+
+    const hoverImages = container.querySelectorAll('.hover-image');
+    hoverImages.forEach(img => {
+      const markLoaded = () => img.classList.add('hover-loaded');
+      img.addEventListener('load', markLoaded);
+      if (img.complete && img.naturalWidth > 0) markLoaded();
+    });
   }
 };
 

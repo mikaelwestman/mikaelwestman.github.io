@@ -401,14 +401,14 @@ html:active-view-transition [data-animate] {
   height: 100%;
   background: var(--color-thumbnail-bg);
   transition: opacity 0.3s ease;
-  z-index: 1;
+  z-index: 2;
   border-radius: var(--border-radius);
 }
 
 .thumbnail-image-wrapper.loading .image-placeholder {
   background: linear-gradient(90deg,
     var(--color-thumbnail-bg) 0%,
-    rgba(207, 210, 198, 0.8) 50%,
+    #e5e5e3,
     var(--color-thumbnail-bg) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
@@ -559,9 +559,13 @@ html:active-view-transition [data-animate] {
   height: 60%;
   z-index: 1;
   border-radius: 2px;
-  opacity: 0.9;
+  opacity: 0;
   transform: translate(-50%, -50%);
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.project-grid .hover-image.hover-loaded {
+  opacity: 0.9;
 }
 
 .project-grid .project-item:hover .hover-image {
@@ -569,8 +573,13 @@ html:active-view-transition [data-animate] {
 }
 
 .project-grid .image-placeholder {
-  border-radius: 0;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  border-radius: 2px;
   background: var(--color-background);
+  transform: translate(-50%, -50%);
 }
 
 /* ==========================================================================
@@ -712,13 +721,12 @@ body.sheet-open .contact-float {
   background-color: var(--color-primary);
   color: var(--color-background);
   padding: 1.5rem 2rem;
-  border-radius: 8px;
+  border-radius: 4px;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s ease;
   z-index: 10000;
-  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.15);
 }
 
 .tooltip.show {
