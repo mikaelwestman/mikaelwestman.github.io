@@ -912,7 +912,7 @@ body.sheet-open .contact-float {
 
   /* Portrait 4:3 thumbnails on mobile */
   .project-grid .thumbnail-image-wrapper {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 1 / 1;
   }
 
   /* Let the tile stretch to match its (now taller) row instead of leaving
