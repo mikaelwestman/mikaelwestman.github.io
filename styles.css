@@ -925,9 +925,9 @@ body.sheet-open .contact-float {
     opacity: 1;
   }
 
-  /* No hover on touch — show the secondary photo peeking out, permanently rotated */
+  /* No hover on touch — hide the secondary photo entirely */
   .project-grid .hover-image {
-    transform: translate(-50%, -50%) rotate(-8deg);
+    display: none;
   }
 
   /* Utilities */
