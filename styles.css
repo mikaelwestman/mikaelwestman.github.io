@@ -593,7 +593,7 @@ html:active-view-transition [data-animate] {
 }
 
 .contact-float:hover {
-  background: var(--color-selection);
+  opacity: 0.8;
 }
 
 body.sheet-open .contact-float {
