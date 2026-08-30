@@ -132,12 +132,12 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-h4 {
+h4, h4 a {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.03em;
   margin-top: 0.3rem;
-  opacity: 60%;
+  color: var(--color-text-muted);
 }
 
 h5 {
@@ -678,7 +678,6 @@ body.sheet-open .contact-float {
   font-size: 0.85rem;
   width: 50%;
   max-width: 50%;
-  font-weight: 500;
   color: var(--color-text-muted);
 }
 
