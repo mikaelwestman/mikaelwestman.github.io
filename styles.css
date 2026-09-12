@@ -339,6 +339,7 @@ html:active-view-transition [data-animate] {
 
 .project-item {
   display: block;
+  position: relative;
   text-decoration: none;
   color: inherit;
 }
@@ -910,16 +911,19 @@ body.sheet-open .contact-float {
     grid-template-columns: 1fr;
   }
 
-  /* Portrait 4:3 thumbnails on mobile */
-  .project-grid .thumbnail-image-wrapper {
-    aspect-ratio: 1 / 1;
+  /* Single column on mobile — same 4:3 card ratio as desktop, just stacked */
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 
-  /* Let the tile stretch to match its (now taller) row instead of leaving
-     a gap below it that exposes the grid's stroke-color background */
-  .project-grid .view-more-tile {
-    aspect-ratio: auto;
-    height: 100%;
+  /* The 60% "floating mat" scale leaves a lot of empty margin around a
+     full-width mobile card — let the photo fill most of it instead */
+  .project-grid .thumbnail-image-wrapper .progressive-image,
+  .project-grid .hover-image,
+  .project-grid .image-placeholder {
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
   }
 
   .contact-info-cell,
@@ -927,9 +931,14 @@ body.sheet-open .contact-float {
     padding: 4rem 1.5rem;
   }
 
-  /* No hover on touch — keep titles visible */
+  /* No hover on touch — keep titles visible. Flow them below the card
+     instead of overlaying the photo, so they get real padding. */
   .thumbnail-title {
+    position: static;
+    display: block;
     opacity: 1;
+    padding: 0 0 1.5rem;
+    background: var(--color-background);
   }
 
   /* No hover on touch — hide the secondary photo entirely */
