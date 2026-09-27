@@ -317,18 +317,6 @@ html:active-view-transition [data-animate] {
   margin: 0 auto;
 }
 
-.intro-bio a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  transition: text-underline-offset 0.2s ease;
-}
-
-.intro-bio a:hover {
-  text-underline-offset: 6px;
-}
-
 /* ==========================================================================
    Project Thumbnails & Grid
    Shared thumbnail-card component, used only by the main work grid on
@@ -704,7 +692,7 @@ body.sheet-open .contact-float {
 
 /* ==========================================================================
    Email Clipboard
-   Click-to-copy email link (intro bio, contact cell, footer) and the
+   Click-to-copy email link (contact cell) and the
    confirmation tooltip it triggers.
    ========================================================================== */
 
@@ -795,10 +783,6 @@ body.sheet-open .contact-float {
   background: transparent;
 }
 
-#sheet-handle {
-  display: none;
-}
-
 #sheet-close {
   background: rgb(233 233 233);
   border: none;
@@ -846,8 +830,8 @@ body.sheet-open .contact-float {
 
   /* Side padding */
 
-  .intro-section, footer {
-  padding: 6rem 1.5rem 3rem 1.5rem;
+  .intro-section {
+    padding: 6rem 1.5rem 3rem 1.5rem;
   }
 
   #sheet-panel {
@@ -874,10 +858,6 @@ body.sheet-open .contact-float {
     top: 1.5rem;
     right: 1.5rem;
     padding: 0.6rem 1.25rem;
-  }
-
-  .footer-link {
-    font-size: 3rem;
   }
 
   .wrapper .row:first-child {

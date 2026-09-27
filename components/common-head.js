@@ -60,19 +60,3 @@ window.ProgressiveImages = {
     });
   }
 };
-
-// Fix vertical alignment of ● bullet in .meta-data elements
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.meta-data').forEach(el => {
-    el.innerHTML = el.innerHTML.replace(/●/g, '<span class="meta-bullet">●</span>');
-  });
-});
-
-class CommonHead extends HTMLElement {
-  connectedCallback() {
-    // No-op: meta tags are now in static HTML.
-    // This class is kept to avoid removing <common-head> from all pages.
-  }
-}
-
-customElements.define('common-head', CommonHead);
