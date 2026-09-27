@@ -2,9 +2,12 @@
 (() => {
   const PROJECT_PAGES = window.PROJECT_PAGES;
 
-  let sheetEl, panel, body;
+  let sheetEl, panel, body, closeButton, imageObserver, returnFocusTo;
   let isOpen = false;
   let indexTitle = '';
+  // Incremented on every open/close so a slow fetch can't render into a
+  // sheet that has since been closed or switched to another project
+  let loadId = 0;
 
   function init() {
     if (document.body.id !== 'home') return;
@@ -19,7 +22,6 @@
       <div id="sheet-backdrop"></div>
       <div id="sheet-panel">
         <div id="sheet-topbar">
-          <div id="sheet-handle"></div>
           <button id="sheet-close" aria-label="Close project">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -33,9 +35,18 @@
 
     panel = sheetEl.querySelector('#sheet-panel');
     body  = sheetEl.querySelector('#sheet-body');
+    closeButton = sheetEl.querySelector('#sheet-close');
 
     sheetEl.querySelector('#sheet-backdrop').addEventListener('click', close);
-    sheetEl.querySelector('#sheet-close').addEventListener('click', close);
+    closeButton.addEventListener('click', close);
+
+    // Clear content once the slide-down finishes. Ignore transitions bubbling
+    // up from children, and skip if the sheet was reopened mid-animation.
+    panel.addEventListener('transitionend', e => {
+      if (e.target !== panel || isOpen) return;
+      body.innerHTML = '';
+      panel.scrollTop = 0;
+    });
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && isOpen) close();
@@ -72,24 +83,28 @@
   async function openContent(url, pushState) {
     // Resolve to absolute URL before pushState changes location
     const absoluteUrl = new URL(url, location.href).href;
+    const id = ++loadId;
 
+    if (!isOpen) returnFocusTo = document.activeElement;
     isOpen = true;
     body.innerHTML = '<div id="sheet-loading"><div class="sheet-spinner"></div></div>';
     sheetEl.classList.add('open');
     document.body.classList.add('sheet-open');
     document.body.style.overflow = 'hidden';
+    closeButton.focus({ preventScroll: true });
+
+    if (pushState) {
+      try { history.pushState({ projectSheet: true, url }, '', url); } catch {}
+    }
 
     try {
       const res = await fetch(absoluteUrl);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
+      if (id !== loadId) return;
       const doc = new DOMParser().parseFromString(html, 'text/html');
 
       document.title = doc.title;
-
-      if (pushState) {
-        try { history.pushState({ projectSheet: true, url }, '', url); } catch {}
-      }
 
       const content = doc.querySelector('page-content');
       body.innerHTML = content ? content.innerHTML : '<p style="padding:4rem 2rem;opacity:.5">No content found.</p>';
@@ -97,34 +112,41 @@
       panel.scrollTop = 0;
       initImages(body);
     } catch (err) {
+      if (id !== loadId) return;
       console.error('[sheet] Failed to load:', absoluteUrl, err);
       body.innerHTML = '<p style="padding:4rem 2rem;opacity:.5">Could not load project.</p>';
     }
   }
 
   function close() {
-    closePanel();
-    try { history.replaceState(null, '', '/'); } catch {}
+    // Pop the entry openContent pushed so Back doesn't land on a duplicate
+    // homepage entry; the popstate handler then closes the panel
+    if (history.state?.projectSheet) {
+      history.back();
+    } else {
+      closePanel();
+      try { history.replaceState(null, '', '/'); } catch {}
+    }
   }
 
   function closePanel() {
     isOpen = false;
+    loadId++;
+    imageObserver?.disconnect();
     sheetEl.classList.remove('open');
     document.body.classList.remove('sheet-open');
     document.body.style.overflow = '';
     document.title = indexTitle;
-
-    panel.addEventListener('transitionend', () => {
-      body.innerHTML = '';
-      panel.scrollTop = 0;
-    }, { once: true });
+    returnFocusTo?.focus({ preventScroll: true });
+    returnFocusTo = null;
   }
 
   function initImages(container) {
     const imgs = container.querySelectorAll('img');
     const videos = container.querySelectorAll('video');
 
-    const observer = new IntersectionObserver(entries => {
+    imageObserver?.disconnect();
+    const observer = imageObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const el = entry.target;

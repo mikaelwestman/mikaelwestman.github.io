@@ -51,7 +51,6 @@
 </head>
 
 <body id="home">
-	<common-head></common-head>
 	<fonts-component></fonts-component>
 	<scripts-component></scripts-component>
 	<analytics-component></analytics-component>
@@ -179,7 +178,7 @@
 					<h5>contact</h5>
 					<div class="experience-item">
 						<h3>Email</h3>
-						<h4><a id="contact-email-link" class="email-link" style="cursor: pointer;">mikael@wst.mn</a></h4>
+						<h4><a id="contact-email-link" class="email-link" href="mailto:mikael@wst.mn">mikael@wst.mn</a></h4>
 					</div>
 					<div class="experience-item">
 						<h3>Instagram</h3>
@@ -269,29 +268,38 @@
 				const defaultVisibleCount = document.querySelectorAll('.project-grid .project-item:not(.is-hidden)').length;
 				viewMoreButton.classList.toggle('is-full-width', defaultVisibleCount % 2 === 0);
 
+				let revealed = false;
+				const revealProjects = () => {
+					if (revealed) return;
+					revealed = true;
+					viewMoreButton.remove();
+
+					document.querySelectorAll('.project-item.is-hidden img[data-src]').forEach((img) => {
+						img.src = img.dataset.src;
+						img.removeAttribute('data-src');
+					});
+
+					document.querySelectorAll('.project-item.is-hidden').forEach((item, index) => {
+						item.style.setProperty('--anim-delay', `${index * 60}ms`);
+						item.classList.remove('is-hidden');
+						item.classList.add('reveal-in');
+					});
+				};
+
 				viewMoreButton.addEventListener('click', () => {
 					viewMoreButton.classList.add('is-fading-out');
-					viewMoreButton.addEventListener('transitionend', () => {
-						viewMoreButton.remove();
-
-						document.querySelectorAll('.project-item.is-hidden img[data-src]').forEach((img) => {
-							img.src = img.dataset.src;
-							img.removeAttribute('data-src');
-						});
-
-						document.querySelectorAll('.project-item.is-hidden').forEach((item, index) => {
-							item.style.setProperty('--anim-delay', `${index * 60}ms`);
-							item.classList.remove('is-hidden');
-							item.classList.add('reveal-in');
-						});
-					}, { once: true });
-				});
+					viewMoreButton.addEventListener('transitionend', (e) => {
+						if (e.propertyName === 'opacity') revealProjects();
+					});
+					// Fallback: with reduced motion the opacity isn't transitioned,
+					// so transitionend never fires
+					setTimeout(revealProjects, 400);
+				}, { once: true });
 			}
 
-			// Email clipboard for intro bio + contact list
+			// Email clipboard for contact list
 			function setupEmailLinks() {
 				if (window.EmailClipboard) {
-					EmailClipboard.setup('#intro-email-link', 'mikael@wst.mn');
 					EmailClipboard.setup('#contact-email-link', 'mikael@wst.mn');
 				} else {
 					setTimeout(setupEmailLinks, 50);

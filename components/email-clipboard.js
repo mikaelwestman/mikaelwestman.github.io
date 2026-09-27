@@ -1,4 +1,6 @@
 window.EmailClipboard = {
+  hideTimer: null,
+
   setup(selector, email) {
     const el = document.querySelector(selector);
     if (!el) return;
@@ -16,11 +18,19 @@ window.EmailClipboard = {
       document.body.appendChild(tooltip);
     }
 
-    el.addEventListener('click', async function(e) {
+    el.addEventListener('click', async (e) => {
+      // No clipboard API (e.g. insecure context): let the mailto: href open
+      if (!navigator.clipboard) return;
       e.preventDefault();
-      await navigator.clipboard.writeText(email);
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch {
+        location.href = 'mailto:' + email;
+        return;
+      }
       tooltip.classList.add('show');
-      setTimeout(() => { tooltip.classList.remove('show'); }, 2000);
+      clearTimeout(this.hideTimer);
+      this.hideTimer = setTimeout(() => { tooltip.classList.remove('show'); }, 2000);
     });
   }
 };
